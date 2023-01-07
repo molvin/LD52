@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class UnitBase : MonoBehaviour
 {
     protected Entity Entity;
-    void Awake()
+    protected void Awake()
     {
         Entity = GetComponent<Entity>();
         Entity.Components.Add(GetType(), this);

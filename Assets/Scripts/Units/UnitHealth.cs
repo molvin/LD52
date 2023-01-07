@@ -4,5 +4,17 @@ using UnityEngine;
 
 public class UnitHealth : UnitBase
 {
-    public int Helath;
+    public int Max;
+    public int Current;
+
+    public void TakeDamage(int dmg)
+    {
+        if (Current == 0)
+            return;
+        Current = Mathf.Max(Current - dmg, 0);
+        if(Current == 0)
+        {
+            GameManager.Instance?.KillUnit(Entity);
+        }
+    }
 }

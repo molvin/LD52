@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitMovement : UnitBase
+public abstract class AIBrainBase : UnitBase
 {
-    public float MovementSpeed;
-
 }

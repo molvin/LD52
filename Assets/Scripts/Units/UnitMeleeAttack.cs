@@ -8,6 +8,6 @@ public class UnitMeleeAttack : UnitAttack
 {
     protected override void Attack(Entity Entity)
     {
-        Debug.Log("Melee");
+        Entity.Get<UnitHealth>().TakeDamage(Damage);
     }
 }
