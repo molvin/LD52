@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UnitSoul : MonoBehaviour
 {
-    public float SoulAmount, SoulGrowthRate;
-
+    public float SoulAmount, SoulGrowthRate, BaseSoulGeneration;
     
 }
