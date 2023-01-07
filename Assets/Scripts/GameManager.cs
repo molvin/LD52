@@ -48,16 +48,6 @@ public class GameManager : MonoBehaviour
         if (waiting)
             GUI.Label(new Rect(100, 200, 200, 50), "Waiting for harvester");
 
-        bool testDmg = GUI.Button(new Rect(100, 300, 100, 50), "Damage selected");
-        if(testDmg)
-        {
-            var temp = playerUnits.OrderBy(x => Random.value);
-            foreach(Entity entity in temp)
-            {
-                if(entity.GetComponent<Selectable>().Selected)
-                    entity.GetComponent<UnitHealth>().TakeDamage(1); 
-            }
-        }
     }
 
     public IEnumerator NextLevel()

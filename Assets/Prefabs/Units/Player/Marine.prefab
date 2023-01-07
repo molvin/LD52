@@ -68,7 +68,15 @@ PrefabInstance:
       value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Max
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Helath
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Current
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -131,3 +139,27 @@ MonoBehaviour:
   ProjectileSpeed: 10
   ProjectileLifetime: 1
   ImpactExplosionRadius: 0.1
+--- !u!114 &8542069778249792774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779747188992943021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502a0490d41b8194c8afed8ad24866c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  Selected: 0
+  TargetPosition: {x: 0, y: 0, z: 0}
+  Spacing: 1.2
+  DebugMove: 0
+  DebugMoveSpeed: 0
+  SelectedCircle: {fileID: 8779747190288893682}
+--- !u!212 &8779747190288893682 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2175012471150167502, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+  m_PrefabInstance: {fileID: 7491984120178017084}
+  m_PrefabAsset: {fileID: 0}

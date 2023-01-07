@@ -11,7 +11,7 @@ public class ObjectPool : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogError("There's already an ObjectPool, Niklas!");
+            return;
         }
         Instance = this;
     }
