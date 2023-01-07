@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitName : UnitBase
+public class UnitHealth : UnitBase
 {
-    public string Name;
+    public int Helath;
 }
