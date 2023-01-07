@@ -8,6 +8,6 @@ public abstract class UnitBase : MonoBehaviour
     protected void Awake()
     {
         Entity = GetComponent<Entity>();
-        Entity.Components.Add(GetType(), this);
+        Entity.Add(this);
     }
 }

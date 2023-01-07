@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
         foreach(Entity e in playerUnits)
         {
-            if (e.Components.TryGetValue(typeof(UnitSoul), out UnitBase comp))
+            if (e.TryGet(out UnitSoul comp))
             {
                 UnitSoul soul = (UnitSoul) comp;
                 soul.SoulAmount = soul.SoulAmount == 0 ? soul.BaseSoul : soul.SoulAmount * soul.SoulGrowthRate;

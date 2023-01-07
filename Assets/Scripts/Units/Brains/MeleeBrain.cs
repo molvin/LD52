@@ -7,7 +7,7 @@ public class MeleeBrain : AIBrainBase
 {
     void Update()
     {
-        if (!Entity.Components.ContainsKey(typeof(Movement)))
+        if (!Entity.Has<Movement>())
             return;
 
         List<Entity> Enemies = GameManager.Instance.EntitiesInGame
