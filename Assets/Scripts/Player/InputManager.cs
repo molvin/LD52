@@ -213,6 +213,11 @@ public class InputManager : MonoBehaviour
             Selected[i].TargetPosition = targets[i];
     }
 
+    public void RemoveSelected(Selectable s)
+    {
+        Selected.Remove(s);
+    }
+
     private void OnGUI()
     {
         if (!selecting)
@@ -228,5 +233,10 @@ public class InputManager : MonoBehaviour
             height = -size.y
         };
         GUI.DrawTexture(rect, BoxSelectTexture);
+    }
+
+    public void ClearSelection()
+    {
+        FinishSelect(new List<Selectable>());
     }
 }

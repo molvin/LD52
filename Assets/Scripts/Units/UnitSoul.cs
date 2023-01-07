@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class UnitSoul : UnitBase
 {
-    public float SoulAmount, SoulGrowthRate, BaseSoulGeneration;
+    public float SoulAmount, SoulGrowthRate, BaseSoul;
 }
