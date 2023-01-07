@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    public static InputManager Instance { get; private set; }
     public Texture2D BoxSelectTexture;
     public float BoxSelectMinDist;
     public float DoubleClickTime;
@@ -13,8 +14,13 @@ public class InputManager : MonoBehaviour
     private bool selecting;
     private Vector2 selectStart;
     private Vector2 selectEnd;
-    public List<Selectable> selected = new List<Selectable>();
+    public List<Selectable> Selected = new List<Selectable>();
     private Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
@@ -55,9 +61,9 @@ public class InputManager : MonoBehaviour
             yield return null;
         }
 
-        foreach (Selectable u in selected)
+        foreach (Selectable u in Selected)
             u.Selected = false;
-        selected.Clear();
+        Selected.Clear();
 
         selecting = false;
         if((selectStart - selectEnd).magnitude < BoxSelectMinDist)
@@ -127,14 +133,14 @@ public class InputManager : MonoBehaviour
 
     private void FinishSelect(List<Selectable> newSelected)
     {
-        foreach (Selectable s in selected)
+        foreach (Selectable s in Selected)
             s.Selected = false;
 
         foreach (Selectable s in newSelected)
             s.Selected = true;
 
-        selected = newSelected;
-        selected = selected.OrderBy(x => x.GetComponent<Entity>().Id).ToList();
+        Selected = newSelected;
+        Selected = Selected.OrderBy(x => x.GetComponent<Entity>().Id).ToList();
     }
 
 
@@ -154,12 +160,11 @@ public class InputManager : MonoBehaviour
         return new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
     }
 
-    private void Move(Vector3 target)
+    public List<Vector3> GetTargets(Vector3 target, List<Selectable> selected)
     {
-        if(selected.Count == 1)
+        if (selected.Count == 1)
         {
-            selected[0].TargetPosition = target;
-            return;
+            return new List<Vector3> { target };
         }
 
         float radius = 0.0f;
@@ -172,7 +177,9 @@ public class InputManager : MonoBehaviour
         radius /= selected.Count;
         center /= selected.Count;
 
-
+        List<Vector3> result = new List<Vector3>();
+        foreach (Selectable s in selected)
+            result.Add(Vector3.zero);
         List<Vector3> points = new List<Vector3>();
         for (int i = 0; i < selected.Count; i++)
         {
@@ -193,9 +200,17 @@ public class InputManager : MonoBehaviour
                     closest = i;
                 }
             }
-            s.TargetPosition = points[closest] + target;
+            result[selected.IndexOf(s)] = points[closest] + target;
             points.RemoveAt(closest);
         }
+        return result;
+    }
+
+    private void Move(Vector3 target)
+    {
+        var targets = GetTargets(target, Selected);
+        for (int i = 0; i < targets.Count; i++)
+            Selected[i].TargetPosition = targets[i];
     }
 
     private void OnGUI()
