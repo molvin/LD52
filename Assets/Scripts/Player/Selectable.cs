@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Selectable : MonoBehaviour
-{
+{   
     public int Type;
     public bool Selected;
     public Vector3 TargetPosition;
