@@ -37,7 +37,7 @@ public abstract class UnitAttack : UnitBase
                 AttackDistance)
             && Hit.transform == Enemy.transform)
             {
-                Attack(Entity);
+                Attack(Enemy);
                 LastAttackTime = Time.time;
             }
         }
