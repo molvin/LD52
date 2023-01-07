@@ -382,6 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 226552673}
   - component: {fileID: 226552672}
+  - component: {fileID: 226552674}
   m_Layer: 0
   m_Name: GameDirector
   m_TagString: Untagged
@@ -417,6 +418,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &226552674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226552671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abf7f3305961c2408c72cfe66afb738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &345857055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
@@ -773,12 +786,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1220519916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 952b224ce8c32bd4da989e17ff22f322, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a0392ab3dd415c47a5361b6688907da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
-  AttackDistance: 2
-  AttackTime: 1.5
+  Damage: 1
+  AttackDistance: 10
+  AttackTime: 1
+  ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
+  Ricocheting: 0
+  Pierce: 0
+  ExplodingOnImpact: 0
+  PierceTargetCount: 0
+  ProjectileSize: 1
+  ProjectileSpeed: 5
+  ProjectileLifetime: 10
+  ImpactExplosionRadius: 0
 --- !u!1 &1270945205
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,7 +834,7 @@ MonoBehaviour:
   BoxSelectMinDist: 0
   DoubleClickTime: 0
   ClickSelectRadius: 0
-  selected: []
+  Selected: []
 --- !u!4 &1270945207
 Transform:
   m_ObjectHideFlags: 0
