@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    public static InputManager Instance { get; private set; }
     public Texture2D BoxSelectTexture;
     public float BoxSelectMinDist;
     public float DoubleClickTime;
@@ -13,8 +14,13 @@ public class InputManager : MonoBehaviour
     private bool selecting;
     private Vector2 selectStart;
     private Vector2 selectEnd;
-    public List<Selectable> selected = new List<Selectable>();
+    public List<Selectable> Selected = new List<Selectable>();
     private Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
@@ -55,18 +61,18 @@ public class InputManager : MonoBehaviour
             yield return null;
         }
 
-        foreach (Selectable u in selected)
+        foreach (Selectable u in Selected)
             u.Selected = false;
-        selected.Clear();
+        Selected.Clear();
 
         selecting = false;
         if((selectStart - selectEnd).magnitude < BoxSelectMinDist)
-            SelectOne(doubleClick);
+            FinishSelect(SelectOne(doubleClick));
         else
-            BoxSelect();
+            FinishSelect(BoxSelect());
     }
 
-    private void SelectOne(bool all)
+    private List<Selectable> SelectOne(bool all)
     {
         Camera cam = Camera.main;
         Ray ray = cam.ScreenPointToRay((selectStart + selectEnd) / 2.0f);
@@ -74,29 +80,30 @@ public class InputManager : MonoBehaviour
         Vector3 center = ray.GetPoint(enter);
         Debug.DrawRay(center, Vector3.up * ClickSelectRadius, Color.red, 10.0f);
         Collider[] colls = Physics.OverlapSphere(center, ClickSelectRadius);
+
+        List<Selectable> new_selected = new List<Selectable>();
         foreach(Collider coll in colls)
         {
             Selectable u;
             if (u = coll.GetComponent<Selectable>())
             {
-                selected.Add(u);
+                new_selected.Add(u);
                 break;
             }
         }
 
-        if(all && selected.Count > 0)
+        if(all && new_selected.Count > 0)
         {
             Selectable[] allSelectable = FindObjectsOfType<Selectable>();
-            Selectable[] sameType = allSelectable.Where(x => x.Type == selected[0].Type).ToArray();
-            selected.Clear();
-            selected.AddRange(sameType);
+            Selectable[] sameType = allSelectable.Where(x => x.Type == new_selected[0].Type).ToArray();
+            new_selected.Clear();
+            new_selected.AddRange(sameType);
         }
 
-        foreach (Selectable s in selected)
-            s.Selected = true;
+        return new_selected;
     }
 
-    private void BoxSelect()
+    private List<Selectable> BoxSelect()
     {
         Camera cam = Camera.main;
         Ray startRay = cam.ScreenPointToRay(selectStart);
@@ -112,45 +119,54 @@ public class InputManager : MonoBehaviour
         extents.z = Mathf.Abs(extents.z);
         Collider[] colls = Physics.OverlapBox((startPos + endPos) / 2.0f, extents);
 
+        List<Selectable> new_selected = new List<Selectable>();
         foreach(Collider coll in colls)
         {
             Selectable u;
             if (u = coll.GetComponent<Selectable>())
             {
-                selected.Add(u);
-                u.Selected = true;
+                new_selected.Add(u);
             }
         }
-
+        return new_selected;
     }
 
-    private Vector3 FibDisc(int i, int total, float radius)
+    private void FinishSelect(List<Selectable> newSelected)
     {
-        float k = i + .5f;
-        float r = Mathf.Sqrt((k) / total);
-        float theta = Mathf.PI * (1 + Mathf.Sqrt(5)) * k;
-        float x = r * Mathf.Cos(theta) * radius;
-        float y = r * Mathf.Sin(theta) * radius;
+        foreach (Selectable s in Selected)
+            s.Selected = false;
 
-        return new Vector3(x, 0, y);
+        foreach (Selectable s in newSelected)
+            s.Selected = true;
+
+        Selected = newSelected;
+        Selected = Selected.OrderBy(x => x.GetComponent<Entity>().Id).ToList();
     }
-    private Vector3 FibLattice(float i, float n, float size)
+
+
+    private Vector3 FibLattice(float i, float n)
     {
-        float theta = (1 + Mathf.Sqrt(5)) / 2;
+        float theta = (1.0f + Mathf.Sqrt(5)) / 2.0f;
         float x = (i / theta) % 1;
         float y = i / n;
-        return new Vector3(x * size, 0, y * size);
+        return new Vector3(x, 0, y);
+    }
+    private Vector3 FibDisc(float i, float n)
+    {
+        Vector3 pos = FibLattice(i, n);
+        float angle = 2.0f * Mathf.PI * pos.x;
+        float radius = Mathf.Sqrt(pos.z);
+
+        return new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
     }
 
-    private void Move(Vector3 target)
+    public List<Vector3> GetTargets(Vector3 target, List<Selectable> selected)
     {
-        if(selected.Count == 1)
+        if (selected.Count == 1)
         {
-            selected[0].TargetPosition = target;
-            return;
+            return new List<Vector3> { target };
         }
 
-        List<Vector3> points = new List<Vector3>();
         float radius = 0.0f;
         Vector3 center = Vector3.zero;
         foreach (Selectable s in selected)
@@ -161,30 +177,40 @@ public class InputManager : MonoBehaviour
         radius /= selected.Count;
         center /= selected.Count;
 
-
+        List<Vector3> result = new List<Vector3>();
+        foreach (Selectable s in selected)
+            result.Add(Vector3.zero);
+        List<Vector3> points = new List<Vector3>();
         for (int i = 0; i < selected.Count; i++)
         {
-            points.Add(target + FibLattice(i, selected.Count, radius));
+            points.Add(FibDisc(i, selected.Count) * radius);
         }
 
-        foreach(Selectable s in selected)
+        var sortedSelected = selected.OrderBy(x => x.GetComponent<Entity>().Id).ToList();
+        foreach (Selectable s in sortedSelected)
         {
-            Vector3 toCenter = (center - s.transform.position).normalized;
-            int index = 0;
-            float smallest = 1000.0f;
-            for(int i = 0; i < points.Count; i++)
+            float dist = 10000.0f;
+            int closest = 0;
+            for (int i = 0; i < points.Count; i++)
             {
-                Vector3 toPoint = (points[i] - s.transform.position).normalized;
-                float d = Vector3.Dot(toCenter, toPoint);
-                if (d < smallest)
+                float d = s.transform.position.Dist2D(center + points[i]);
+                if (d < dist)
                 {
-                    smallest = d;
-                    index = i;
+                    dist = d;
+                    closest = i;
                 }
             }
-            points.RemoveAt(index);
+            result[selected.IndexOf(s)] = points[closest] + target;
+            points.RemoveAt(closest);
         }
+        return result;
+    }
 
+    private void Move(Vector3 target)
+    {
+        var targets = GetTargets(target, Selected);
+        for (int i = 0; i < targets.Count; i++)
+            Selected[i].TargetPosition = targets[i];
     }
 
     private void OnGUI()

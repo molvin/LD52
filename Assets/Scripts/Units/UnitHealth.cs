@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitMovement : UnitBase
+public class UnitHealth : UnitBase
 {
-    public float MovementSpeed;
-
+    public int Helath;
 }

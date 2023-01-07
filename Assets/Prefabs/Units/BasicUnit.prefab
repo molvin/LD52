@@ -100,6 +100,8 @@ GameObject:
   - component: {fileID: 2175012472069333226}
   - component: {fileID: 2175012472069333225}
   - component: {fileID: 2175012472069333230}
+  - component: {fileID: 6191138673487804201}
+  - component: {fileID: 4348356359522723613}
   m_Layer: 0
   m_Name: BasicUnit
   m_TagString: Untagged
@@ -262,6 +264,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &6191138673487804201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175012472069333137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598d240e6a470fd46b0acc165e90f659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 0
+--- !u!114 &4348356359522723613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175012472069333137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2941f7fe74463341a1e2bcc8ae282f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Helath: 0
 --- !u!1 &6911723964001870321
 GameObject:
   m_ObjectHideFlags: 0
