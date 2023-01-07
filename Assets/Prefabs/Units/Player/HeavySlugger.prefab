@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Speed
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Acceleration
@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: AngularSpeed
       value: 1800
       objectReference: {fileID: 0}
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Helath
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
 --- !u!1 &2562553831933882726 stripped
@@ -74,25 +78,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_PrefabInstance: {fileID: 4449335927239643639}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-6877782761859620523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2562553831933882726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3258e2779bc390f48a92fa11aa280b6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 4
-  AttackAmount: 1
-  FireRate: 0.5
-  AttackRange: 7
-  BulletSpreadAngle: 45
-  Projectile: 1
-  Knockback: 1
 --- !u!114 &-47363553853166541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,3 +107,26 @@ MonoBehaviour:
   SoulAmount: 0
   SoulGrowthRate: 2
   BaseSoulGeneration: 10
+--- !u!114 &4189212999773731785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562553831933882726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502a0490d41b8194c8afed8ad24866c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  Selected: 0
+  TargetPosition: {x: 0, y: 0, z: 0}
+  Spacing: 0
+  DebugMove: 0
+  SelectedCircle: {fileID: 2562553833061602361}
+--- !u!212 &2562553833061602361 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2175012471150167502, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+  m_PrefabInstance: {fileID: 4449335927239643639}
+  m_PrefabAsset: {fileID: 0}
