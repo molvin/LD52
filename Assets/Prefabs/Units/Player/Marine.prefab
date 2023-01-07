@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
+  UnitType: 
 --- !u!114 &4774035615921567266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,3 +109,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoulAmount: 10
   SoulGrowthRate: 1.5
+  BaseSoulGeneration: 0
+--- !u!114 &-3986641551026105737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779747188992943021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2941f7fe74463341a1e2bcc8ae282f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Helath: 0
