@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitBase : MonoBehaviour
+public abstract class UnitBase : MonoBehaviour
 {
-    public int Health;
+    protected Entity Entity;
+    void Awake()
+    {
+        Entity = GetComponent<Entity>();
+    }
 }
