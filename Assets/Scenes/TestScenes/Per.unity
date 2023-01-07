@@ -326,6 +326,7 @@ MonoBehaviour:
   Type: 0
   Selected: 0
   TargetPosition: {x: 0, y: 0, z: 0}
+  Spacing: 0.5
   DebugMove: 1
   SelectedCircle: {fileID: 1707939256}
 --- !u!136 &335014193
@@ -534,9 +535,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502a0490d41b8194c8afed8ad24866c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 0
+  Type: 1
   Selected: 0
   TargetPosition: {x: 0, y: 0, z: 0}
+  Spacing: 0.5
   DebugMove: 1
   SelectedCircle: {fileID: 115216981}
 --- !u!136 &704483212
@@ -733,6 +735,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoxSelectTexture: {fileID: 2800000, guid: 5b28b621823aa214b9f5a9461efc24a8, type: 3}
+  BoxSelectMinDist: 1
+  DoubleClickTime: 0.2
+  ClickSelectRadius: 0.3
   selected: []
 --- !u!4 &952870736
 Transform:
@@ -781,9 +786,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502a0490d41b8194c8afed8ad24866c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 0
+  Type: 1
   Selected: 0
   TargetPosition: {x: 0, y: 0, z: 0}
+  Spacing: 0.5
   DebugMove: 1
   SelectedCircle: {fileID: 1454615981}
 --- !u!136 &1217324510
@@ -981,6 +987,7 @@ MonoBehaviour:
   Type: 0
   Selected: 0
   TargetPosition: {x: 0, y: 0, z: 0}
+  Spacing: 0.5
   DebugMove: 1
   SelectedCircle: {fileID: 1423584356}
 --- !u!1 &1423584354
@@ -1284,6 +1291,7 @@ MonoBehaviour:
   Type: 0
   Selected: 0
   TargetPosition: {x: 0, y: 0, z: 0}
+  Spacing: 0.5
   DebugMove: 1
   SelectedCircle: {fileID: 289912045}
 --- !u!136 &1523760345

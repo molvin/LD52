@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Selectable : MonoBehaviour
-{
+{   
     public int Type;
     public bool Selected;
     public Vector3 TargetPosition;
+    public float Spacing;
     public bool DebugMove;
 
     public SpriteRenderer SelectedCircle;
