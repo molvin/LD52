@@ -48,4 +48,8 @@ public class ObjectPool : MonoBehaviour
 
         Object.SetActive(false);
     }
+    public void Clear()
+    {
+        Pools.Clear();
+    }
 }
