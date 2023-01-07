@@ -19,7 +19,7 @@ public abstract class UnitAttack : UnitBase
 
         List<Entity> Enemies = GameManager.Instance.EntitiesInGame
             .Where(e => e.Team != Entity.Team)
-            .Where(e => e.Components.ContainsKey(typeof(UnitHealth)))
+            .Where(e => e.Has<UnitHealth>())
             .OrderBy(e => transform.position.Dist2D(e.transform.position))
             .ToList();
 
