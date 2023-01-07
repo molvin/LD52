@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode __)
     {
+        ObjectPool.Instance.Clear();
         EntitiesInGame = FindObjectsOfType<Entity>().ToList();
 
         if(scene.name == HarvestScene)
