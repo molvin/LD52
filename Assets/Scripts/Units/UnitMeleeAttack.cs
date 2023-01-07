@@ -1,23 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class UnitMeleeAttack : UnitBase
+public class UnitMeleeAttack : UnitAttack
 {
-    public int Damage;
-    public float AttackRange;
-    public float AttackFromDistance;
-    public float AttackTime;
-
-    private float LastAttackTime = 0.0f;
-
-    public bool CanAttack() => Time.time - LastAttackTime > AttackTime;
-
-    void Update()
+    protected override void Attack(Entity Entity)
     {
-        if (!CanAttack())
-            return;
-
-        List<Entity> Enemies = GameDirector.GetEnemies(Entity);
+        Debug.Log("Melee");
     }
 }
