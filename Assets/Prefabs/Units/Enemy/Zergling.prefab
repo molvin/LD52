@@ -71,26 +71,42 @@ PrefabInstance:
       propertyPath: StoppingDistance
       value: 0.35
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Max
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Current
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191138673487804201, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 902234694, guid: dfdb7ba1cd421dd4698ea7c59a9019e2, type: 3}
+    - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7264151
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2175012472069333225, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
 --- !u!1 &5090356579280118115 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_PrefabInstance: {fileID: 6380375846559728114}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-7573182451563392959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5090356579280118115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2941f7fe74463341a1e2bcc8ae282f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Helath: 10
 --- !u!114 &471997847629869855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +120,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 2
-  AttackRange: 2
-  AttackFromDistance: 1
+  AttackDistance: 0.1
   AttackTime: 0.33
