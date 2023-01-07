@@ -17,7 +17,7 @@ public abstract class UnitAttack : UnitBase
         if (!CanAttack())
             return;
 
-        List<Entity> Enemies = GameDirector.Instance.EntitiesInGame
+        List<Entity> Enemies = GameManager.Instance.EntitiesInGame
             .Where(e => e.Team != Entity.Team)
             .Where(e => e.Components.ContainsKey(typeof(UnitHealth)))
             .OrderBy(e => transform.position.Dist2D(e.transform.position))
@@ -39,6 +39,7 @@ public abstract class UnitAttack : UnitBase
             {
                 Attack(Enemy);
                 LastAttackTime = Time.time;
+                break;
             }
         }
     }

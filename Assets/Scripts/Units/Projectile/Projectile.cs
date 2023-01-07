@@ -77,7 +77,7 @@ public class Projectile : MonoBehaviour
                 var Health = GetComponent<UnitHealth>();
                 if (Health)
                 {
-                    Health.Current -= Damage;
+                    Health.TakeDamage(Damage);
                 }
 
                 IsDone = true;

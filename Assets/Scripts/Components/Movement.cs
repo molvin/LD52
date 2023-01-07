@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Movement : MonoBehaviour
+public class Movement : UnitBase
 {
     [Header("Steering")]
     public float Speed = 2.5f;
@@ -23,8 +23,10 @@ public class Movement : MonoBehaviour
     private Selectable Selectable = null;
     private Color DebugColor;
 
-    void Awake()
+    new protected void Awake()
     {
+        base.Awake();    
+
         Agent = GetComponent<NavMeshAgent>();
         Selectable = GetComponent<Selectable>();
 
@@ -32,12 +34,6 @@ public class Movement : MonoBehaviour
         {
             Random.InitState(GetHashCode());
             DebugColor = Random.ColorHSV();
-        }
-
-        if (Selectable == null)
-        {
-            Debug.LogError("No selectable!");
-            enabled = false;
         }
     }
 
@@ -51,7 +47,7 @@ public class Movement : MonoBehaviour
             Agent.stoppingDistance = StoppingDistance;
         }
 
-        if (Selectable.TargetPosition.Dist2D(Agent.destination) >= StoppingDistance)
+        if (Selectable && Selectable.TargetPosition.Dist2D(Agent.destination) >= StoppingDistance)
         {
             Agent.destination = Selectable.TargetPosition;
         }

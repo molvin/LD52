@@ -14,7 +14,7 @@ public class UnitHealth : UnitBase
         Current = Mathf.Max(Current - dmg, 0);
         if(Current == 0)
         {
-            GameManager.Instance.KillUnit(Entity);
+            GameManager.Instance?.KillUnit(Entity);
         }
     }
 }

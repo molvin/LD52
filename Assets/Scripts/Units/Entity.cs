@@ -15,6 +15,8 @@ public class Entity : MonoBehaviour
     public Team Team;
     public Dictionary<System.Type, UnitBase> Components = new Dictionary<System.Type, UnitBase>();
 
+    public T Get<T>() where T : UnitBase => (T)Components[typeof(T)];
+
     public void Awake()
     {
         Id = IdCounter++;

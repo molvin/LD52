@@ -9,8 +9,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public List<GameObject> StartSquad = new List<GameObject>();
-    public List<Entity> playerUnits = new List<Entity>();
-    public List<Entity> enemyUnits = new List<Entity>();
+    public List<Entity> playerUnits => EntitiesInGame.Where(e => e.Team == Team.Player).ToList();
+    public List<Entity> enemyUnits => EntitiesInGame.Where(e => e.Team == Team.Enemy).ToList();
+    public List<Entity> EntitiesInGame = new List<Entity>();
 
     public int Level;
     public string[] Levels;
@@ -127,21 +128,18 @@ public class GameManager : MonoBehaviour
         foreach(GameObject prefab in prefabs)
         {
             GameObject instance = Instantiate(prefab);
-            playerUnits.Add(instance.GetComponent<Entity>());
+            EntitiesInGame.Add(instance.GetComponent<Entity>());
             DontDestroyOnLoad(instance);
         }
         GoToStartPositions(newEnts);
     }
     public void KillUnit(Entity ent)
     {
-        if (playerUnits.Remove(ent))
+        if (ent.Team == Team.Player)
         {
             InputManager.Instance?.RemoveSelected(ent.GetComponent<Selectable>());
         }
-        else if(enemyUnits.Remove(ent))
-        {
-
-        }
+        EntitiesInGame.Remove(ent);
         Destroy(ent.gameObject);
     }
 }
