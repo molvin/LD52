@@ -48,16 +48,6 @@ public class GameManager : MonoBehaviour
         if (waiting)
             GUI.Label(new Rect(100, 200, 200, 50), "Waiting for harvester");
 
-        bool testDmg = GUI.Button(new Rect(100, 300, 100, 50), "Damage selected");
-        if(testDmg)
-        {
-            var temp = playerUnits.OrderBy(x => Random.value);
-            foreach(Entity entity in temp)
-            {
-                if(entity.GetComponent<Selectable>().Selected)
-                    entity.GetComponent<UnitHealth>().TakeDamage(1); 
-            }
-        }
     }
 
     public IEnumerator NextLevel()
@@ -66,7 +56,7 @@ public class GameManager : MonoBehaviour
 
         foreach(Entity e in playerUnits)
         {
-            if (e.Components.TryGetValue(typeof(UnitSoul), out UnitBase comp))
+            if (e.TryGet(out UnitSoul comp))
             {
                 UnitSoul soul = (UnitSoul) comp;
                 soul.SoulAmount = soul.SoulAmount == 0 ? soul.BaseSoul : soul.SoulAmount * soul.SoulGrowthRate;
@@ -96,6 +86,8 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode __)
     {
+        EntitiesInGame = FindObjectsOfType<Entity>().ToList();
+
         if(scene.name == HarvestScene)
         {
             harvester = FindObjectOfType<Harvest>();

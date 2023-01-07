@@ -68,7 +68,15 @@ PrefabInstance:
       value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Max
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Helath
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Current
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -104,10 +112,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82af7d03d21c3cf438ade02125bb4ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoulAmount: 10
+  SoulAmount: 0
   SoulGrowthRate: 1.5
-  BaseSoulGeneration: 0
---- !u!114 &7833045092255082988
+  BaseSoul: 10
+--- !u!114 &7323735983174883943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779747188992943021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0392ab3dd415c47a5361b6688907da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
+  AttackDistance: 5
+  AttackTime: 0.25
+  ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
+  Ricocheting: 0
+  Pierce: 0
+  ExplodingOnImpact: 0
+  PierceTargetCount: 0
+  ProjectileSize: 1
+  ProjectileSpeed: 10
+  ProjectileLifetime: 1
+  ImpactExplosionRadius: 0.1
+--- !u!114 &8542069778249792774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,8 +154,9 @@ MonoBehaviour:
   Type: 0
   Selected: 0
   TargetPosition: {x: 0, y: 0, z: 0}
-  Spacing: 0
+  Spacing: 1.2
   DebugMove: 0
+  DebugMoveSpeed: 0
   SelectedCircle: {fileID: 8779747190288893682}
 --- !u!212 &8779747190288893682 stripped
 SpriteRenderer:

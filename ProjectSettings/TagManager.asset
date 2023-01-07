@@ -15,6 +15,7 @@ TagManager:
   - SelectionBlobs
   - Obstacle
   - FieldOfViewMesh
+  - Unit
   - 
   - 
   - 
