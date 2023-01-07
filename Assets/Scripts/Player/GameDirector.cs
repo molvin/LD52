@@ -6,9 +6,8 @@ using UnityEngine;
 
 public class GameDirector : MonoBehaviour
 {
-    private static GameDirector Instance;
-    private HashSet<Entity> PlayerEntities;
-    private HashSet<Entity> EnemyEntities;
+    public static GameDirector Instance;
+    public List<Entity> EntitiesInGame = new List<Entity>();
 
     void Awake()
     {
@@ -16,8 +15,7 @@ public class GameDirector : MonoBehaviour
             Debug.LogError("There's already a GameDirector present, Niklas!");
 
         Instance = this;
-    }
 
-    public static bool IsOnPlayerTeam(Entity Entity) => Instance.PlayerEntities.Contains(Entity);
-    public static List<Entity> GetEnemies(Entity Entity) => (IsOnPlayerTeam(Entity) ? Instance.EnemyEntities : Instance.PlayerEntities).ToList();
+        EntitiesInGame = Resources.FindObjectsOfTypeAll<Entity>().ToList();
+    }
 }
