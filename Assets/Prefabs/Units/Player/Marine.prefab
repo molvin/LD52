@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7491984120178017084
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_Name
+      value: Marine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333141, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333141, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333141, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333141, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333141, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333141, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333141, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333141, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333141, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333141, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333141, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+--- !u!1 &8779747188992943021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+  m_PrefabInstance: {fileID: 7491984120178017084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2606404051941452938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779747188992943021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3258e2779bc390f48a92fa11aa280b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
+  AttackAmount: 1
+  FireRate: 0.25
+  AttackRange: 5
+  BulletSpreadAngle: 35
+  Projectile: 1
+  Knockback: 0
+--- !u!114 &3624899204109874313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779747188992943021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ae3898b78550e4b830ca4fa07ad2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: 
+  UnitType: 
+--- !u!114 &4774035615921567266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779747188992943021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82af7d03d21c3cf438ade02125bb4ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoulAmount: 10
+  SoulGrowthRate: 1.5
+  BaseSoulGeneration: 0
+--- !u!114 &-3986641551026105737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779747188992943021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2941f7fe74463341a1e2bcc8ae282f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Helath: 0
