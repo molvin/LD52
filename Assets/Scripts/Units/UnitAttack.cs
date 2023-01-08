@@ -9,6 +9,12 @@ public abstract class UnitAttack : UnitBase
     public float AttackDistance;
     public float AttackTime;
     private float LastAttackTime = 0.0f;
+    public float WindUpTime;
+    public float WindDownTime;
+    private float WindingTime;
+    public bool WindingUp;
+    public bool WindingDown;
+    public bool TimeToStrike;
 
     public bool CanAttack() => Time.time - LastAttackTime > AttackTime;
 
@@ -16,6 +22,12 @@ public abstract class UnitAttack : UnitBase
     {
         if (!CanAttack())
             return;
+
+        if(WindingUp || WindingDown)
+        {
+            return;
+        }
+
 
         List<Entity> Enemies = GameManager.Instance.EntitiesInGame
             .Where(e => e.Team != Entity.Team)
@@ -37,11 +49,35 @@ public abstract class UnitAttack : UnitBase
                 AttackDistance)
             && Hit.transform == Enemy.transform)
             {
+                if (!TimeToStrike && !WindingUp && !WindingDown)
+                {
+                    StartCoroutine(AttackActionStart());
+                    return;
+                }
                 Attack(Enemy);
                 LastAttackTime = Time.time;
+                StartCoroutine(AttackActionEnd());
                 break;
             }
         }
+    }
+
+    private IEnumerator AttackActionStart()
+    {
+        WindingUp = true;
+        yield return new WaitForSeconds(WindUpTime);
+        WindingUp = false;
+        TimeToStrike = true;
+        yield return 0;
+    }
+
+    private IEnumerator AttackActionEnd() 
+    {
+        WindingDown = true;
+        TimeToStrike = false;
+        yield return new WaitForSeconds(WindDownTime);
+        WindingDown = false;
+        yield return 0;
     }
 
     protected virtual void Attack(Entity Entity) { }
