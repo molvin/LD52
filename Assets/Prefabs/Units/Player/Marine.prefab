@@ -100,11 +100,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   viewRadius: 35
-  meshResolution: 0
-  edgeResolveIterations: 0
-  edgeDstThreshold: 0
+  meshResolution: 2
+  edgeResolveIterations: 3
+  edgeDstThreshold: 1
+  stepSize: 2
   viewMeshFilter: {fileID: 6542352047360920713}
-  cleanDotArc: 0
+  cleanDotArc: 0.05
 --- !u!1001 &7491984120178017084
 PrefabInstance:
   m_ObjectHideFlags: 0
