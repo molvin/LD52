@@ -31,6 +31,9 @@ public class Harvest : MonoBehaviour
     public Transform SpawnPoint;
     public Transform TargetPoint;
 
+   [Header("Audio")]
+    public AudioClip HarvestedSound;
+    public AudioClip SpawnedSound;
     private void Awake()
     {
         Instance = this;
@@ -47,6 +50,7 @@ public class Harvest : MonoBehaviour
                 UnitSoul soul;
                 if (soul = coll.GetComponent<UnitSoul>())
                 {
+                    AudioManager.Instance.PlayAudio(HarvestedSound);
                     currentSouls += soul.SoulAmount;
                     lastHarvestTime = Time.time;
                     GameManager.Instance.KillUnit(soul.GetComponent<Entity>());
@@ -73,6 +77,8 @@ public class Harvest : MonoBehaviour
     {
         if(currentSouls > 0)
         {
+            AudioManager.Instance.PlayAudio(SpawnedSound);
+
             Upgrade[] availableUpgrades = Upgrades.Where(x => x.Cost < currentSouls).ToArray();
             availableUpgrades = availableUpgrades.OrderBy(x => Mathf.Abs(x.Cost - currentSouls)).ToArray();
             Upgrade u = availableUpgrades[0];
