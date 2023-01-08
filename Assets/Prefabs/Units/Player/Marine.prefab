@@ -295,7 +295,7 @@ MonoBehaviour:
   Type: 0
   Selected: 0
   TargetPosition: {x: 0, y: 0, z: 0}
-  Spacing: 1.2
+  Spacing: 1.8
   DebugMove: 0
   DebugMoveSpeed: 0
   SelectedCircle: {fileID: 8779747190288893682}
