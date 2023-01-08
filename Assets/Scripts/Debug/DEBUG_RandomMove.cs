@@ -38,6 +38,6 @@ public class DEBUG_RandomMove : MonoBehaviour
 
         Vector3 Dest;
         while (Comp.transform.position.Dist2D(Dest = RandDest()) < 7.0f);
-        Comp.MoveTo(Dest);
+        Comp.FindPath(Dest);
     }
 }

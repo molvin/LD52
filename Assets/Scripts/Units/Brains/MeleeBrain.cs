@@ -28,7 +28,7 @@ public class MeleeBrain : AIBrainBase
             && Hit.transform == Enemy.transform)
             {
                 var Movement = Entity.Get<Movement>();
-                Movement.MoveTo(Hit.transform.position);
+                Movement.FindPath(Hit.transform.position);
                 break;
             }
         }
