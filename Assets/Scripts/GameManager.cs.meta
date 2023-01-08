@@ -3,7 +3,9 @@ guid: 58207ee2b4fe1244f841019259dbcf21
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - GamePlayMusic: {fileID: 8300000, guid: 9789457dbfa337b48ab83aacb73d3d10, type: 3}
+  - HarvestMusic: {fileID: 8300000, guid: e1bf80b18216c5145b0c8b67daeadc0b, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
