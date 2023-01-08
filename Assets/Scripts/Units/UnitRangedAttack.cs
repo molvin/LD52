@@ -12,7 +12,6 @@ public class UnitRangedAttack : UnitAttack
     public int PierceTargetCount;
     public float ProjectileSize = 1.0f;
     public float ProjectileSpeed, ProjectileLifetime, ImpactExplosionRadius;
-    public Color Color = Color.white;
 
     protected override void Attack(Entity entity)
     {
@@ -38,6 +37,12 @@ public class UnitRangedAttack : UnitAttack
             
             AudioManager.Instance.PlayAudio(AttackSound, transform.position);
 
+            Color color = Color.white;
+            if (Entity.TryGet(out UnitName Name))
+            {
+                color = Name.Color;
+            }
+
             projectile.Fire(
                 ProjectilePrefab.gameObject,
                 transform.position,
@@ -54,7 +59,7 @@ public class UnitRangedAttack : UnitAttack
                 ProjectileLifetime,
                 ImpactExplosionRadius,
                 KnockbackForce,
-                Color,
+                color,
                 new List<Entity>());
             }
     }
