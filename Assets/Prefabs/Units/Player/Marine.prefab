@@ -255,11 +255,18 @@ MonoBehaviour:
   Damage: 10
   AttackDistance: 20
   AttackTime: 0.33
+  WindUpTime: 0
+  WindDownTime: 0
+  WindingUp: 0
+  WindingDown: 0
+  TimeToStrike: 0
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
+  ProjectileCount: 3
+  ProjectileSpreadAngle: 45
   Ricocheting: 0
   Pierce: 0
   ExplodingOnImpact: 0
-  Split: 1
+  Split: 0
   PierceTargetCount: 0
   ProjectileSize: 1
   ProjectileSpeed: 20
