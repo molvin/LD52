@@ -32,6 +32,7 @@ public class UnitKamikazeAttack : UnitAttack
                 }
             }
         }
+        AudioManager.Instance.PlayAudio(AttackSound, transform.position);
         Entity.Get<UnitHealth>().TakeDamage(500000000);
         yield return 0;
     }

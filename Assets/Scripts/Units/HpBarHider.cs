@@ -18,8 +18,13 @@ public class HpBarHider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(target_gameObject)
-            target_gameObject.SetActive(canPlayerSeeMe());
+
+        bool isSeenByPlayer = canPlayerSeeMe();
+     
+        if (target_gameObject)
+            target_gameObject.SetActive(isSeenByPlayer);
+
+        this.GetComponent<Entity>().isSeenByPlayer = isSeenByPlayer;
 
     }
 
@@ -43,16 +48,16 @@ public class HpBarHider : MonoBehaviour
                 (player.transform.position - transform.position), Color.red);
             Physics.Raycast(
                 transform.position,
-                (player.transform.position - transform.position),
+                (player.transform.position - transform.position).normalized,
                 out hit,
-                radius, obstacleLayer);
-
+                Distance, obstacleLayer);
+            
             if(hit.collider == null)
             {
                 return true;
-            }
+            } 
         }
-
+    
         return false;
     }
 }

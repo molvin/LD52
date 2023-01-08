@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
     int PierceTargetCount;
     float ProjectileSpeed, ImpactExplosionRadius, ProjectileLifeTime;
     float ProjectileSize;
+    float KnockbackForce;
     int Damage;
 
     Entity Owner;
@@ -39,6 +40,7 @@ public class Projectile : MonoBehaviour
         float projectileSize,
         float projectileLifetime,
         float impactExplosionRadius,
+        float knockbackForce,
         List<Entity> ignoreTargets
         )
     {
@@ -56,6 +58,7 @@ public class Projectile : MonoBehaviour
         PierceTargetCount     = pierceTargetCount;
         ProjectileSpeed       = projectileSpeed;
         ImpactExplosionRadius = impactExplosionRadius;
+        KnockbackForce        = knockbackForce;
 
         ProjectileLifeTime = projectileLifetime;
         EndTime = Time.time + projectileLifetime;
@@ -67,7 +70,10 @@ public class Projectile : MonoBehaviour
     {
         if (Time.time >= EndTime)
         {
-            Explode(transform.position);
+            if (ExplodingOnImpact)
+            {
+                Explode(transform.position);
+            }
             ObjectPool.Instance.ReturnInstance(gameObject);
         }
 
@@ -136,6 +142,10 @@ public class Projectile : MonoBehaviour
         // Hit an enemy
         else if (HitEntity != null)
         {
+            if (HitEntity.TryGet(out Movement Move))
+            {
+                Move.AddForce(-HitNormal * KnockbackForce);
+            }
             HitEntity.Get<UnitHealth>().TakeDamage(Damage);
             IgnoreTargets.Add(HitEntity);
         }
@@ -192,9 +202,16 @@ public class Projectile : MonoBehaviour
                 Vector3 Direction = e.transform.position - Position;
                 return Physics.Raycast(Position, Direction.normalized, out RaycastHit Hit, Direction.magnitude, LayerMask) && Hit.transform == e.transform;
             })
-            .Select(e =>  e.Get<UnitHealth>())
+            .Select(e => (e, e.Get<UnitHealth>()))
             .ToList()
-            .ForEach(h => h.TakeDamage(Damage));
+            .ForEach(tup => 
+            {
+                tup.Item2.TakeDamage(Damage);
+                if (tup.Item1.TryGet(out Movement Move))
+                {
+                    Move.AddForce((tup.Item1.transform.position - Position).normalized * KnockbackForce);
+                }
+            });
 
         // Explosion effect
         GameObject Aoe = ObjectPool.Instance.GetInstance(AoeEffect);
@@ -231,6 +248,7 @@ public class Projectile : MonoBehaviour
                  ProjectileSize,
                  ProjectileLifeTime,
                  ImpactExplosionRadius,
+                 KnockbackForce,
                  IgnoreTargets);
         }
     }
