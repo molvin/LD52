@@ -162,12 +162,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   Damage: 20
+  KnockbackForce: 0
   AttackDistance: 35
   AttackTime: 1
   WindUpTime: 0.5
   WindDownTime: 0.5
+  AttackSound: {fileID: 0}
   TimeToStrike: 0
-  ProjectilePrefab: {fileID: 1226357883266473813, guid: e508ff82ba146824aadb4bf95de50c71, type: 3}
+  ProjectilePrefab: {fileID: 8580681903668962661, guid: d65b46068fc428b47b720906547e8138, type: 3}
   ProjectileCount: 1
   ProjectileSpreadAngle: 0
   Ricocheting: 0
