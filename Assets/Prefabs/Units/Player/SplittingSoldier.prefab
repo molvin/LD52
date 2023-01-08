@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: Current
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6602462660539556897, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da2da76fc810c7347bbf5fd38537fcae, type: 3}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: Split
       value: 1
@@ -77,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: m_Name
-      value: ForkingSoldier
+      value: SplittingSoldier
       objectReference: {fileID: 0}
     - target: {fileID: 8779747188992943060, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: Speed
