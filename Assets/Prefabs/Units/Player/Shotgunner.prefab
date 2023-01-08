@@ -106,6 +106,7 @@ MonoBehaviour:
   stepSize: 5
   viewMeshFilter: {fileID: 6542352047360920713}
   cleanDotArc: 0.1
+  frameInterval: 4
 --- !u!1001 &7491984120178017084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,11 +200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Speed
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Acceleration
-      value: 128
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: AngularSpeed
@@ -279,11 +280,11 @@ MonoBehaviour:
   ObstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  Damage: 2
-  KnockbackForce: 1.2
-  AttackDistance: 7
+  Damage: 6
+  KnockbackForce: 3
+  AttackDistance: 8
   AttackTime: 0.7
-  WindUpTime: 0
+  WindUpTime: 0.04
   WindDownTime: 0
   AttackSound: {fileID: 8300000, guid: dea29d70fa442134183ea9ab0a3eda23, type: 3}
   TimeToStrike: 0
