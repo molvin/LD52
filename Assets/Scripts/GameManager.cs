@@ -331,7 +331,9 @@ public class GameManager : MonoBehaviour
     {
         foreach(Entity ent in enemyUnits)
         {
-            ent.GetComponent<AIBrainBase>().enabled = on;
+            AIBrainBase brain = ent.GetComponent<AIBrainBase>();
+            if(brain)
+                brain.enabled = on;
         }
     }
 

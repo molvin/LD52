@@ -16,6 +16,7 @@ public class FieldOfView : MonoBehaviour
     public int stepSize = 5;
 
     public MeshFilter viewMeshFilter;
+    public float cleanDotArc = 0.1f;
     Mesh viewMesh;
 
     void Start()
@@ -69,11 +70,21 @@ public class FieldOfView : MonoBehaviour
         return viewPoints;
 
     }
-
+    void dotCleanPointCloud(ref List<Vector3> data)
+    {
+        for (int i = data.Count - 2; i > 2; i--)
+        {
+            Vector3 left = data[i + 1] - data[i];
+            Vector3 right = data[i] - data[i - 1];
+            float dot = Vector3.Dot(left.normalized, right.normalized);
+            if (((dot + 1f) / 2f) > (1f - cleanDotArc))
+                data.RemoveAt(i);
+        }
+    }
     void DrawFieldOfView()
     {
         List<Vector3> viewPoints = getViewPoints();
-
+        dotCleanPointCloud(ref viewPoints);
         Vector3[] vertices = new Vector3[viewPoints.Count + 1];
         Vector2[] uvs = new Vector2[viewPoints.Count + 1];
         int[] triangles = new int[(viewPoints.Count) * 3];

@@ -209,7 +209,6 @@ MonoBehaviour:
   Speed: 2.5
   Acceleration: 16
   StoppingDistance: 0.5
-  DebugDraw: 1
   CanMove: 1
 --- !u!114 &6191138673487804201
 MonoBehaviour:
