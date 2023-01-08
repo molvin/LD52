@@ -20,6 +20,7 @@ public class FieldOfView : MonoBehaviour
     void Start()
     {
         viewMesh = new Mesh();
+        
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
     }
@@ -42,6 +43,7 @@ public class FieldOfView : MonoBehaviour
 
             if (i > 0)
             {
+                
                 bool edgeDstThresholdExceeded = Mathf.Abs(oldViewCast.dst - newViewCast.dst) > edgeDstThreshold;
                 if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDstThresholdExceeded))
                 {
@@ -71,12 +73,20 @@ public class FieldOfView : MonoBehaviour
         List<Vector3> viewPoints = getViewPoints();
 
         Vector3[] vertices = new Vector3[viewPoints.Count + 1];
+        Vector2[] uvs = new Vector2[viewPoints.Count + 1];
         int[] triangles = new int[(viewPoints.Count) * 3];
       
         vertices[0] = Vector3.zero;
-        for(int i = 0; i < viewPoints.Count; i++)
+        uvs[0] = new Vector2(0.5f, 0.5f);
+        for (int i = 0; i < viewPoints.Count; i++)
         {
-            vertices[i + 1] = transform.InverseTransformPoint( viewPoints[i]);
+            vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]);
+           
+            
+            float x = ((vertices[i + 1].x / viewRadius) / 2) + 0.5f;
+            float y = ((vertices[i + 1].z / viewRadius) / 2) + 0.5f;
+            
+            uvs[i + 1] = new Vector2(x, y);
             if(i < viewPoints.Count -1)
             {
                 triangles[(i) * 3] = 0;
@@ -90,11 +100,16 @@ public class FieldOfView : MonoBehaviour
 
         viewMesh.Clear();
 
-
+        
         viewMesh.vertices = vertices;
+        viewMesh.uv = uvs;
         viewMesh.triangles = triangles;
+        //viewMesh.SetUVs(0, uvs);
+        
+
         viewMesh.RecalculateNormals();
-       
+        viewMesh.RecalculateUVDistributionMetrics();
+
     }
 
     EdgeInfo FindEdge(ViewCastInfo minViewCast, ViewCastInfo maxViewCast, Transform transform)
@@ -130,13 +145,17 @@ public class FieldOfView : MonoBehaviour
     {
         Vector3 dir = DirFromAngle(globalAngle, true);
         RaycastHit hit;
-
         if (Physics.Raycast(transform.position, dir, out hit, viewRadius, obstacleMask))
         {
+            if(globalAngle == 1)
+                Debug.DrawLine(transform.position, hit.point, Color.green);
+
             return new ViewCastInfo(true, hit.point, hit.distance, globalAngle);
         }
         else
         {
+            if (globalAngle == 1)
+                Debug.DrawLine(transform.position, transform.position + dir * viewRadius, Color.green);
             return new ViewCastInfo(false, transform.position + dir * viewRadius, viewRadius, globalAngle);
         }
     }
