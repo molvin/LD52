@@ -56,6 +56,8 @@ MonoBehaviour:
   HarvestScene: HarvestLevel
   DebugSoulAmount: 0
   CurrentState: 0
+  GamePlayMusic: {fileID: 8300000, guid: 9789457dbfa337b48ab83aacb73d3d10, type: 3}
+  HarvestMusic: {fileID: 8300000, guid: e1bf80b18216c5145b0c8b67daeadc0b, type: 3}
 --- !u!114 &8006942428281086936
 MonoBehaviour:
   m_ObjectHideFlags: 0
