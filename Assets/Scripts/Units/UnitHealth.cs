@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class UnitHealth : UnitBase
 {
@@ -11,6 +12,13 @@ public class UnitHealth : UnitBase
       [Header("Audio")]
     public AudioClip DeathSound;
 
+
+
+    [Header("AudioController")]
+    public bool isAudioControllingUnit = false;
+    public bool increasedSound;
+    public float amountPerTick = 1;
+    public AudioMixer mixer;
     public void TakeDamage(int dmg)
     {
         if (Current == 0)
@@ -21,6 +29,16 @@ public class UnitHealth : UnitBase
         {
             AudioManager.Instance.PlayAudio(DeathSound, transform.position);
             GameManager.Instance?.KillUnit(Entity);
+        }
+
+        //Ugly audio stuff
+        if (isAudioControllingUnit)
+        {
+            Current = 100;
+            float orig;
+            mixer.GetFloat("MasterVolume", out orig);
+            mixer.SetFloat("MasterVolume", orig + amountPerTick * (increasedSound ? 1 : -1));
+
         }
     }
 }
