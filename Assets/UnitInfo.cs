@@ -15,6 +15,7 @@ public class UnitInfo : MonoBehaviour
     
     private List<Selectable> lastSelected = new List<Selectable>();
 
+
     public void Toggle(bool on)
     {
         bool single = InputManager.Instance.Selected.Count == 1;
@@ -71,6 +72,11 @@ public class UnitInfo : MonoBehaviour
             UnitCell cell = Instantiate(UnitCellPrefab, Grid) as UnitCell;
             cell.Setup(selected[i].GetComponent<Entity>());
         }
+    }
+
+    private void Update()
+    {
+        
     }
 
 }
