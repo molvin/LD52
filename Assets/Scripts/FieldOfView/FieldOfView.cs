@@ -87,7 +87,7 @@ public class FieldOfView : MonoBehaviour
             float y = ((vertices[i + 1].z / viewRadius) / 2) + 0.5f;
             
             uvs[i + 1] = new Vector2(x, y);
-            if(i < viewPoints.Count -1)
+            if(i < viewPoints.Count -3)
             {
                 triangles[(i) * 3] = 0;
                 triangles[(i) * 3 + 1] = i + 1;

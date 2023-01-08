@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 748373992, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: viewRadius
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 748373993, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b2ff0ae943603b4bb25c9f774f42205, type: 2}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
       value: Marine
