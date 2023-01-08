@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public LayerMask LayerMask;
     bool Ricocheting, Pierce, ExplodingOnImpact;
     int PierceTargetCount;
     float ProjectileSpeed, ImpactExplosionRadius;
+    float ProjectileSize;
     int Damage;
 
     Entity Owner;
@@ -35,7 +37,7 @@ public class Projectile : MonoBehaviour
     {
         transform.position = Start;
         transform.forward = Direction;
-        transform.localScale = Vector3.one * projectileSize;
+        ProjectileSize = projectileSize;
         Owner = owner;
 
         Damage                = damage;
@@ -57,10 +59,9 @@ public class Projectile : MonoBehaviour
         }
 
         bool IsDone = false;
-        RaycastHit Hit;
-        if (Physics.Raycast(transform.position, transform.forward, out Hit, ProjectileSpeed * Time.deltaTime * 1.5f))
+        RaycastHit[] Hits = Physics.SphereCastAll(transform.position, ProjectileSize * 0.5f, transform.forward, ProjectileSpeed * Time.deltaTime * 1.5f, LayerMask);
+        foreach (RaycastHit Hit in Hits)
         {
-            Debug.Log(Hit.transform);
             var Entity = Hit.transform.GetComponent<Entity>();
             if (!Entity)
                 Entity = Hit.transform.GetComponentInChildren<Entity>();
@@ -74,8 +75,7 @@ public class Projectile : MonoBehaviour
                     Debug.LogWarning("Projectile should explode!");
                 }
 
-                var Health = GetComponent<UnitHealth>();
-                if (Health)
+                if (Entity && Entity.TryGet(out UnitHealth Health))
                 {
                     Health.TakeDamage(Damage);
                 }
@@ -88,7 +88,6 @@ public class Projectile : MonoBehaviour
 
         if (IsDone)
         {
-            Debug.Log("Pew");
             ObjectPool.Instance.ReturnInstance(gameObject);
         }
     }

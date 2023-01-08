@@ -9,6 +9,7 @@ public class Selectable : MonoBehaviour
     public Vector3 TargetPosition;
     public float Spacing;
     public bool DebugMove;
+    public float DebugMoveSpeed;
 
     public SpriteRenderer SelectedCircle;
 
@@ -25,7 +26,7 @@ public class Selectable : MonoBehaviour
             Vector3 vel = Vector3.zero;
             Vector3 target = TargetPosition;
             target.y = transform.position.y;
-            transform.position = Vector3.SmoothDamp(transform.position, target, ref vel, 0.1f);
+            transform.position = Vector3.MoveTowards(transform.position, target, DebugMoveSpeed * Time.deltaTime);
         }
     }
 }

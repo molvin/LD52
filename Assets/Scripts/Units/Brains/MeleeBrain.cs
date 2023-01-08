@@ -7,7 +7,7 @@ public class MeleeBrain : AIBrainBase
 {
     void Update()
     {
-        if (!Entity.Components.ContainsKey(typeof(Movement)))
+        if (!Entity.Has<Movement>())
             return;
 
         List<Entity> Enemies = GameManager.Instance.EntitiesInGame
@@ -28,7 +28,7 @@ public class MeleeBrain : AIBrainBase
             && Hit.transform == Enemy.transform)
             {
                 var Movement = Entity.Get<Movement>();
-                Movement.MoveTo(Hit.transform.position);
+                Movement.FindPath(Hit.transform.position);
                 break;
             }
         }
