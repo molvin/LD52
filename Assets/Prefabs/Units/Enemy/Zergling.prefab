@@ -121,6 +121,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b38c5f4d51922834d92879633b9e0bb6, type: 2}
     m_RemovedComponents:
     - {fileID: 2175012472069333225, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+    - {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
 --- !u!1 &5090356579280118115 stripped
 GameObject:
@@ -162,25 +163,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2efa835ed0b2344b3760fcd93c2345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3179981333981581528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5090356579280118115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45488186c7930494a8e344033aeab6d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target_gameObject: {fileID: 7251857133914996843}
-  radius: 35
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 256
---- !u!1 &7251857133914996843 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4334824194002780569, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
-  m_PrefabInstance: {fileID: 6380375846559728114}
-  m_PrefabAsset: {fileID: 0}

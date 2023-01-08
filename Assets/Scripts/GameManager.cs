@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
         Start,
         Game,
         Harvest,
-        End
+        End,
+        Transition
     }
 
 
@@ -41,6 +42,8 @@ public class GameManager : MonoBehaviour
     private Harvest harvester;
     private bool waiting;
 
+    private UnitInfo info;
+
     private void Awake()
     {
         if(Instance == null)
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour
         switch (CurrentState)
         {
             case State.Start:
+                info?.Toggle(false);
                 break;
             case State.Game:
                 if (enemyUnits.Count == 0)
@@ -68,16 +72,34 @@ public class GameManager : MonoBehaviour
                     CurrentState = State.End;
                     StartCoroutine(End(false));
                 }
+                info?.Toggle(false);
                 break;
             case State.Harvest:
+                info?.Toggle(true);
                 break;
             case State.End:
+                info?.Toggle(true);
+                break;
+            case State.Transition:
+                info?.Toggle(false);
                 break;
         }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode _)
     {
+        if(scene.name == "MainMenu")
+        {
+            Level = 0;
+            foreach(Entity ent in playerUnits)
+            {
+                Destroy(ent.gameObject);
+            }
+            playerUnits.Clear();
+        }
+
+        info = FindObjectOfType<UnitInfo>();
+
         EntryDoor = HarvestDoor = ExitDoor = null;
         var doors = FindObjectsOfType<Door>();
         foreach (Door door in doors)
@@ -109,7 +131,7 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        else if (Level == 0)
+        else if (Level == 0 && scene.name != "MainMenu")
         {
             SpawnPlayerUnits(StartSquad);
         }
@@ -257,6 +279,7 @@ public class GameManager : MonoBehaviour
             }
             yield return null;
         }
+        CurrentState = State.Transition;
 
         InputManager.Instance.enabled = false;
         foreach(Entity e in playerUnits)

@@ -64,6 +64,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: b38c5f4d51922834d92879633b9e0bb6, type: 2}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Mass
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Speed
       value: 6
       objectReference: {fileID: 0}
@@ -137,6 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b38c5f4d51922834d92879633b9e0bb6, type: 2}
     m_RemovedComponents:
     - {fileID: 2175012472069333225, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+    - {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
 --- !u!1 &5090356579280118115 stripped
 GameObject:

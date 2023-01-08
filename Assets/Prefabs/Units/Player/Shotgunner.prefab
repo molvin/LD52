@@ -103,7 +103,9 @@ MonoBehaviour:
   meshResolution: 0
   edgeResolveIterations: 0
   edgeDstThreshold: 0
+  stepSize: 5
   viewMeshFilter: {fileID: 6542352047360920713}
+  cleanDotArc: 0.1
 --- !u!1001 &7491984120178017084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -122,6 +124,30 @@ PrefabInstance:
     - target: {fileID: 450911190140598831, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Sprite
+      value: 
+      objectReference: {fileID: -1039685333, guid: dfdb7ba1cd421dd4698ea7c59a9019e2, type: 3}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Color.r
+      value: 0.137568
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: UnitType
+      value: Shotgunner
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
@@ -173,7 +199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Speed
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Acceleration
@@ -211,7 +237,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 59458002c28264e45b1ab739f9b9efed, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 735666923131083204, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
 --- !u!4 &8779747188992943017 stripped
 Transform:
@@ -223,20 +250,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_PrefabInstance: {fileID: 7491984120178017084}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3624899204109874313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8779747188992943021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0ae3898b78550e4b830ca4fa07ad2c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: 
-  UnitType: 
 --- !u!114 &4774035615921567266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,12 +279,12 @@ MonoBehaviour:
   ObstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  Damage: 5
-  KnockbackForce: 3
-  AttackDistance: 9
+  Damage: 2
+  KnockbackForce: 1.2
+  AttackDistance: 7
   AttackTime: 0.7
-  WindUpTime: 0.08
-  WindDownTime: 0.04
+  WindUpTime: 0
+  WindDownTime: 0
   AttackSound: {fileID: 8300000, guid: dea29d70fa442134183ea9ab0a3eda23, type: 3}
   TimeToStrike: 0
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}

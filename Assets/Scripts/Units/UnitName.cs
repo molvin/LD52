@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class UnitName : UnitBase
 {
-    public string Name, UnitType;
+    public string Name;
+    public string UnitType;
+    public Sprite Sprite;
+    public Color Color;
 }
