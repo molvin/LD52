@@ -35,8 +35,6 @@ public class HealthBar : MonoBehaviour
     public float LevelUpEventTime;
     public TextMeshProUGUI LevelUpText;
 
-    public int currentLevel;
-
     private UnitHealth health;
 
 
@@ -45,15 +43,6 @@ public class HealthBar : MonoBehaviour
         health = GetComponentInParent<UnitHealth>();
         initialLocalPosition = transform.localPosition;
         SetMaxHP(health);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            UnitLevelUp(currentLevel+1);
-            currentLevel++;
-        }
     }
 
     private void SetMaxHP(UnitHealth health)
