@@ -272,6 +272,7 @@ MonoBehaviour:
   AttackTime: 0.7
   WindUpTime: 0.08
   WindDownTime: 0.04
+  AttackSound: {fileID: 8300000, guid: dea29d70fa442134183ea9ab0a3eda23, type: 3}
   TimeToStrike: 0
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
   ProjectileCount: 5

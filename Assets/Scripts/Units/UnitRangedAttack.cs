@@ -33,6 +33,8 @@ public class UnitRangedAttack : UnitAttack
         void Fire(Vector3 Direction)
         {
             Projectile projectile = ObjectPool.Instance.GetInstance(ProjectilePrefab.gameObject).GetComponent<Projectile>();
+            
+            AudioManager.Instance.PlayAudio(AttackSound, transform.position);
 
             projectile.Fire(
                 ProjectilePrefab.gameObject,
