@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Selectable : MonoBehaviour
+public class Selectable : UnitBase
 {   
     public int Type;
     public bool Selected;
@@ -13,8 +13,9 @@ public class Selectable : MonoBehaviour
 
     public SpriteRenderer SelectedCircle;
 
-    private void Awake()
+    protected new void Awake()
     {
+        base.Awake();
         TargetPosition = transform.position;
     }
 

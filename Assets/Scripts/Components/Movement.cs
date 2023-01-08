@@ -33,6 +33,9 @@ public class Movement : UnitBase
 
     private Vector3 velocity = Vector3.zero;
 
+    [HideInInspector]
+    public bool CanMove = true;
+
     new protected void Awake()
     {
         base.Awake();    
@@ -46,16 +49,27 @@ public class Movement : UnitBase
             DebugColor = Random.ColorHSV();
         }
     }
+    
+    public void AddForce(Vector3 Force)
+    {
+        velocity += Force;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if (!CanMove)
+        {
+            return;
+        }
+
         if (Selectable && Selectable.TargetPosition.Dist2D(CurrentDestination) >= StoppingDistance)
         {
             FindPath(Selectable.TargetPosition);
         }
 
         FollowPath();
+        Avoidance();
         MoveWithCollision();
 
         if (DebugDraw)
@@ -91,7 +105,7 @@ public class Movement : UnitBase
 
         // Clamp max speed
         velocity += Delta;
-        velocity = Vector3.ClampMagnitude(velocity, Speed);
+        //velocity = Vector3.ClampMagnitude(velocity, Speed);
     }
 
     private void MoveWithCollision()
@@ -130,6 +144,38 @@ public class Movement : UnitBase
 
         transform.position += Vector3.ClampMagnitude(LargestPenetration * Speed * Time.deltaTime, LargestPenetration.magnitude);
     }
+
+    private void Avoidance()
+    {
+
+        //List<Movement> OtherMovement = GameManager.Instance.EntitiesInGame
+            //.Where(e => e != Entity && e.Has<Movement>())
+            //.Select(e => e.Get<Movement>())
+            //.ToList();
+
+        
+        //foreach (Movement Other in OtherMovement)
+        //{
+            //Vector3 ToOther = 
+            //Vector3 nearest = FindNearestPointOnLine(transform.position, velocity, Other.transform.position);
+
+        //}
+
+        //Vector2 FindNearestPointOnLine(Vector2 origin, Vector2 end, Vector2 point)
+        //{
+            ////Get heading
+            //Vector2 heading = (end - origin);
+            //float magnitudeMax = heading.magnitude;
+            //heading.Normalize();
+
+            ////Do projection from the point but clamp it
+            //Vector2 lhs = point - origin;
+            //float dotP = Vector2.Dot(lhs, heading);
+            //dotP = Mathf.Clamp(dotP, 0f, magnitudeMax);
+            //return origin + heading * dotP;
+        //}
+    }
+
 
     public void FindPath(Vector3 Destination)
     {

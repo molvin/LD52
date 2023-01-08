@@ -9,5 +9,9 @@ public class UnitMeleeAttack : UnitAttack
     protected override void Attack(Entity Entity)
     {
         Entity.Get<UnitHealth>().TakeDamage(Damage);
+        if (Entity.TryGet(out Movement MovementComp))
+        {
+            MovementComp.AddForce(Vector3.zero);
+        }
     }
 }

@@ -5,10 +5,17 @@ using System.Linq;
 
 public abstract class UnitAttack : UnitBase
 {
+    public LayerMask ObstacleMask;
     public int Damage;
+    public float KnockbackForce;
     public float AttackDistance;
     public float AttackTime;
     private float LastAttackTime = 0.0f;
+    public float WindUpTime;
+    public float WindDownTime;
+
+    [HideInInspector]
+    public bool TimeToStrike;
 
     public bool CanAttack() => Time.time - LastAttackTime > AttackTime;
 
@@ -16,6 +23,11 @@ public abstract class UnitAttack : UnitBase
     {
         if (!CanAttack())
             return;
+
+        if (TimeToStrike)
+        {
+            return;
+        }
 
         List<Entity> Enemies = GameManager.Instance.EntitiesInGame
             .Where(e => e.Team != Entity.Team)
@@ -30,18 +42,37 @@ public abstract class UnitAttack : UnitBase
                 return;
 
             RaycastHit Hit;
-            if (Physics.Raycast(
+            if (!Physics.SphereCast(
                 transform.position,
+                0.6f,
                 (Enemy.transform.position - transform.position).normalized,
                 out Hit,
-                AttackDistance)
-            && Hit.transform == Enemy.transform)
+                Mathf.Min(AttackDistance, Vector3.Distance(Enemy.transform.position, transform.position)),
+                ObstacleMask))
             {
-                Attack(Enemy);
-                LastAttackTime = Time.time;
+                StartCoroutine(AttackActionStart(Enemy));
                 break;
             }
         }
+    }
+
+    private IEnumerator AttackActionStart(Entity Enemy)
+    {
+        TimeToStrike = true;
+        Entity.Get<Movement>().CanMove = false;
+        yield return new WaitForSeconds(WindUpTime);
+        if (Enemy == null)
+        {
+            Entity.Get<Movement>().CanMove = true;
+            TimeToStrike = false;
+            yield break;
+        }
+        Attack(Enemy);
+        yield return new WaitForSeconds(WindDownTime);
+        TimeToStrike = false;
+        LastAttackTime = Time.time;
+        Entity.Get<Movement>().CanMove = true;
+        yield return 0;
     }
 
     protected virtual void Attack(Entity Entity) { }

@@ -20,7 +20,16 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if(!Instance)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     private void Update()
@@ -38,6 +47,11 @@ public class InputManager : MonoBehaviour
             Vector3 targetPos = ray.GetPoint(startEnter);
 
             Move(targetPos);
+        }
+        if(Input.GetButtonDown("Stop"))
+        {
+            foreach (Selectable s in Selected)
+                s.TargetPosition = s.transform.position;
         }
     }
     private IEnumerator Select()
@@ -141,7 +155,6 @@ public class InputManager : MonoBehaviour
             var intersect = Selected.Intersect(newSelected).ToList();
             newSelected = Selected.Where(x => !intersect.Contains(x)).ToList();
         }
-
 
         foreach (Selectable s in Selected)
             s.Selected = false;
