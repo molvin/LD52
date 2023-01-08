@@ -119,6 +119,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7b2ff0ae943603b4bb25c9f774f42205, type: 2}
+    - target: {fileID: 450911190140598831, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
       value: Marine
@@ -181,7 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Max
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Helath
@@ -189,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Current
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
@@ -244,9 +248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0392ab3dd415c47a5361b6688907da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 10
   AttackDistance: 20
-  AttackTime: 0.25
+  AttackTime: 0.33
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
   Ricocheting: 0
   Pierce: 0

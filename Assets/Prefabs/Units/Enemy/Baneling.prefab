@@ -77,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Max
-      value: 448
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Helath
@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Current
-      value: 448
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6191138673487804201, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Team
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6427184ef85f879458505c6ee0244c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 8
+  Damage: 80
   AttackDistance: 2.5
   AttackTime: 0.2
   ExplosionActivationRange: 2.5
