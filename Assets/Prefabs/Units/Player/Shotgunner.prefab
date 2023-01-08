@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82af7d03d21c3cf438ade02125bb4ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoulAmount: 0
+  SoulAmount: 15
   SoulGrowthRate: 1.5
 --- !u!114 &7323735983174883943
 MonoBehaviour:
