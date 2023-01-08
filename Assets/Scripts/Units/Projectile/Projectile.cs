@@ -104,7 +104,7 @@ public class Projectile : MonoBehaviour
             if (!Entity)
                 Entity = Hit.transform.GetComponentInParent<Entity>();
 
-            if (Entity && Entity.Team != Owner.Team && !IgnoreTargets.Contains(Entity))ParallelMergeOptions conflict
+            if (Entity && Entity.Team != Owner.Team && !IgnoreTargets.Contains(Entity))
             {
                 HitPoint = Hit.point;
                 HitEntity = Entity;
