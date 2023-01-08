@@ -140,15 +140,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Color.b
-      value: 0.8968458
+      value: 0.26919198
       objectReference: {fileID: 0}
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: UnitType
@@ -304,7 +304,6 @@ MonoBehaviour:
   ProjectileSpeed: 35
   ProjectileLifetime: 10
   ImpactExplosionRadius: 20
-  Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8542069778249792774
 MonoBehaviour:
   m_ObjectHideFlags: 0
