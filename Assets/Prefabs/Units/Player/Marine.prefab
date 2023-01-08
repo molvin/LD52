@@ -100,12 +100,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   viewRadius: 35
-  meshResolution: 2
-  edgeResolveIterations: 3
-  edgeDstThreshold: 1
-  stepSize: 2
+  meshResolution: 0
+  edgeResolveIterations: 0
+  edgeDstThreshold: 0
+  stepSize: 5
   viewMeshFilter: {fileID: 6542352047360920713}
-  cleanDotArc: 0.05
 --- !u!1001 &7491984120178017084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,6 +177,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: DebugDraw
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Acceleration
       value: 128
       objectReference: {fileID: 0}
@@ -187,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: StoppingDistance
-      value: 0.05
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3952488217610643842, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_RootOrder
@@ -195,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Max
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Helath
@@ -203,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Current
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -264,11 +267,11 @@ MonoBehaviour:
   ObstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  Damage: 10
+  Damage: 8
   KnockbackForce: 0.5
   AttackDistance: 20
-  AttackTime: 0.33
-  WindUpTime: 0
+  AttackTime: 0.4
+  WindUpTime: 0.02
   WindDownTime: 0
   AttackSound: {fileID: 8300000, guid: 5fb5dc80a055b2647875d7fb9942a3e8, type: 3}
   TimeToStrike: 0
