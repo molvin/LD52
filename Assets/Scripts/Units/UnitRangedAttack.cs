@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnitRangedAttack : UnitAttack
 {
     public Projectile ProjectilePrefab;
-    public bool Ricocheting, Pierce, ExplodingOnImpact;
+    public bool Ricocheting, Pierce, ExplodingOnImpact, Split;
     public int PierceTargetCount;
     public float ProjectileSize = 1.0f;
     public float ProjectileSpeed, ProjectileLifetime, ImpactExplosionRadius;
@@ -15,6 +15,7 @@ public class UnitRangedAttack : UnitAttack
          Projectile projectile = ObjectPool.Instance.GetInstance(ProjectilePrefab.gameObject).GetComponent<Projectile>();
 
          projectile.Fire(
+             ProjectilePrefab.gameObject,
             transform.position,
             (entity.transform.position - transform.position).normalized,
             this.Entity,
@@ -22,6 +23,7 @@ public class UnitRangedAttack : UnitAttack
             Ricocheting,
             Pierce,
             ExplodingOnImpact,
+            Split,
             PierceTargetCount,
             ProjectileSpeed,
             ProjectileSize,
