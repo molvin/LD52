@@ -18,8 +18,15 @@ public class UnitInfo : MonoBehaviour
     private List<Selectable> lastSelected = new List<Selectable>();
     private List<(UnitCell, UnitHealth)> CurrentCells = new List<(UnitCell, UnitHealth)>();
 
+    private bool active;
+
     public void Toggle(bool on)
     {
+        active = on;
+    }
+    private void InternalToggle()
+    {
+        bool on = active;
         bool single = InputManager.Instance.Selected.Count == 1;
 
         if (InputManager.Instance.Selected.Count == 0)
@@ -29,13 +36,15 @@ public class UnitInfo : MonoBehaviour
             Single.SetActive(single);
             Multiple.SetActive(!single);
         }
-        Anim.SetBool("Open", on);
+
+        if(Anim.GetBool("Open") != on)
+            Anim.SetBool("Open", on);
 
         var selected = InputManager.Instance.Selected;
         bool changed = selected.Count != lastSelected.Count;
-        if(!changed)
+        if (!changed)
         {
-            for(int i = 0; i < selected.Count; i++)
+            for (int i = 0; i < selected.Count; i++)
             {
                 if (!lastSelected.Contains(selected[i]))
                 {
@@ -45,17 +54,17 @@ public class UnitInfo : MonoBehaviour
             }
         }
 
-        if(changed)
+        if (changed)
         {
             lastSelected = new List<Selectable>(selected);
-            if(lastSelected.Count > 0)
+            if (lastSelected.Count > 0)
             {
                 if (single)
                     RebuildSingle();
                 else
                     RebuildMultiple();
             }
-            
+
         }
     }
 
@@ -91,6 +100,8 @@ public class UnitInfo : MonoBehaviour
 
     private void Update()
     {
+        InternalToggle();
+
         foreach((UnitCell cell, UnitHealth ent) in CurrentCells)
         {
             cell.Fill.fillAmount = ent.Current / (float)ent.Max;

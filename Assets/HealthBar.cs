@@ -37,9 +37,11 @@ public class HealthBar : MonoBehaviour
 
     private UnitHealth health;
 
+    public AudioClip LevelUpSound;
 
     private void Awake()
     {
+        gameObject.SetActive(true);
         health = GetComponentInParent<UnitHealth>();
         initialLocalPosition = transform.localPosition;
         SetMaxHP(health);
@@ -122,6 +124,7 @@ public class HealthBar : MonoBehaviour
     private IEnumerator SetNewLevel(int level)
     {
         float time = 0;
+        AudioManager.Instance.PlayAudio(LevelUpSound);
         while(time < LevelUpEventTime)
         {
             time += Time.deltaTime;

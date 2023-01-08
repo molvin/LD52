@@ -259,6 +259,7 @@ MonoBehaviour:
   Sprite: {fileID: 0}
   Color: {r: 0, g: 0, b: 0, a: 0}
   Description: 
+  Renderer: {fileID: 9069573803113982286}
 --- !u!114 &735666923131083204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,6 +465,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2175012472069333141}
     m_Modifications:
+    - target: {fileID: 1302437742286243012, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
+      propertyPath: LevelUpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 82775f67b902d664793cd6a073cef80a, type: 3}
     - target: {fileID: 1302437742286243035, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
       propertyPath: m_Name
       value: HPBar

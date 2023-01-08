@@ -213,9 +213,22 @@ public class GameManager : MonoBehaviour
         {
             spawnPoint.y = 1.0f;
             GameObject instance = Instantiate(prefab, spawnPoint, Quaternion.identity);
-            EntitiesInGame.Add(instance.GetComponent<Entity>());
+            Entity ent = instance.GetComponent<Entity>();
+            EntitiesInGame.Add(ent);
             DontDestroyOnLoad(instance);
-            newEnts.Add(instance.GetComponent<Entity>());
+            newEnts.Add(ent);
+
+            if(ent.Team == Team.Player)
+            {
+                if(Level != 0)
+                {
+                    //Randomize color
+
+                }
+                var info = ent.GetComponent<UnitName>();
+                info.UpdateColor();
+
+            }
         }
         return newEnts;
     }
@@ -254,7 +267,7 @@ public class GameManager : MonoBehaviour
                 UnitSoul soul = e.Get<UnitSoul>();
                 soul.SoulAmount *= soul.SoulGrowthRate;
                 e.GetComponentInChildren<HealthBar>().UnitLevelUp((int)soul.SoulAmount);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.6f);
             }
         }
 
