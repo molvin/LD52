@@ -13,7 +13,7 @@ public class UnitHealth : UnitBase
         if (Current == 0)
             return;
         Current = Mathf.Max(Current - dmg, 0);
-        healthBar.UnitTakeDamage(dmg);
+        healthBar?.UnitTakeDamage(dmg);
         if (Current == 0)
         {
             GameManager.Instance?.KillUnit(Entity);
