@@ -44,8 +44,11 @@ public class HealthBar : MonoBehaviour
         initialLocalPosition = transform.localPosition;
         SetMaxHP(health);
 
-        UnitSoul soul = GetComponentInParent<UnitSoul>();   
-        LevelUpText.text = $"{(int)soul.SoulAmount}";
+        UnitSoul soul = GetComponentInParent<UnitSoul>();
+        if (soul)
+            LevelUpText.text = $"{(int)soul.SoulAmount}";
+        else
+            LevelUpText.enabled = false;
     }
 
     private void SetMaxHP(UnitHealth health)
@@ -124,7 +127,7 @@ public class HealthBar : MonoBehaviour
             time += Time.deltaTime;
             float factor = time / LevelUpEventTime;
             float framestep = LevelUpCurve.Evaluate(factor);
-            LevelUpText.gameObject.transform.localPosition = new Vector3(-40, framestep, 0);
+            LevelUpText.rectTransform.anchoredPosition = new Vector2(-40, framestep);
             yield return null;
         }
         LevelUpText.text = level + "";

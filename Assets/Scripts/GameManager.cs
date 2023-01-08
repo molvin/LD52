@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
         switch (CurrentState)
         {
             case State.Start:
-                info?.Toggle(false);
                 break;
             case State.Game:
                 if (enemyUnits.Count == 0)
@@ -72,16 +71,12 @@ public class GameManager : MonoBehaviour
                     CurrentState = State.End;
                     StartCoroutine(End(false));
                 }
-                info?.Toggle(false);
                 break;
             case State.Harvest:
-                info?.Toggle(true);
                 break;
             case State.End:
-                info?.Toggle(true);
                 break;
             case State.Transition:
-                info?.Toggle(false);
                 break;
         }
     }
@@ -251,17 +246,23 @@ public class GameManager : MonoBehaviour
     private IEnumerator End(bool skipHarvest)
     {
         // Get souls
-        foreach (Entity e in playerUnits)
-        {
-            UnitSoul soul = e.Get<UnitSoul>();
-            soul.SoulAmount *= soul.SoulGrowthRate;
-            e.GetComponentInChildren<HealthBar>().UnitLevelUp((int) soul.SoulAmount);
-            yield return new WaitForSeconds(0.1f);
-        }
-
-        yield return new WaitForSeconds(1.0f);
 
         if(!skipHarvest)
+        {
+            foreach (Entity e in playerUnits)
+            {
+                UnitSoul soul = e.Get<UnitSoul>();
+                soul.SoulAmount *= soul.SoulGrowthRate;
+                e.GetComponentInChildren<HealthBar>().UnitLevelUp((int)soul.SoulAmount);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+
+
+        yield return new WaitForSeconds(1.0f);
+        info?.Toggle(true);
+
+        if (!skipHarvest)
             StartCoroutine(HarvestDoor.Toggle(true));
         yield return ExitDoor.Toggle(true);
 
@@ -289,6 +290,8 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         CurrentState = State.Transition;
+        info?.Toggle(false);
+
 
         InputManager.Instance.enabled = false;
         foreach(Entity e in playerUnits)
