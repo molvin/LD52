@@ -122,6 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6427184ef85f879458505c6ee0244c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ObstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
   Damage: 80
   AttackDistance: 2.5
   AttackTime: 0.2
@@ -129,6 +132,7 @@ MonoBehaviour:
   WindDownTime: 0
   TimeToStrike: 0
   ExplosionRadius: 5
+  ExplosionSound: {fileID: 8300000, guid: 11480c0cc1cfda6478b702ea01d788f7, type: 3}
 --- !u!114 &1939475489654852285
 MonoBehaviour:
   m_ObjectHideFlags: 0
