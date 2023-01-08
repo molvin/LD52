@@ -56,6 +56,7 @@ public class Movement : UnitBase
         }
 
         FollowPath();
+        MoveWithCollision();
 
         if (DebugDraw)
             DrawDebug();
@@ -65,6 +66,12 @@ public class Movement : UnitBase
     {
         if (CurrentPath.Count == 0)
             return;
+
+        // Check path
+        if (ClearedPathPoint + 1 < CurrentPath.Count && transform.position.Dist2D(CurrentPath[ClearedPathPoint + 1]) <= StoppingDistance)
+        {
+            ClearedPathPoint++;
+        }
 
         // Target path point
         Vector3 Target = CurrentPath[0];
@@ -85,20 +92,43 @@ public class Movement : UnitBase
         // Clamp max speed
         velocity += Delta;
         velocity = Vector3.ClampMagnitude(velocity, Speed);
-
-        MoveWithCollision();
-
-        // Check path
-        if (ClearedPathPoint + 1 < CurrentPath.Count && transform.position.Dist2D(CurrentPath[ClearedPathPoint + 1]) <= StoppingDistance)
-        {
-            ClearedPathPoint++;
-        }
     }
 
     private void MoveWithCollision()
     {
-        transform.position += velocity * Time.deltaTime;
-        transform.position = new Vector3(transform.position.x, Y, transform.position.z);
+        Vector3 MovePosition = transform.position + velocity * Time.deltaTime;
+
+        if (NavMesh.SamplePosition(MovePosition, out NavMeshHit NavHit, CollisionRadius * 2.0f, NavMesh.AllAreas))
+        {
+            Vector3 delta = MovePosition - NavHit.position;
+            // Enough diff to do something
+            if (delta.magnitude > CollisionRadius * 0.1f)
+            {
+                delta.Normalize();
+                velocity = (velocity - Vector3.Project(velocity, delta) * Time.deltaTime).normalized * velocity.magnitude;
+            }
+
+            transform.position = new Vector3(NavHit.position.x, Y, NavHit.position.z);
+        }
+
+        // Collision with other movements
+        List<Movement> OtherMovement = GameManager.Instance.EntitiesInGame
+            .Where(e => e != Entity && e.Has<Movement>())
+            .Select(e => e.Get<Movement>())
+            .ToList();
+        
+        Vector3 LargestPenetration = Vector3.zero;
+        foreach (Movement Other in OtherMovement)
+        {
+            Vector3 Delta = transform.position - Other.transform.position;
+            float Penetration = (CollisionRadius + Other.CollisionRadius) - Delta.magnitude;
+            if (Penetration > LargestPenetration.magnitude)
+            {
+                LargestPenetration = Delta.normalized * Penetration;
+            }
+        }
+
+        transform.position += Vector3.ClampMagnitude(LargestPenetration * Speed * Time.deltaTime, LargestPenetration.magnitude);
     }
 
     public void FindPath(Vector3 Destination)
@@ -115,7 +145,7 @@ public class Movement : UnitBase
         ClearedPathPoint = 0;
         CurrentPath.Clear();
 
-        if (!Physics.Raycast(transform.position, ToDestination.normalized, out RaycastHit RayHit, ToDestination.magnitude, ObstacleMask))
+        if (!Physics.SphereCast(transform.position, CollisionRadius, ToDestination.normalized, out RaycastHit RayHit, ToDestination.magnitude, ObstacleMask))
         {
             CurrentPath.Clear();
             CurrentPath.Add(transform.position);
