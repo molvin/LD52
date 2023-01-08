@@ -277,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
+  Team: 0
 --- !u!114 &4348356359522723613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +290,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2941f7fe74463341a1e2bcc8ae282f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Helath: 0
+  Max: 0
+  Current: 0
+  healthBar: {fileID: 0}
 --- !u!1 &6911723964001870321
 GameObject:
   m_ObjectHideFlags: 0
