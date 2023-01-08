@@ -5,6 +5,7 @@ using System.Linq;
 
 public abstract class UnitAttack : UnitBase
 {
+    public LayerMask ObstacleMask;
     public int Damage;
     public float AttackDistance;
     public float AttackTime;
@@ -27,7 +28,6 @@ public abstract class UnitAttack : UnitBase
             return;
         }
 
-
         List<Entity> Enemies = GameManager.Instance.EntitiesInGame
             .Where(e => e.Team != Entity.Team)
             .Where(e => e.Has<UnitHealth>())
@@ -41,12 +41,13 @@ public abstract class UnitAttack : UnitBase
                 return;
 
             RaycastHit Hit;
-            if (Physics.Raycast(
+            if (!Physics.SphereCast(
                 transform.position,
+                0.6f,
                 (Enemy.transform.position - transform.position).normalized,
                 out Hit,
-                AttackDistance)
-            && Hit.transform == Enemy.transform)
+                AttackDistance,
+                ObstacleMask))
             {
                 StartCoroutine(AttackActionStart(Enemy));
                 break;

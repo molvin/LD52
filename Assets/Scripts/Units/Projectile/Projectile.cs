@@ -67,6 +67,7 @@ public class Projectile : MonoBehaviour
     {
         if (Time.time >= EndTime)
         {
+            Explode(transform.position);
             ObjectPool.Instance.ReturnInstance(gameObject);
         }
 
@@ -130,22 +131,7 @@ public class Projectile : MonoBehaviour
         // Explosion
         else if (ExplodingOnImpact && HitPoint != null)
         {
-            GameManager.Instance.EntitiesInGame
-                .Where(e => e.Team != Owner.Team && e.Has<UnitHealth>() && e.transform.position.Dist2D(HitPoint.Value) < ImpactExplosionRadius)
-                .Where(e =>
-                {
-                    Vector3 Direction = e.transform.position - transform.position;
-                    return Physics.Raycast(transform.position, Direction.normalized, out RaycastHit Hit, Direction.magnitude, LayerMask) && Hit.transform == e.transform;
-                })
-                .Select(e =>  e.Get<UnitHealth>())
-                .ToList()
-                .ForEach(h => h.TakeDamage(Damage));
-
-            // Explosion effect
-            GameObject Aoe = ObjectPool.Instance.GetInstance(AoeEffect);
-            Vector3 pos = transform.position;
-            Aoe.transform.position = new Vector3(pos.x, 0.1f, pos.z);
-            Aoe.transform.localScale = Vector3.one * ImpactExplosionRadius;
+            Explode(HitPoint.Value);
         }
         // Hit an enemy
         else if (HitEntity != null)
@@ -195,6 +181,26 @@ public class Projectile : MonoBehaviour
         {
             ObjectPool.Instance.ReturnInstance(gameObject);
         }
+    }
+
+    void Explode(Vector3 Position)
+    {
+        GameManager.Instance.EntitiesInGame
+            .Where(e => e.Team != Owner.Team && e.Has<UnitHealth>() && e.transform.position.Dist2D(Position) < ImpactExplosionRadius)
+            .Where(e =>
+            {
+                Vector3 Direction = e.transform.position - Position;
+                return Physics.Raycast(Position, Direction.normalized, out RaycastHit Hit, Direction.magnitude, LayerMask) && Hit.transform == e.transform;
+            })
+            .Select(e =>  e.Get<UnitHealth>())
+            .ToList()
+            .ForEach(h => h.TakeDamage(Damage));
+
+        // Explosion effect
+        GameObject Aoe = ObjectPool.Instance.GetInstance(AoeEffect);
+        Vector3 pos = Position;
+        Aoe.transform.position = new Vector3(pos.x, 0.1f, pos.z);
+        Aoe.transform.localScale = Vector3.one * ImpactExplosionRadius;
     }
 
     void SplitProjectile(Vector3 Offset)
