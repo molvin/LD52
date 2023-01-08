@@ -761,6 +761,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 136363085192390071, guid: 0c0b9d968419ebf4fbbc088a03d18ce1, type: 3}
+      propertyPath: ObstacleMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 2784453528349706697, guid: 0c0b9d968419ebf4fbbc088a03d18ce1, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -811,6 +815,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c0b9d968419ebf4fbbc088a03d18ce1, type: 3}
+--- !u!1 &1228469087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2784453528349706701, guid: 0c0b9d968419ebf4fbbc088a03d18ce1, type: 3}
+  m_PrefabInstance: {fileID: 1174490589}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1228469097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228469087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45488186c7930494a8e344033aeab6d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target_gameObject: {fileID: 1963372831}
+  radius: 35
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1001 &1301331488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1274,6 +1300,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705188099}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1963372831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 334124308755163333, guid: 0c0b9d968419ebf4fbbc088a03d18ce1, type: 3}
+  m_PrefabInstance: {fileID: 1174490589}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7492817918482424148
 PrefabInstance:
   m_ObjectHideFlags: 0
