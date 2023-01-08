@@ -207,6 +207,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   CollisionRadius: 1.2
+  Mass: 1
   Speed: 2.5
   Acceleration: 16
   CanMove: 1
@@ -257,6 +258,8 @@ MonoBehaviour:
   UnitType: 
   Sprite: {fileID: 0}
   Color: {r: 0, g: 0, b: 0, a: 0}
+  Description: 
+  Renderer: {fileID: 9069573803113982286}
 --- !u!114 &735666923131083204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,9 +465,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2175012472069333141}
     m_Modifications:
+    - target: {fileID: 1302437742286243012, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
+      propertyPath: LevelUpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 82775f67b902d664793cd6a073cef80a, type: 3}
     - target: {fileID: 1302437742286243035, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
       propertyPath: m_Name
       value: HPBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302437742286243035, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1792815888703941824, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
       propertyPath: m_Pivot.x
@@ -548,6 +559,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1792815888703941824, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525012097951144232, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
+      propertyPath: m_fontSize
+      value: 14.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820958377946999493, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 15.872
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820958377946999493, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 15.872
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820958377946999493, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820958377946999493, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820958377946999493, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
