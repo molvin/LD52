@@ -7,13 +7,15 @@ using System.Linq;
 public class FieldOfView : MonoBehaviour
 {
     public LayerMask obstacleMask;
+
     public float viewRadius = 10;
+
     public float meshResolution;
     public int edgeResolveIterations;
     public float edgeDstThreshold;
-    public MeshFilter viewMeshFilter;
+    public int stepSize = 5;
 
-    public float cleanDotArc = .5f;
+    public MeshFilter viewMeshFilter;
     Mesh viewMesh;
 
     void Start()
@@ -36,9 +38,10 @@ public class FieldOfView : MonoBehaviour
         List<Vector3> viewPoints = new List<Vector3>();
         ViewCastInfo oldViewCast = new ViewCastInfo();
 
-        for (int i = 0; i <= 360; i++)
+        for (int i = 0; i <= 360/ stepSize; i++)
         {
-            ViewCastInfo newViewCast = ViewCast(i, this.transform);
+            
+            ViewCastInfo newViewCast = ViewCast(i * stepSize, this.transform);
 
             if (i > 0)
             {
@@ -66,23 +69,11 @@ public class FieldOfView : MonoBehaviour
         return viewPoints;
 
     }
-    void dotCleanPointCloud(ref List<Vector3> data)
-    {
-        for(int i = data.Count - 2; i > 2; i--)
-        {
-            Vector3 left = data[i + 1] - data[i];
-            Vector3 right = data[i] - data[i - 1];
-            float dot = Vector3.Dot(left.normalized, right.normalized);
-            if(((dot + 1f)/2f) > (1f - cleanDotArc))
-                data.RemoveAt(i);
-        }
-    }
+
     void DrawFieldOfView()
     {
-        List<Vector3> viewPoints = getViewPoints();//produce point cloud
-        dotCleanPointCloud(ref viewPoints); // clean the point cloud before mesh generation
+        List<Vector3> viewPoints = getViewPoints();
 
-        //produce mesh
         Vector3[] vertices = new Vector3[viewPoints.Count + 1];
         Vector2[] uvs = new Vector2[viewPoints.Count + 1];
         int[] triangles = new int[(viewPoints.Count) * 3];
@@ -150,6 +141,7 @@ public class FieldOfView : MonoBehaviour
 
         return new EdgeInfo(minPoint, maxPoint);
     }
+
 
     ViewCastInfo ViewCast(float globalAngle, Transform transform)
     {

@@ -13,6 +13,8 @@ public abstract class UnitAttack : UnitBase
     private float LastAttackTime = 0.0f;
     public float WindUpTime;
     public float WindDownTime;
+    [Header("Audio")]
+    public AudioClip AttackSound;
 
     [HideInInspector]
     public bool TimeToStrike;

@@ -5,8 +5,6 @@ using UnityEngine;
 public class UnitKamikazeAttack : UnitAttack
 {
     public float ExplosionRadius;
-    [Header("Audio")]
-    public AudioClip ExplosionSound;
     private bool Exploding;
 
     protected override void Attack(Entity Target)
@@ -34,7 +32,7 @@ public class UnitKamikazeAttack : UnitAttack
                 }
             }
         }
-        AudioManager.Instance.PlayAudio(ExplosionSound, transform.position);
+        AudioManager.Instance.PlayAudio(AttackSound, transform.position);
         Entity.Get<UnitHealth>().TakeDamage(500000000);
         yield return 0;
     }

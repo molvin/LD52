@@ -126,13 +126,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   Damage: 80
+  KnockbackForce: 0
   AttackDistance: 2.5
   AttackTime: 0.2
   WindUpTime: 0
   WindDownTime: 0
+  AttackSound: {fileID: 8300000, guid: edaee911a2b331e4c9f80bcc3813e8f1, type: 3}
   TimeToStrike: 0
   ExplosionRadius: 5
-  ExplosionSound: {fileID: 8300000, guid: 11480c0cc1cfda6478b702ea01d788f7, type: 3}
 --- !u!114 &1939475489654852285
 MonoBehaviour:
   m_ObjectHideFlags: 0

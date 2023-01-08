@@ -224,6 +224,7 @@ MonoBehaviour:
   AttackTime: 2
   WindUpTime: 0.4
   WindDownTime: 0.1
+  AttackSound: {fileID: 8300000, guid: dea29d70fa442134183ea9ab0a3eda23, type: 3}
   TimeToStrike: 0
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
   ProjectileCount: 1
@@ -263,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82af7d03d21c3cf438ade02125bb4ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoulAmount: 0
+  SoulAmount: 15
   SoulGrowthRate: 1.5
 --- !u!114 &4189212999773731785
 MonoBehaviour:
