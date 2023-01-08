@@ -707,8 +707,13 @@ MonoBehaviour:
   - Cost: 0
     Units:
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
-  - Cost: 25
+  - Cost: 20
     Units:
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+  - Cost: 30
+    Units:
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
     - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
   - Cost: 45
     Units:

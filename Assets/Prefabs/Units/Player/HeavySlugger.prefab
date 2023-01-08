@@ -106,6 +106,7 @@ MonoBehaviour:
   stepSize: 5
   viewMeshFilter: {fileID: 4314614498920062741}
   cleanDotArc: 0.1
+  frameInterval: 4
 --- !u!1001 &4449335927239643639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,6 +194,10 @@ PrefabInstance:
       propertyPath: Current
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da2da76fc810c7347bbf5fd38537fcae, type: 3}
     m_RemovedComponents:
     - {fileID: 735666923131083204, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79278edec3de2514fbfae723f81b8460, type: 3}

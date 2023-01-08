@@ -238,6 +238,10 @@ PrefabInstance:
       propertyPath: Current
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da2da76fc810c7347bbf5fd38537fcae, type: 3}
     - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
