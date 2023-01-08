@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     public float ClickSelectRadius;
 
     private bool selecting;
+    private bool doubleClickWindow;
     private Vector2 selectStart;
     private Vector2 selectEnd;
     public List<Selectable> Selected = new List<Selectable>();
@@ -24,7 +25,7 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        if (!selecting && Input.GetMouseButtonDown(0))
+        if (!selecting && !doubleClickWindow && Input.GetMouseButtonDown(0))
         {
             selecting = true;
             StartCoroutine(Select());
@@ -38,44 +39,49 @@ public class InputManager : MonoBehaviour
 
             Move(targetPos);
         }
+        if(Input.GetButtonDown("Stop"))
+        {
+            foreach (Selectable s in Selected)
+                s.TargetPosition = s.transform.position;
+        }
     }
     private IEnumerator Select()
     {
         selectStart = selectEnd = Input.mousePosition;
-        float startTime = Time.time;
         while(!Input.GetMouseButtonUp(0))
         {
             selectEnd = Input.mousePosition;
             yield return null;
         }
-        bool doubleClick = false;
-        float t = DoubleClickTime - (Time.time - startTime);
-        while(t > 0.0f)
+        StartCoroutine(DoubleClick());
+
+        selecting = false;
+        if((selectStart - selectEnd).magnitude < BoxSelectMinDist)
+            FinishSelect(SelectOne(false));
+        else
+            FinishSelect(BoxSelect());
+    }
+    private IEnumerator DoubleClick()
+    {
+        doubleClickWindow = true;
+        float t = DoubleClickTime;
+        while (t > 0.0f)
         {
             t -= Time.deltaTime;
-            if(Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
-                doubleClick = true;
+                FinishSelect(SelectOne(true));
                 break;
             }
             yield return null;
         }
-
-        foreach (Selectable u in Selected)
-            u.Selected = false;
-        Selected.Clear();
-
-        selecting = false;
-        if((selectStart - selectEnd).magnitude < BoxSelectMinDist)
-            FinishSelect(SelectOne(doubleClick));
-        else
-            FinishSelect(BoxSelect());
+        doubleClickWindow = false;
     }
 
     private List<Selectable> SelectOne(bool all)
     {
         Camera cam = Camera.main;
-        Ray ray = cam.ScreenPointToRay((selectStart + selectEnd) / 2.0f);
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         groundPlane.Raycast(ray, out float enter);
         Vector3 center = ray.GetPoint(enter);
         Debug.DrawRay(center, Vector3.up * ClickSelectRadius, Color.red, 10.0f);
@@ -133,6 +139,14 @@ public class InputManager : MonoBehaviour
 
     private void FinishSelect(List<Selectable> newSelected)
     {
+        if (Input.GetButton("Add"))
+            newSelected = newSelected.Union(Selected).ToList();
+        if (Input.GetButton("Subtract"))
+        {
+            var intersect = Selected.Intersect(newSelected).ToList();
+            newSelected = Selected.Where(x => !intersect.Contains(x)).ToList();
+        }
+
         foreach (Selectable s in Selected)
             s.Selected = false;
 

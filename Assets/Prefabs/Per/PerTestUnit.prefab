@@ -70,6 +70,7 @@ MonoBehaviour:
   TargetPosition: {x: 0, y: 0, z: 0}
   Spacing: 2
   DebugMove: 1
+  DebugMoveSpeed: 3
   SelectedCircle: {fileID: 3147947939126628723}
 --- !u!114 &3147947938770173221
 MonoBehaviour:
@@ -98,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoulAmount: 10
-  SoulGrowthRate: 0
-  BaseSoul: 0
+  SoulGrowthRate: 1.25
+  BaseSoul: 10
 --- !u!114 &807979208656969647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +491,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 07af2e06293315e4eaaee6b3a2e1da2c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

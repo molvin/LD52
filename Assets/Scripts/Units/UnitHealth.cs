@@ -16,7 +16,7 @@ public class UnitHealth : UnitBase
         healthBar.UnitTakeDamage(dmg);
         if (Current == 0)
         {
-            GameManager.Instance.KillUnit(Entity);
+            GameManager.Instance?.KillUnit(Entity);
         }
     }
 }

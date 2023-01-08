@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Selectable : MonoBehaviour
+public class Selectable : UnitBase
 {   
     public int Type;
     public bool Selected;
     public Vector3 TargetPosition;
     public float Spacing;
     public bool DebugMove;
+    public float DebugMoveSpeed;
 
     public SpriteRenderer SelectedCircle;
 
-    private void Awake()
+    protected new void Awake()
     {
+        base.Awake();
         TargetPosition = transform.position;
     }
 
@@ -25,7 +27,7 @@ public class Selectable : MonoBehaviour
             Vector3 vel = Vector3.zero;
             Vector3 target = TargetPosition;
             target.y = transform.position.y;
-            transform.position = Vector3.SmoothDamp(transform.position, target, ref vel, 0.1f);
+            transform.position = Vector3.MoveTowards(transform.position, target, DebugMoveSpeed * Time.deltaTime);
         }
     }
 }

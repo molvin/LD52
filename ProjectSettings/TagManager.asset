@@ -12,9 +12,10 @@ TagManager:
   - Water
   - UI
   - volume
-  - selection
-  - 
-  - 
+  - SelectionBlobs
+  - Obstacle
+  - FieldOfViewMesh
+  - Unit
   - 
   - 
   - 
