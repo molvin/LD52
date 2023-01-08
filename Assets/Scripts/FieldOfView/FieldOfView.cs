@@ -18,20 +18,24 @@ public class FieldOfView : MonoBehaviour
     public MeshFilter viewMeshFilter;
     public float cleanDotArc = 0.1f;
     Mesh viewMesh;
-
+    public int frameInterval = 4;
+    private int frameOfset;
     void Start()
     {
         viewMesh = new Mesh();
         
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
+
+        frameOfset = Random.Range(0, frameInterval);
     }
 
 
  
     void LateUpdate()
     {
-        DrawFieldOfView();
+        if ((Time.frameCount + frameOfset) % frameInterval == 0)
+            DrawFieldOfView();
     }
 
     List<Vector3> getViewPoints()
