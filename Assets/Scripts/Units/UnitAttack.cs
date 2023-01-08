@@ -11,6 +11,8 @@ public abstract class UnitAttack : UnitBase
     private float LastAttackTime = 0.0f;
     public float WindUpTime;
     public float WindDownTime;
+
+    [HideInInspector]
     public bool TimeToStrike;
 
     public bool CanAttack() => Time.time - LastAttackTime > AttackTime;
@@ -57,6 +59,12 @@ public abstract class UnitAttack : UnitBase
         TimeToStrike = true;
         Entity.Get<Movement>().CanMove = false;
         yield return new WaitForSeconds(WindUpTime);
+        if(Enemy = null)
+        {
+            Entity.Get<Movement>().CanMove = true;
+            TimeToStrike = false;
+            yield break;
+        }
         Attack(Enemy);
         LastAttackTime = Time.time;
         yield return new WaitForSeconds(WindDownTime);
