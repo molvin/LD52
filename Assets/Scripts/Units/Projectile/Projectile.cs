@@ -7,13 +7,17 @@ public class Projectile : MonoBehaviour
 {
     public LayerMask LayerMask;
     public GameObject AoeEffect;
+
+    public SpriteRenderer projectileColor;
+    public TrailRenderer TrailColor;
+
     bool Ricocheting, Pierce, ExplodingOnImpact, Split;
     int PierceTargetCount;
     float ProjectileSpeed, ImpactExplosionRadius, ProjectileLifeTime;
     float ProjectileSize;
     float KnockbackForce;
     int Damage;
-
+    Color color;
     Entity Owner;
     float EndTime;
     BoxCollider Collider;
@@ -41,6 +45,7 @@ public class Projectile : MonoBehaviour
         float projectileLifetime,
         float impactExplosionRadius,
         float knockbackForce,
+        Color color_in,
         List<Entity> ignoreTargets
         )
     {
@@ -62,7 +67,8 @@ public class Projectile : MonoBehaviour
 
         ProjectileLifeTime = projectileLifetime;
         EndTime = Time.time + projectileLifetime;
-
+        color = color_in;
+        setColor(color);
         IgnoreTargets = ignoreTargets;
     }
 
@@ -220,6 +226,13 @@ public class Projectile : MonoBehaviour
         Aoe.transform.localScale = Vector3.one * ImpactExplosionRadius;
     }
 
+    private void setColor(Color in_color)
+    {
+        projectileColor.color = in_color;
+        TrailColor.colorGradient.colorKeys[0].color = in_color;
+        TrailColor.colorGradient.colorKeys[1].color = in_color;
+    }
+
     void SplitProjectile(Vector3 Offset)
     {
         Vector3 FirstDir = (transform.forward + transform.right).normalized;
@@ -249,6 +262,7 @@ public class Projectile : MonoBehaviour
                  ProjectileLifeTime,
                  ImpactExplosionRadius,
                  KnockbackForce,
+                 color,
                  IgnoreTargets);
         }
     }

@@ -52,6 +52,7 @@ public class UnitRangedAttack : UnitAttack
                 ProjectileLifetime,
                 ImpactExplosionRadius,
                 KnockbackForce,
+                Color.blue,
                 new List<Entity>());
             }
     }
