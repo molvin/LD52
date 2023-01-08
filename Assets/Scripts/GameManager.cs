@@ -105,6 +105,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartLevel(List<Entity> ents, bool harvest)
     {
+        ToggleEnemies(false);
+
         InputManager.Instance.enabled = false;
 
         List<Selectable> selected = new List<Selectable>();
@@ -152,6 +154,8 @@ public class GameManager : MonoBehaviour
 
         InputManager.Instance.enabled = true;
         CurrentState = harvest ? State.Harvest : State.Game;
+
+        ToggleEnemies(true);
     }
 
     public void SpawnPlayerUnits(List<GameObject> prefabs)
@@ -289,6 +293,14 @@ public class GameManager : MonoBehaviour
         Level = Mathf.Min(Level + 1, Levels.Length - 1);
         SceneManager.LoadScene(Levels[Level]);
         yield return null;
+    }
+
+    private void ToggleEnemies(bool on)
+    {
+        foreach(Entity ent in enemyUnits)
+        {
+            ent.GetComponent<AIBrainBase>().enabled = on;
+        }
     }
 
 }
