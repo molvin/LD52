@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
         Game,
         Harvest,
         End,
-        Transition
+        Transition,
+        StartMenu
     }
 
 
@@ -78,6 +79,11 @@ public class GameManager : MonoBehaviour
                 break;
             case State.Transition:
                 break;
+            case State.StartMenu:
+                CurrentState = State.End;
+                StartCoroutine(End(false));        
+                info?.Toggle(false);
+                break;
         }
     }
 
@@ -91,6 +97,10 @@ public class GameManager : MonoBehaviour
                 Destroy(ent.gameObject);
             }
             playerUnits.Clear();
+            CurrentState = State.StartMenu;
+        } else
+        {
+            CurrentState = State.Start;
         }
 
         info = FindObjectOfType<UnitInfo>();
@@ -107,7 +117,7 @@ public class GameManager : MonoBehaviour
                 ExitDoor = door;
         }
 
-        CurrentState = State.Start;
+        //CurrentState = State.Start;
 
         ObjectPool.Instance.Clear();
         EntitiesInGame = FindObjectsOfType<Entity>().ToList();
@@ -126,7 +136,7 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        else if (Level == 0 && scene.name != "MainMenu")
+        else //if (Level == 0 && scene.name != "MainMenu")
         {
             SpawnPlayerUnits(StartSquad);
         }
