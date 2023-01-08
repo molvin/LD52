@@ -13,6 +13,7 @@ public class FieldOfView : MonoBehaviour
     public float meshResolution;
     public int edgeResolveIterations;
     public float edgeDstThreshold;
+    public int stepSize = 5;
 
     public MeshFilter viewMeshFilter;
     Mesh viewMesh;
@@ -37,9 +38,10 @@ public class FieldOfView : MonoBehaviour
         List<Vector3> viewPoints = new List<Vector3>();
         ViewCastInfo oldViewCast = new ViewCastInfo();
 
-        for (int i = 0; i <= 360; i++)
+        for (int i = 0; i <= 360/ stepSize; i++)
         {
-            ViewCastInfo newViewCast = ViewCast(i, this.transform);
+            
+            ViewCastInfo newViewCast = ViewCast(i * stepSize, this.transform);
 
             if (i > 0)
             {
