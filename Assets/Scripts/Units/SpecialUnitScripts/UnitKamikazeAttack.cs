@@ -4,39 +4,31 @@ using UnityEngine;
 
 public class UnitKamikazeAttack : UnitAttack
 {
-    public float ExplosionActivationRange, ExplosionRadius;
-    public bool Exploding;
+    public float ExplosionRadius;
+    private bool Exploding;
 
     protected override void Attack(Entity Target)
     {
         if (!Exploding)
         {
-            StartCoroutine(GoKaploow(Target));
+            StartCoroutine(GoKaploow());
         }
-
-
-
-        //Target.Get<UnitHealth>().TakeDamage(Damage);
-
-        
-        
-
-
     }
-     private IEnumerator GoKaploow(Entity Target)
+
+     private IEnumerator GoKaploow()
     {
         Exploding = true;
         Entity.Get<Movement>().enabled = false;
         yield return new WaitForSeconds(1);
-        for (int i = 0; i < GameManager.Instance.playerUnits.Count; i++)
+        List<Entity> Players = GameManager.Instance.playerUnits;
+        foreach (Entity player in Players)
         {
-            if (Vector2.Distance(Entity.gameObject.transform.position, Target.gameObject.transform.position) <= ExplosionRadius)
+            if (Vector2.Distance(Entity.transform.position, player.transform.position) <= ExplosionRadius)
             {
                 RaycastHit Hit;
-                if (Physics.Raycast(transform.position, (GameManager.Instance.playerUnits[i].gameObject.transform.position - Entity.gameObject.transform.position).normalized, out Hit, AttackDistance) && Hit.transform == GameManager.Instance.playerUnits[i].gameObject.transform)
+                if (Physics.Raycast(transform.position, (player.transform.position - Entity.transform.position).normalized, out Hit, ExplosionRadius) && Hit.transform == player.transform)
                 {
-                    GameManager.Instance.playerUnits[i].GetComponent<UnitHealth>().TakeDamage(Damage);
-
+                    player.Get<UnitHealth>().TakeDamage(Damage);
                 }
             }
         }

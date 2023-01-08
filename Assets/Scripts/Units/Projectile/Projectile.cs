@@ -17,6 +17,7 @@ public class Projectile : MonoBehaviour
     float EndTime;
     BoxCollider Collider;
     GameObject Prefab;
+    List<Entity> IgnoreTargets;
 
     void Awake()
     {
@@ -37,7 +38,8 @@ public class Projectile : MonoBehaviour
         float projectileSpeed,
         float projectileSize,
         float projectileLifetime,
-        float impactExplosionRadius
+        float impactExplosionRadius,
+        List<Entity> ignoreTargets
         )
     {
         Prefab = prefab;
@@ -57,6 +59,8 @@ public class Projectile : MonoBehaviour
 
         ProjectileLifeTime = projectileLifetime;
         EndTime = Time.time + projectileLifetime;
+
+        IgnoreTargets = ignoreTargets;
     }
 
     void Update()
@@ -66,9 +70,11 @@ public class Projectile : MonoBehaviour
             ObjectPool.Instance.ReturnInstance(gameObject);
         }
 
-        bool IsDone = false;
-        float? HitEnemyRadius = null;
-        Vector3? ExplosionPoint = null;
+        //bool IsDone = false;
+        //float? HitEnemyRadius = null;
+        Entity HitEntity = null;
+        Vector3? HitPoint = null;
+        Vector3 HitNormal = Vector3.zero;
 
         RaycastHit[] Hits = Physics.SphereCastAll(transform.position, ProjectileSize * 0.5f, transform.forward, ProjectileSpeed * Time.deltaTime * 1.5f, LayerMask);
         foreach (RaycastHit Hit in Hits)
@@ -79,33 +85,53 @@ public class Projectile : MonoBehaviour
             if (!Entity)
                 Entity = Hit.transform.GetComponentInParent<Entity>();
 
-            if (Entity == null || Entity.Team != Owner.Team)
+            if (Entity && Entity.Team != Owner.Team && !IgnoreTargets.Contains(Entity))
             {
-                if (ExplodingOnImpact)
-                {
-                    ExplosionPoint = Hit.point;
-                }
-                else if (Entity && Entity.TryGet(out UnitHealth Health))
-                {
-                    Health.TakeDamage(Damage);
-                }
+                HitPoint = Hit.point;
+                HitEntity = Entity;
+                HitNormal = Hit.normal;
+                break;
 
-                if (Entity)
-                {
-                    if (Entity.TryGet(out Movement MoveComp))
-                        HitEnemyRadius = HitEnemyRadius != null ? Mathf.Max(HitEnemyRadius.Value, MoveComp.CollisionRadius) : MoveComp.CollisionRadius;
-                    else
-                        HitEnemyRadius = 0.0f;
-                }
+                //if (ExplodingOnImpact)
+                //{
+                    //ExplosionPoint = Hit.point;
+                //}
+                //else if (Entity && Entity.TryGet(out UnitHealth Health))
+                //{
+                    //if (Entity.TryGet(out Movement MoveComp))
+                        //HitEnemyRadius = HitEnemyRadius != null ? Mathf.Max(HitEnemyRadius.Value, MoveComp.CollisionRadius) : MoveComp.CollisionRadius;
+                    //else
+                        //HitEnemyRadius = 0.0f;
 
-                IsDone = true;
+                    //Health.TakeDamage(Damage);
+                    //IgnoreTargets.Add(Entity);
+                //}
+
+                //IsDone = true;
+            }
+            else if (Entity == null)
+            {
+                HitPoint = Hit.point;
+                HitNormal = Hit.normal;
+                //ExplosionPoint = Hit.point;
+                //IsDone = true;
             }
         }
 
-        if (ExplosionPoint != null)
+        if (ExplodingOnImpact && HitEntity != null && ((Pierce && PierceTargetCount > 0) || Split))
+        {
+            HitEntity.Get<UnitHealth>().TakeDamage(Damage);
+            IgnoreTargets.Add(HitEntity);
+        }
+        else if (ExplodingOnImpact && HitEntity == null && Ricocheting)
+        {
+
+        }
+        // Explosion
+        else if (ExplodingOnImpact && HitPoint != null)
         {
             GameManager.Instance.EntitiesInGame
-                .Where(e => e.Team != Owner.Team && e.Has<UnitHealth>() && e.transform.position.Dist2D(ExplosionPoint.Value) < ImpactExplosionRadius)
+                .Where(e => e.Team != Owner.Team && e.Has<UnitHealth>() && e.transform.position.Dist2D(HitPoint.Value) < ImpactExplosionRadius)
                 .Where(e =>
                 {
                     Vector3 Direction = e.transform.position - transform.position;
@@ -121,43 +147,85 @@ public class Projectile : MonoBehaviour
             Aoe.transform.position = new Vector3(pos.x, 0.1f, pos.z);
             Aoe.transform.localScale = Vector3.one * ImpactExplosionRadius;
         }
-
-        transform.position += transform.forward * ProjectileSpeed * Time.deltaTime;
-
-        if (HitEnemyRadius != null && Split)
+        // Hit an enemy
+        else if (HitEntity != null)
         {
-            Vector3 FirstDir = (transform.forward + transform.right).normalized;
-            Vector3 SecondDir = (transform.forward - transform.right).normalized;
+            HitEntity.Get<UnitHealth>().TakeDamage(Damage);
+            IgnoreTargets.Add(HitEntity);
+        }
+        // Hit something else
+        else if (HitPoint != null)
+        {
 
-            Fire(FirstDir);
-            Fire(SecondDir);
+        }
 
-            void Fire(Vector3 Direction)
+        // Hit anything
+        bool IsDone = HitPoint != null;
+
+        // Pierce & Split enemies
+        if (HitEntity != null)
+        {
+            float HitEnemyRadius = 0;
+            if (HitEntity.TryGet(out Movement MoveComp))
+                HitEnemyRadius = MoveComp.CollisionRadius;
+
+            float Offset = ProjectileSize + HitEnemyRadius;
+
+            if (Pierce && PierceTargetCount > 0)
             {
-                Vector3 SpawnPos = transform.position + Direction * (ProjectileSize + HitEnemyRadius.Value) * 1.5f;
-
-                Projectile projectile = ObjectPool.Instance.GetInstance(Prefab).GetComponent<Projectile>();
-                projectile.Fire(
-                     Prefab,
-                     SpawnPos,
-                     Direction,
-                     Owner,
-                     Damage,
-                     Ricocheting,
-                     Pierce,
-                     ExplodingOnImpact,
-                     false,
-                     PierceTargetCount,
-                     ProjectileSpeed,
-                     ProjectileSize,
-                     ProjectileLifeTime,
-                     ImpactExplosionRadius);
+                PierceTargetCount--;
+                IsDone = false;
+            }
+            else if (Split)
+            {
+                SplitProjectile(transform.forward * Offset);
             }
         }
+        // Ricochete
+        else if (HitPoint != null && Ricocheting)
+        {
+            IsDone = false;
+            transform.forward = transform.forward - 2.0f * Vector3.Dot(transform.forward, HitNormal) * HitNormal; 
+            Ricocheting = false;
+        }
+
+        transform.position += transform.forward * ProjectileSpeed * Time.deltaTime;
 
         if (IsDone)
         {
             ObjectPool.Instance.ReturnInstance(gameObject);
+        }
+    }
+
+    void SplitProjectile(Vector3 Offset)
+    {
+        Vector3 FirstDir = (transform.forward + transform.right).normalized;
+        Vector3 SecondDir = (transform.forward - transform.right).normalized;
+
+        Fire(FirstDir);
+        Fire(SecondDir);
+
+        void Fire(Vector3 Direction)
+        {
+            Vector3 SpawnPos = transform.position + Offset;
+
+            Projectile projectile = ObjectPool.Instance.GetInstance(Prefab).GetComponent<Projectile>();
+            projectile.Fire(
+                 Prefab,
+                 SpawnPos,
+                 Direction,
+                 Owner,
+                 Damage,
+                 Ricocheting,
+                 Pierce,
+                 ExplodingOnImpact,
+                 false,
+                 PierceTargetCount,
+                 ProjectileSpeed,
+                 ProjectileSize,
+                 ProjectileLifeTime,
+                 ImpactExplosionRadius,
+                 IgnoreTargets);
         }
     }
 }
