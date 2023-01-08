@@ -125,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
-      value: Marine
+      value: Shotgunner
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333141, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_RootOrder
@@ -173,11 +173,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Speed
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Acceleration
-      value: 128
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: AngularSpeed
@@ -185,11 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: StoppingDistance
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 3952488217610643842, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Max
@@ -203,6 +199,10 @@ PrefabInstance:
       propertyPath: Current
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1673362569, guid: dfdb7ba1cd421dd4698ea7c59a9019e2, type: 3}
     - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -245,8 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82af7d03d21c3cf438ade02125bb4ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoulAmount: 10
+  SoulAmount: 0
   SoulGrowthRate: 1.5
+  BaseSoul: 10
 --- !u!114 &7323735983174883943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,23 +263,23 @@ MonoBehaviour:
   ObstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  Damage: 10
-  AttackDistance: 20
-  AttackTime: 0.33
-  WindUpTime: 0
-  WindDownTime: 0
+  Damage: 5
+  AttackDistance: 9
+  AttackTime: 0.8
+  WindUpTime: 0.08
+  WindDownTime: 0.04
   TimeToStrike: 0
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
-  ProjectileCount: 1
-  ProjectileSpreadAngle: 45
-  Ricocheting: 0
+  ProjectileCount: 5
+  ProjectileSpreadAngle: 25
+  Ricocheting: 1
   Pierce: 0
   ExplodingOnImpact: 0
   Split: 0
   PierceTargetCount: 0
   ProjectileSize: 1
-  ProjectileSpeed: 35
-  ProjectileLifetime: 10
+  ProjectileSpeed: 40
+  ProjectileLifetime: 0.3
   ImpactExplosionRadius: 20
 --- !u!114 &8542069778249792774
 MonoBehaviour:
@@ -295,7 +296,7 @@ MonoBehaviour:
   Type: 0
   Selected: 0
   TargetPosition: {x: 0, y: 0, z: 0}
-  Spacing: 1.8
+  Spacing: 1.2
   DebugMove: 0
   DebugMoveSpeed: 0
   SelectedCircle: {fileID: 8779747190288893682}

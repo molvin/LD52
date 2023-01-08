@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -12,6 +13,8 @@ public class Door : MonoBehaviour
     public Transform SpawnPoint;
     public Transform TargetPoint;
 
+    public TextMeshProUGUI Text;
+
     public enum Type
     {
         Entry,
@@ -22,6 +25,9 @@ public class Door : MonoBehaviour
 
     public IEnumerator Toggle(bool open)
     {
+        if (open && Text)
+            Text.enabled = true;
+
         float time = open ? OpenTime : CloseTime;
 
         Anim.SetBool("Open", open);
