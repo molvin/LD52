@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
 
     public State CurrentState = State.Start;
 
+    [Header("Audio")]
+    public AudioClip GamePlayMusic;
+    public AudioClip HarvestMusic;
+
     private Door EntryDoor;
     private Door ExitDoor;
     private Door HarvestDoor;
@@ -138,6 +142,17 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartLevel(List<Entity> ents, bool harvest)
     {
+        if(harvest)
+        {
+            AudioManager.Instance.StopMusic(GamePlayMusic);
+            AudioManager.Instance.PlayMusic(HarvestMusic);
+        }
+        else
+        {
+            AudioManager.Instance.PlayMusic(GamePlayMusic);
+            AudioManager.Instance.StopMusic(HarvestMusic);
+        }
+
         ToggleEnemies(false);
 
         InputManager.Instance.enabled = false;

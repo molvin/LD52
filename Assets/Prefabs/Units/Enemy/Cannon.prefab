@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   Damage: 20
   KnockbackForce: 0
   AttackDistance: 35
