@@ -11,9 +11,6 @@ public abstract class UnitAttack : UnitBase
     private float LastAttackTime = 0.0f;
     public float WindUpTime;
     public float WindDownTime;
-    private float WindingTime;
-    public bool WindingUp;
-    public bool WindingDown;
     public bool TimeToStrike;
 
     public bool CanAttack() => Time.time - LastAttackTime > AttackTime;
@@ -23,7 +20,7 @@ public abstract class UnitAttack : UnitBase
         if (!CanAttack())
             return;
 
-        if(WindingUp || WindingDown)
+        if (TimeToStrike)
         {
             return;
         }
@@ -49,34 +46,22 @@ public abstract class UnitAttack : UnitBase
                 AttackDistance)
             && Hit.transform == Enemy.transform)
             {
-                if (!TimeToStrike && !WindingUp && !WindingDown)
-                {
-                    StartCoroutine(AttackActionStart());
-                    return;
-                }
-                Attack(Enemy);
-                LastAttackTime = Time.time;
-                StartCoroutine(AttackActionEnd());
+                StartCoroutine(AttackActionStart(Enemy));
                 break;
             }
         }
     }
 
-    private IEnumerator AttackActionStart()
+    private IEnumerator AttackActionStart(Entity Enemy)
     {
-        WindingUp = true;
-        yield return new WaitForSeconds(WindUpTime);
-        WindingUp = false;
         TimeToStrike = true;
-        yield return 0;
-    }
-
-    private IEnumerator AttackActionEnd() 
-    {
-        WindingDown = true;
-        TimeToStrike = false;
+        Entity.Get<Movement>().CanMove = false;
+        yield return new WaitForSeconds(WindUpTime);
+        Attack(Enemy);
+        LastAttackTime = Time.time;
         yield return new WaitForSeconds(WindDownTime);
-        WindingDown = false;
+        TimeToStrike = false;
+        Entity.Get<Movement>().CanMove = true;
         yield return 0;
     }
 

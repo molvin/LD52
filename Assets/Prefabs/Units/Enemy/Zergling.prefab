@@ -136,8 +136,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 20
-  AttackDistance: 2
+  AttackDistance: 2.5
   AttackTime: 0.33
+  WindUpTime: 0.5
+  WindDownTime: 0.5
+  TimeToStrike: 0
 --- !u!114 &3139362137561769190
 MonoBehaviour:
   m_ObjectHideFlags: 0
