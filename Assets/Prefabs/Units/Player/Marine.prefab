@@ -104,6 +104,7 @@ MonoBehaviour:
   edgeResolveIterations: 0
   edgeDstThreshold: 0
   viewMeshFilter: {fileID: 6542352047360920713}
+  cleanDotArc: 0
 --- !u!1001 &7491984120178017084
 PrefabInstance:
   m_ObjectHideFlags: 0
