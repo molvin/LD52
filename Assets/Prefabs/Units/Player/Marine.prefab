@@ -100,7 +100,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   viewRadius: 22.5
-  meshResolution: 0
+  meshResolution: 1
   edgeResolveIterations: 0
   edgeDstThreshold: 0
   viewMeshFilter: {fileID: 6542352047360920713}
