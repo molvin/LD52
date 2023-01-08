@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -736,10 +736,14 @@ MonoBehaviour:
     Units:
     - {fileID: 3715798280523851350, guid: 970e7cfa1abb2bf4e88312b5dfd45953, type: 3}
     - {fileID: 3715798280523851350, guid: 970e7cfa1abb2bf4e88312b5dfd45953, type: 3}
-  - Cost: 120
+  - Cost: 115
     Units:
     - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
     - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
+  - Cost: 130
+    Units:
+    - {fileID: 5013568480045100265, guid: 540d55e4467c78540b9d13366ab77f12, type: 3}
+    - {fileID: 5013568480045100265, guid: 540d55e4467c78540b9d13366ab77f12, type: 3}
   KillZone: {fileID: 1333428938}
   HarvestTime: 3
   CurrentSoulsText: {fileID: 637694729}
@@ -747,6 +751,8 @@ MonoBehaviour:
   CanHarvest: 1
   SpawnPoint: {fileID: 70960636}
   TargetPoint: {fileID: 1027705117}
+  HarvestedSound: {fileID: 8300000, guid: 2103f6c6426b14445a9786fd196f9f24, type: 3}
+  SpawnedSound: {fileID: 8300000, guid: 970094b61200fbf4abe9c1d76f85f9d6, type: 3}
 --- !u!1 &1333428936
 GameObject:
   m_ObjectHideFlags: 0

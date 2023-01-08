@@ -7,18 +7,24 @@ public class Projectile : MonoBehaviour
 {
     public LayerMask LayerMask;
     public GameObject AoeEffect;
+
+    public SpriteRenderer projectileColor;
+    public TrailRenderer TrailColor;
+
     bool Ricocheting, Pierce, ExplodingOnImpact, Split;
     int PierceTargetCount;
     float ProjectileSpeed, ImpactExplosionRadius, ProjectileLifeTime;
     float ProjectileSize;
     float KnockbackForce;
     int Damage;
-
+    Color color;
     Entity Owner;
     float EndTime;
     BoxCollider Collider;
     GameObject Prefab;
     List<Entity> IgnoreTargets;
+
+    bool BeingRemoved = false;
 
     void Awake()
     {
@@ -41,6 +47,7 @@ public class Projectile : MonoBehaviour
         float projectileLifetime,
         float impactExplosionRadius,
         float knockbackForce,
+        Color color_in,
         List<Entity> ignoreTargets
         )
     {
@@ -62,19 +69,24 @@ public class Projectile : MonoBehaviour
 
         ProjectileLifeTime = projectileLifetime;
         EndTime = Time.time + projectileLifetime;
-
+        color = color_in;
+        setColor(color);
         IgnoreTargets = ignoreTargets;
+        BeingRemoved = false;
     }
 
     void Update()
     {
+        if (BeingRemoved)
+            return;
+
         if (Time.time >= EndTime)
         {
             if (ExplodingOnImpact)
             {
                 Explode(transform.position);
             }
-            ObjectPool.Instance.ReturnInstance(gameObject);
+            Remove();
         }
 
         //bool IsDone = false;
@@ -189,7 +201,7 @@ public class Projectile : MonoBehaviour
 
         if (IsDone)
         {
-            ObjectPool.Instance.ReturnInstance(gameObject);
+            Remove();
         }
     }
 
@@ -218,6 +230,24 @@ public class Projectile : MonoBehaviour
         Vector3 pos = Position;
         Aoe.transform.position = new Vector3(pos.x, 0.1f, pos.z);
         Aoe.transform.localScale = Vector3.one * ImpactExplosionRadius;
+    }
+
+    private void setColor(Color in_color)
+    {
+        projectileColor.color = in_color;
+        TrailColor.colorGradient.colorKeys[0].color = in_color;
+        TrailColor.colorGradient.colorKeys[1].color = in_color;
+    }
+
+    void Remove()
+    {
+        BeingRemoved = true;
+        StartCoroutine(Removal());
+    }
+    IEnumerator Removal()
+    {
+        yield return new WaitForSeconds(0.2f);
+        ObjectPool.Instance.ReturnInstance(gameObject);
     }
 
     void SplitProjectile(Vector3 Offset)
@@ -249,6 +279,7 @@ public class Projectile : MonoBehaviour
                  ProjectileLifeTime,
                  ImpactExplosionRadius,
                  KnockbackForce,
+                 color,
                  IgnoreTargets);
         }
     }
