@@ -103,8 +103,10 @@ MonoBehaviour:
   meshResolution: 0
   edgeResolveIterations: 0
   edgeDstThreshold: 0
-  stepSize: 5
+  stepSize: 2
   viewMeshFilter: {fileID: 6542352047360920713}
+  cleanDotArc: 0.01
+  frameInterval: 4
 --- !u!1001 &7491984120178017084
 PrefabInstance:
   m_ObjectHideFlags: 0
