@@ -15,5 +15,4 @@ void CSMain (uint3 id : SV_DispatchThreadID)
         Fluid0[id.xy + float2(0, 1)] +
         Fluid0[id.xy + float2(-1, 0)] +
         Fluid0[id.xy + float2(0, -1)] / 2 - Fluid[id.xy];
-
 }

@@ -8,6 +8,9 @@ public class UnitHealth : UnitBase
     public int Current;
     public HealthBar healthBar;
 
+      [Header("Audio")]
+    public AudioClip DeathSound;
+
     public void TakeDamage(int dmg)
     {
         if (Current == 0)
@@ -16,6 +19,7 @@ public class UnitHealth : UnitBase
         healthBar?.UnitTakeDamage(dmg);
         if (Current == 0)
         {
+            AudioManager.Instance.PlayAudio(DeathSound, transform.position);
             GameManager.Instance?.KillUnit(Entity);
         }
     }

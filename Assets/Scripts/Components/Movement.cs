@@ -49,6 +49,11 @@ public class Movement : UnitBase
             DebugColor = Random.ColorHSV();
         }
     }
+    
+    public void AddForce(Vector3 Force)
+    {
+        velocity += Force;
+    }
 
     // Update is called once per frame
     void Update()
@@ -100,7 +105,7 @@ public class Movement : UnitBase
 
         // Clamp max speed
         velocity += Delta;
-        velocity = Vector3.ClampMagnitude(velocity, Speed);
+        //velocity = Vector3.ClampMagnitude(velocity, Speed);
     }
 
     private void MoveWithCollision()
