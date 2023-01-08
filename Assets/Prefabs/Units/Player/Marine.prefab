@@ -263,6 +263,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   Damage: 10
+  KnockbackForce: 0.5
   AttackDistance: 20
   AttackTime: 0.33
   WindUpTime: 0

@@ -7,6 +7,7 @@ public abstract class UnitAttack : UnitBase
 {
     public LayerMask ObstacleMask;
     public int Damage;
+    public float KnockbackForce;
     public float AttackDistance;
     public float AttackTime;
     private float LastAttackTime = 0.0f;
@@ -46,7 +47,7 @@ public abstract class UnitAttack : UnitBase
                 0.6f,
                 (Enemy.transform.position - transform.position).normalized,
                 out Hit,
-                AttackDistance,
+                Mathf.Min(AttackDistance, Vector3.Distance(Enemy.transform.position, transform.position)),
                 ObstacleMask))
             {
                 StartCoroutine(AttackActionStart(Enemy));

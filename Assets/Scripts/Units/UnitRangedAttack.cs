@@ -49,6 +49,7 @@ public class UnitRangedAttack : UnitAttack
                 ProjectileSize,
                 ProjectileLifetime,
                 ImpactExplosionRadius,
+                KnockbackForce,
                 new List<Entity>());
             }
     }
