@@ -37,7 +37,7 @@ public class FieldOfView : MonoBehaviour
         List<Vector3> viewPoints = new List<Vector3>();
         ViewCastInfo oldViewCast = new ViewCastInfo();
 
-        for (int i = 0; i <= 365; i++)
+        for (int i = 0; i <= 360; i++)
         {
             ViewCastInfo newViewCast = ViewCast(i, this.transform);
 
@@ -87,7 +87,7 @@ public class FieldOfView : MonoBehaviour
             float y = ((vertices[i + 1].z / viewRadius) / 2) + 0.5f;
             
             uvs[i + 1] = new Vector2(x, y);
-            if(i < viewPoints.Count -3)
+            if(i < viewPoints.Count - 1)
             {
                 triangles[(i) * 3] = 0;
                 triangles[(i) * 3 + 1] = i + 1;

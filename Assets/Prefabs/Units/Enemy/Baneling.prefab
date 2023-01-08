@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9629b76cd8fc18e4bb4fc0f4c98ccb39, type: 2}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Speed
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Acceleration
@@ -125,9 +125,10 @@ MonoBehaviour:
   Damage: 80
   AttackDistance: 2.5
   AttackTime: 0.2
-  ExplosionActivationRange: 2.5
+  WindUpTime: 0
+  WindDownTime: 0
+  TimeToStrike: 0
   ExplosionRadius: 5
-  Exploding: 0
 --- !u!114 &1939475489654852285
 MonoBehaviour:
   m_ObjectHideFlags: 0

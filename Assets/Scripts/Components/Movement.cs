@@ -33,6 +33,9 @@ public class Movement : UnitBase
 
     private Vector3 velocity = Vector3.zero;
 
+    [HideInInspector]
+    public bool CanMove = true;
+
     new protected void Awake()
     {
         base.Awake();    
@@ -50,6 +53,11 @@ public class Movement : UnitBase
     // Update is called once per frame
     void Update()
     {
+        if (!CanMove)
+        {
+            return;
+        }
+
         if (Selectable && Selectable.TargetPosition.Dist2D(CurrentDestination) >= StoppingDistance)
         {
             FindPath(Selectable.TargetPosition);
