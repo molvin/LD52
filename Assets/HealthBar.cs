@@ -43,6 +43,9 @@ public class HealthBar : MonoBehaviour
         health = GetComponentInParent<UnitHealth>();
         initialLocalPosition = transform.localPosition;
         SetMaxHP(health);
+
+        UnitSoul soul = GetComponentInParent<UnitSoul>();   
+        LevelUpText.text = $"{(int)soul.SoulAmount}";
     }
 
     private void SetMaxHP(UnitHealth health)
@@ -60,7 +63,6 @@ public class HealthBar : MonoBehaviour
     {
         if (health)
         {
-            gameObject.SetActive(health.Current < health.Max);
             Fill.fillAmount = (health.Current / (float)health.Max);
         }
     }

@@ -106,6 +106,7 @@ MonoBehaviour:
   stepSize: 5
   viewMeshFilter: {fileID: 6542352047360920713}
   cleanDotArc: 0.1
+  frameInterval: 4
 --- !u!1001 &7491984120178017084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -152,6 +153,10 @@ PrefabInstance:
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: UnitType
       value: Soldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Description
+      value: Basic Infantry, runs and shoots simultaneously
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name

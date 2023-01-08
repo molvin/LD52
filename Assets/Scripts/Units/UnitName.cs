@@ -8,4 +8,7 @@ public class UnitName : UnitBase
     public string UnitType;
     public Sprite Sprite;
     public Color Color;
+
+    [Multiline]
+    public string Description;
 }

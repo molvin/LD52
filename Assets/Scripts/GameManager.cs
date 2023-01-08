@@ -250,6 +250,15 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator End(bool skipHarvest)
     {
+        // Get souls
+        foreach (Entity e in playerUnits)
+        {
+            UnitSoul soul = e.Get<UnitSoul>();
+            soul.SoulAmount *= soul.SoulGrowthRate;
+            e.GetComponentInChildren<HealthBar>().UnitLevelUp((int) soul.SoulAmount);
+            yield return new WaitForSeconds(0.1f);
+        }
+
         yield return new WaitForSeconds(1.0f);
 
         if(!skipHarvest)
@@ -319,15 +328,6 @@ public class GameManager : MonoBehaviour
     public IEnumerator NextLevel(bool skipHarvest)
     {
         InputManager.Instance?.ClearSelection();
-
-        foreach (Entity e in playerUnits)
-        {
-            if (e.TryGet(out UnitSoul comp))
-            {
-                UnitSoul soul = (UnitSoul)comp;
-                soul.SoulAmount *= soul.SoulGrowthRate;
-            }
-        }
 
         if(!skipHarvest)
         {
