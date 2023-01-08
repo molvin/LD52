@@ -48,6 +48,9 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 1280
+  AoeEffect: {fileID: 0}
+  projectileColor: {fileID: 328867199061290}
+  TrailColor: {fileID: 3476122163805130396}
 --- !u!1001 &692824311676015098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,6 +108,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 292ad2f5fd0cfbb4eb76b9de453bf759, type: 3}
+--- !u!212 &328867199061290 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 692502179539328208, guid: 292ad2f5fd0cfbb4eb76b9de453bf759, type: 3}
+  m_PrefabInstance: {fileID: 692824311676015098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!96 &3476122163805130396 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 4152532963713851238, guid: 292ad2f5fd0cfbb4eb76b9de453bf759, type: 3}
+  m_PrefabInstance: {fileID: 692824311676015098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4374718844060143970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3831287394831532184, guid: 292ad2f5fd0cfbb4eb76b9de453bf759, type: 3}

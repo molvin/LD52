@@ -106,6 +106,7 @@ MonoBehaviour:
   stepSize: 5
   viewMeshFilter: {fileID: 6542352047360920713}
   cleanDotArc: 0.1
+  frameInterval: 4
 --- !u!1001 &7491984120178017084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Color.b
-      value: 0.5377358
+      value: 0.8968458
       objectReference: {fileID: 0}
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Color.g
@@ -147,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: UnitType
@@ -303,6 +304,7 @@ MonoBehaviour:
   ProjectileSpeed: 35
   ProjectileLifetime: 10
   ImpactExplosionRadius: 20
+  Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8542069778249792774
 MonoBehaviour:
   m_ObjectHideFlags: 0
