@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Speed
-      value: 7.5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Acceleration
@@ -106,6 +106,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6427184ef85f879458505c6ee0244c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 8
+  AttackDistance: 1.5
+  AttackTime: 0.2
   ExplosionActivationRange: 2
   ExplosionRadius: 4
-  OnDeathExplosion: 1
+--- !u!114 &1939475489654852285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704141002148325143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2efa835ed0b2344b3760fcd93c2345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
