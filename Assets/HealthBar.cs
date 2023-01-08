@@ -60,7 +60,7 @@ public class HealthBar : MonoBehaviour
     {
         if (health)
         {
-            Background.enabled = Fill.enabled = health.Current < health.Max;
+            gameObject.SetActive(health.Current < health.Max);
             Fill.fillAmount = (health.Current / (float)health.Max);
         }
     }

@@ -20,7 +20,16 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if(!Instance)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     private void Update()

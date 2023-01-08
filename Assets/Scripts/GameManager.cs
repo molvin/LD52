@@ -8,6 +8,7 @@ using static UnityEngine.UI.Image;
 
 public class GameManager : MonoBehaviour
 {
+    public static int LevelCount = 5;
     public enum State
     {
         Start,
@@ -24,8 +25,8 @@ public class GameManager : MonoBehaviour
     public List<Entity> EntitiesInGame = new List<Entity>();
 
     public int Level;
-    public string[] Levels;
     public string HarvestScene;
+    public float DebugSoulAmount;
 
     public State CurrentState = State.Start;
 
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
                 if (enemyUnits.Count == 0)
                 {
                     CurrentState = State.End;
-                    StartCoroutine(End());
+                    StartCoroutine(End(false));
                 }
                 break;
             case State.Harvest:
@@ -70,7 +71,6 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode _)
     {
@@ -94,13 +94,24 @@ public class GameManager : MonoBehaviour
         if(scene.name == HarvestScene)
         {
             harvester = FindObjectOfType<Harvest>();
+            if (playerUnits.Count == 0)
+            {
+                SpawnPlayerUnits(StartSquad);
+                foreach(Entity ent in playerUnits)
+                {
+                    var soul = ent.Get<UnitSoul>();
+                    soul.SoulAmount = DebugSoulAmount;
+                }
+            }
+
         }
         else if (Level == 0)
         {
             SpawnPlayerUnits(StartSquad);
         }
 
-        StartCoroutine(StartLevel(playerUnits, scene.name == HarvestScene));
+        if(scene.name != "MainMenu")
+            StartCoroutine(StartLevel(playerUnits, scene.name == HarvestScene));
     }
 
     private IEnumerator StartLevel(List<Entity> ents, bool harvest)
@@ -119,7 +130,7 @@ public class GameManager : MonoBehaviour
             s.TargetPosition = EntryDoor.SpawnPoint.position;
         }
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.5f);
 
         yield return EntryDoor.Toggle(true);
 
@@ -156,17 +167,25 @@ public class GameManager : MonoBehaviour
         CurrentState = harvest ? State.Harvest : State.Game;
 
         ToggleEnemies(true);
+
+        if(harvest)
+        {
+            StartCoroutine(End(true));
+        }
     }
 
-    public void SpawnPlayerUnits(List<GameObject> prefabs)
+    public List<Entity> SpawnPlayerUnits(List<GameObject> prefabs, Vector3 spawnPoint = default(Vector3))
     {
         List<Entity> newEnts = new List<Entity>();
         foreach(GameObject prefab in prefabs)
         {
-            GameObject instance = Instantiate(prefab);
+            spawnPoint.y = 1.0f;
+            GameObject instance = Instantiate(prefab, spawnPoint, Quaternion.identity);
             EntitiesInGame.Add(instance.GetComponent<Entity>());
             DontDestroyOnLoad(instance);
+            newEnts.Add(instance.GetComponent<Entity>());
         }
+        return newEnts;
     }
     public void KillUnit(Entity ent)
     {
@@ -192,12 +211,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    private IEnumerator End()
+    private IEnumerator End(bool skipHarvest)
     {
         yield return new WaitForSeconds(1.0f);
 
-        StartCoroutine(ExitDoor.Toggle(true));
-        yield return HarvestDoor.Toggle(true);
+        if(!skipHarvest)
+            StartCoroutine(HarvestDoor.Toggle(true));
+        yield return ExitDoor.Toggle(true);
 
         //todo wait for player to walk in, take control of their units, and transition level
         bool goToHarvest = false;
@@ -209,7 +229,7 @@ public class GameManager : MonoBehaviour
             foreach (Entity e in playerUnits)
             {
                 // if close to harvest point or end point
-                if (e.transform.position.Dist2D(HarvestDoor.TargetPoint.position) < 4.0f)
+                if (!skipHarvest && e.transform.position.Dist2D(HarvestDoor.TargetPoint.position) < 4.0f)
                 {
                     goToHarvest = true;
                     break;
@@ -267,31 +287,20 @@ public class GameManager : MonoBehaviour
             if (e.TryGet(out UnitSoul comp))
             {
                 UnitSoul soul = (UnitSoul)comp;
-                soul.SoulAmount = soul.SoulAmount == 0 ? soul.BaseSoul : soul.SoulAmount * soul.SoulGrowthRate;
+                soul.SoulAmount *= soul.SoulGrowthRate;
             }
         }
 
         if(!skipHarvest)
         {
             SceneManager.LoadScene(HarvestScene);
-
-            waiting = true;
-            while (harvester == null || harvester.Harvesting)
-            {
-                yield return null;
-            }
-            waiting = false;
-
-            foreach (Entity ent in playerUnits)
-            {
-                DontDestroyOnLoad(ent.gameObject);
-            }
-
-            InputManager.Instance?.ClearSelection();
+        }
+        else
+        {
+            Level = Mathf.Min(Level + 1, LevelCount - 1);
+            SceneManager.LoadScene($"Level {Level + 1}");
         }
 
-        Level = Mathf.Min(Level + 1, Levels.Length - 1);
-        SceneManager.LoadScene(Levels[Level]);
         yield return null;
     }
 
