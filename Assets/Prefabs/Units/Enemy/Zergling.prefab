@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: Current
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 293e02d8aa3c89d479ea14b18fe396e1, type: 3}
     - target: {fileID: 6191138673487804201, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Team
       value: 1
@@ -139,10 +143,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   Damage: 20
+  KnockbackForce: 0
   AttackDistance: 2.5
   AttackTime: 0.33
   WindUpTime: 0.5
   WindDownTime: 0.5
+  AttackSound: {fileID: 8300000, guid: b67a587dd6380644f99b69c716b2c382, type: 3}
   TimeToStrike: 0
 --- !u!114 &3139362137561769190
 MonoBehaviour:

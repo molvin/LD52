@@ -53,6 +53,8 @@ public class AudioManager : MonoBehaviour
 
         audioSource.PlayOneShot(clip);
         audioSource.transform.position = pos;
+
+        audioSource.pitch = Random.Range(0.8f, 1.2f);
     }
 
     AudioSource AddAudioSource()
