@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class UnitInfo : MonoBehaviour
@@ -10,9 +11,9 @@ public class UnitInfo : MonoBehaviour
     public Animator Anim;
 
     public Transform Grid;
-    public GameObject UnitCellPrefab;
+    public UnitCell UnitCellPrefab;
     
-    private HashSet<Selectable> lastSelected = new HashSet<Selectable>();
+    private List<Selectable> lastSelected = new List<Selectable>();
 
     public void Toggle(bool on)
     {
@@ -43,7 +44,7 @@ public class UnitInfo : MonoBehaviour
 
         if(changed)
         {
-            lastSelected = new HashSet<Selectable>(selected);
+            lastSelected = new List<Selectable>(selected);
             if(lastSelected.Count > 0)
             {
                 if (single)
@@ -64,9 +65,11 @@ public class UnitInfo : MonoBehaviour
         foreach (Transform child in Grid)
             Destroy(child.gameObject);
 
-        for(int i = 0; i < lastSelected.Count; i++)
+        var selected = lastSelected.ToList();
+        for(int i = 0; i < selected.Count; i++)
         {
-            Instantiate(UnitCellPrefab, Grid);
+            UnitCell cell = Instantiate(UnitCellPrefab, Grid) as UnitCell;
+            cell.Setup(selected[i].GetComponent<Entity>());
         }
     }
 

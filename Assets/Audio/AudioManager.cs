@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
         if(!m_ActiveAudios[i].isPlaying)
         {
             m_AudioQueue.Enqueue(m_ActiveAudios[i]);
-             m_ActiveAudios.RemoveAt(i);
+            m_ActiveAudios.RemoveAt(i);
         }  
       }
     }
