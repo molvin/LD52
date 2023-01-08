@@ -747,6 +747,8 @@ MonoBehaviour:
   CanHarvest: 1
   SpawnPoint: {fileID: 70960636}
   TargetPoint: {fileID: 1027705117}
+  HarvestedSound: {fileID: 8300000, guid: 2103f6c6426b14445a9786fd196f9f24, type: 3}
+  SpawnedSound: {fileID: 8300000, guid: 970094b61200fbf4abe9c1d76f85f9d6, type: 3}
 --- !u!1 &1333428936
 GameObject:
   m_ObjectHideFlags: 0
