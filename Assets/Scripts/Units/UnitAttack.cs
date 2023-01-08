@@ -20,6 +20,7 @@ public abstract class UnitAttack : UnitBase
     public bool TimeToStrike;
 
     public bool CanAttack() => Time.time - LastAttackTime > AttackTime;
+    public bool IsEnemyTargetable(Entity Other) => Entity.Team != Other.Team && (Entity.Team == Team.Enemy || Other.isSeenByPlayer);
 
     void Update()
     {
@@ -32,8 +33,7 @@ public abstract class UnitAttack : UnitBase
         }
 
         List<Entity> Enemies = GameManager.Instance.EntitiesInGame
-            .Where(e => e.Team != Entity.Team)
-            .Where(e => e.Has<UnitHealth>())
+            .Where(e => IsEnemyTargetable(e) && e.Has<UnitHealth>())
             .OrderBy(e => transform.position.Dist2D(e.transform.position))
             .ToList();
 
