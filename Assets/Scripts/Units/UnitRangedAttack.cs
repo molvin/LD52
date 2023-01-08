@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UnitRangedAttack : UnitAttack
 {
+    [Header("Projectile")]
     public Projectile ProjectilePrefab;
     public int ProjectileCount = 1;
     public float ProjectileSpreadAngle;
@@ -11,6 +12,7 @@ public class UnitRangedAttack : UnitAttack
     public int PierceTargetCount;
     public float ProjectileSize = 1.0f;
     public float ProjectileSpeed, ProjectileLifetime, ImpactExplosionRadius;
+    public Color Color = Color.white;
 
     protected override void Attack(Entity entity)
     {
@@ -52,7 +54,7 @@ public class UnitRangedAttack : UnitAttack
                 ProjectileLifetime,
                 ImpactExplosionRadius,
                 KnockbackForce,
-                Color.blue,
+                Color,
                 new List<Entity>());
             }
     }

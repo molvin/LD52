@@ -27,6 +27,14 @@ PrefabInstance:
       propertyPath: AoeEffect
       value: 
       objectReference: {fileID: 3601955718436914888, guid: 0b574e03ac67f744aaaed9392d806e41, type: 3}
+    - target: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
+      propertyPath: TrailColor
+      value: 
+      objectReference: {fileID: 6209896490901517484}
+    - target: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
+      propertyPath: projectileColor
+      value: 
+      objectReference: {fileID: 7354794217291560730}
     - target: {fileID: 3476122163805130396, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.b
       value: 0
@@ -241,7 +249,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8840698138963125025, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
       propertyPath: m_Name
-      value: BigMissileProjectile
+      value: BigMissileProjectile Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
+--- !u!96 &6209896490901517484 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 3476122163805130396, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
+  m_PrefabInstance: {fileID: 7354467551802735152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &7354794217291560730 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 328867199061290, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
+  m_PrefabInstance: {fileID: 7354467551802735152}
+  m_PrefabAsset: {fileID: 0}
