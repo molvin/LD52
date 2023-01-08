@@ -59,16 +59,16 @@ public abstract class UnitAttack : UnitBase
         TimeToStrike = true;
         Entity.Get<Movement>().CanMove = false;
         yield return new WaitForSeconds(WindUpTime);
-        if(Enemy = null)
+        if (Enemy == null)
         {
             Entity.Get<Movement>().CanMove = true;
             TimeToStrike = false;
             yield break;
         }
         Attack(Enemy);
-        LastAttackTime = Time.time;
         yield return new WaitForSeconds(WindDownTime);
         TimeToStrike = false;
+        LastAttackTime = Time.time;
         Entity.Get<Movement>().CanMove = true;
         yield return 0;
     }
