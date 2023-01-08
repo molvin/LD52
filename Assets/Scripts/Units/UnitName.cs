@@ -8,4 +8,15 @@ public class UnitName : UnitBase
     public string UnitType;
     public Sprite Sprite;
     public Color Color;
+
+    [Multiline]
+    public string Description;
+
+    public SpriteRenderer Renderer;
+
+    public void UpdateColor()
+    {
+        //Renderer.material = Instantiate(Renderer.material);
+        Renderer.material.SetColor("_Color", Color);
+    }
 }

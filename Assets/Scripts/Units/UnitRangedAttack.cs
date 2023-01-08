@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UnitRangedAttack : UnitAttack
 {
+    [Header("Projectile")]
     public Projectile ProjectilePrefab;
     public int ProjectileCount = 1;
     public float ProjectileSpreadAngle;
@@ -36,6 +37,12 @@ public class UnitRangedAttack : UnitAttack
             
             AudioManager.Instance.PlayAudio(AttackSound, transform.position);
 
+            Color color = Color.white;
+            if (Entity.TryGet(out UnitName Name))
+            {
+                color = Name.Color;
+            }
+
             projectile.Fire(
                 ProjectilePrefab.gameObject,
                 transform.position,
@@ -52,6 +59,7 @@ public class UnitRangedAttack : UnitAttack
                 ProjectileLifetime,
                 ImpactExplosionRadius,
                 KnockbackForce,
+                color,
                 new List<Entity>());
             }
     }
