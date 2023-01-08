@@ -59,9 +59,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333143, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9629b76cd8fc18e4bb4fc0f4c98ccb39, type: 2}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Speed
-      value: 9
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Acceleration
@@ -86,6 +90,10 @@ PrefabInstance:
     - target: {fileID: 6191138673487804201, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Team
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666836973668120966, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.99
       objectReference: {fileID: 0}
     - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Sprite
@@ -124,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 2
-  AttackDistance: 0.1
+  AttackDistance: 1
   AttackTime: 0.33
 --- !u!114 &3139362137561769190
 MonoBehaviour:
