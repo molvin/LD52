@@ -68,7 +68,15 @@ PrefabInstance:
       value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Max
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Helath
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Current
       value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -78,6 +86,30 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_PrefabInstance: {fileID: 4449335927239643639}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-7294986830234440046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562553831933882726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0392ab3dd415c47a5361b6688907da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 6
+  AttackDistance: 5
+  AttackTime: 1
+  ProjectilePrefab: {fileID: 0}
+  Ricocheting: 0
+  Pierce: 0
+  ExplodingOnImpact: 1
+  PierceTargetCount: 0
+  ProjectileSize: 4
+  ProjectileSpeed: 7
+  ProjectileLifetime: 2
+  ImpactExplosionRadius: 4
 --- !u!114 &-47363553853166541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,8 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ae3898b78550e4b830ca4fa07ad2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  UnitType: 
+  Name: Franz Glonkenburg
+  UnitType: Behemoth
 --- !u!114 &1082823969900987314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,8 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoulAmount: 0
-  SoulGrowthRate: 2
-  BaseSoulGeneration: 10
+  SoulGrowthRate: 1.5
+  BaseSoul: 10
 --- !u!114 &4189212999773731785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +156,7 @@ MonoBehaviour:
   TargetPosition: {x: 0, y: 0, z: 0}
   Spacing: 0
   DebugMove: 0
+  DebugMoveSpeed: 0
   SelectedCircle: {fileID: 2562553833061602361}
 --- !u!212 &2562553833061602361 stripped
 SpriteRenderer:
