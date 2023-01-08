@@ -82,10 +82,12 @@ public class AudioManager : MonoBehaviour
 
         audioSource.pitch = 1;
         audioSource.clip = input_clip;
-        audioSource.Play();
         audioSource.loop = true;
         audioSource.transform.position = Camera.main.transform.position;
         audioSource.spatialBlend = 0;
+
+        StartCoroutine(FadeMusic(audioSource, 1, true));
+
         m_ActiveAudios.Add(audioSource);
     }
 
@@ -94,8 +96,32 @@ public class AudioManager : MonoBehaviour
         foreach(AudioSource audio_source in m_ActiveAudios)
         {
             if(audio_source.clip == clip)
-                audio_source.Stop();
+                StartCoroutine(FadeMusic(audio_source, 1, false));
         }
+    }
+
+    IEnumerator FadeMusic(AudioSource audio_source, float fade_time, bool fade_in)
+    {
+        float timer = fade_in ? 0 : fade_time;
+
+        if(fade_in)
+        {
+            audio_source.Play();
+            audio_source.volume = 0f;
+        }
+
+        while(fade_in && timer < fade_time || !fade_in && timer > 0f)
+        {
+            timer += fade_in ? Time.deltaTime : -Time.deltaTime;
+            
+            audio_source.volume =  timer / fade_time;
+            yield return 0;
+        }
+
+        if(!fade_in)
+            audio_source.Stop();
+
+        yield return 0;
     }
 
     AudioSource AddAudioSource()
