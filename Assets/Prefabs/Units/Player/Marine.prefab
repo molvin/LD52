@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Acceleration
-      value: 64
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: AngularSpeed
@@ -185,7 +185,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: StoppingDistance
-      value: 0.3
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3952488217610643842, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Max
@@ -241,9 +245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82af7d03d21c3cf438ade02125bb4ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoulAmount: 0
+  SoulAmount: 10
   SoulGrowthRate: 1.5
-  BaseSoul: 10
 --- !u!114 &7323735983174883943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +259,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0392ab3dd415c47a5361b6688907da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ObstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
   Damage: 10
   AttackDistance: 20
   AttackTime: 0.33
@@ -263,7 +269,7 @@ MonoBehaviour:
   WindDownTime: 0
   TimeToStrike: 0
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
-  ProjectileCount: 3
+  ProjectileCount: 1
   ProjectileSpreadAngle: 45
   Ricocheting: 0
   Pierce: 0
@@ -271,7 +277,7 @@ MonoBehaviour:
   Split: 0
   PierceTargetCount: 0
   ProjectileSize: 1
-  ProjectileSpeed: 25
+  ProjectileSpeed: 35
   ProjectileLifetime: 10
   ImpactExplosionRadius: 20
 --- !u!114 &8542069778249792774
