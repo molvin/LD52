@@ -70,6 +70,7 @@ MonoBehaviour:
   TargetPosition: {x: 0, y: 0, z: 0}
   Spacing: 2
   DebugMove: 1
+  DebugMoveSpeed: 3
   SelectedCircle: {fileID: 3147947939126628723}
 --- !u!114 &3147947938770173221
 MonoBehaviour:
@@ -98,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoulAmount: 10
-  SoulGrowthRate: 0
-  BaseSoul: 0
+  SoulGrowthRate: 1.25
+  BaseSoul: 10
 --- !u!114 &807979208656969647
 MonoBehaviour:
   m_ObjectHideFlags: 0
