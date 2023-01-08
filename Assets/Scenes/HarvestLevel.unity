@@ -715,9 +715,21 @@ MonoBehaviour:
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
-  - Cost: 65
+  - Cost: 55
     Units:
     - {fileID: 2562553831933882726, guid: 4a82fcd60e53b6344aa22b5da22150bf, type: 3}
+  - Cost: 80
+    Units:
+    - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+    - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+  - Cost: 100
+    Units:
+    - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
+    - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
+  - Cost: 100
+    Units:
+    - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
+    - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
   KillZone: {fileID: 1333428938}
   HarvestTime: 3
   CurrentSoulsText: {fileID: 637694729}
