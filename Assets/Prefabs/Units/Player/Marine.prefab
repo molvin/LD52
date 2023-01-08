@@ -255,11 +255,12 @@ MonoBehaviour:
   Ricocheting: 0
   Pierce: 0
   ExplodingOnImpact: 0
+  Split: 1
   PierceTargetCount: 0
   ProjectileSize: 1
-  ProjectileSpeed: 10
-  ProjectileLifetime: 1
-  ImpactExplosionRadius: 0.1
+  ProjectileSpeed: 20
+  ProjectileLifetime: 10
+  ImpactExplosionRadius: 20
 --- !u!114 &8542069778249792774
 MonoBehaviour:
   m_ObjectHideFlags: 0
