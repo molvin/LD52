@@ -145,3 +145,4 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 1280
+  AoeEffect: {fileID: 3601955718436914888, guid: 0b574e03ac67f744aaaed9392d806e41, type: 3}

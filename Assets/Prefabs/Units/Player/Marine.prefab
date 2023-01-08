@@ -99,8 +99,8 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  viewRadius: 22.5
-  meshResolution: 1
+  viewRadius: 35
+  meshResolution: 0
   edgeResolveIterations: 0
   edgeDstThreshold: 0
   viewMeshFilter: {fileID: 6542352047360920713}
@@ -195,6 +195,10 @@ PrefabInstance:
       propertyPath: Current
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 59458002c28264e45b1ab739f9b9efed, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
 --- !u!4 &8779747188992943017 stripped
@@ -255,11 +259,12 @@ MonoBehaviour:
   Ricocheting: 0
   Pierce: 0
   ExplodingOnImpact: 0
+  Split: 1
   PierceTargetCount: 0
   ProjectileSize: 1
-  ProjectileSpeed: 10
-  ProjectileLifetime: 1
-  ImpactExplosionRadius: 0.1
+  ProjectileSpeed: 20
+  ProjectileLifetime: 10
+  ImpactExplosionRadius: 20
 --- !u!114 &8542069778249792774
 MonoBehaviour:
   m_ObjectHideFlags: 0
