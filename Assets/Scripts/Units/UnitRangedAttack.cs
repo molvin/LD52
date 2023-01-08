@@ -5,27 +5,51 @@ using UnityEngine;
 public class UnitRangedAttack : UnitAttack
 {
     public Projectile ProjectilePrefab;
-    public bool Ricocheting, Pierce, ExplodingOnImpact;
+    public int ProjectileCount = 1;
+    public float ProjectileSpreadAngle;
+    public bool Ricocheting, Pierce, ExplodingOnImpact, Split;
     public int PierceTargetCount;
     public float ProjectileSize = 1.0f;
     public float ProjectileSpeed, ProjectileLifetime, ImpactExplosionRadius;
 
     protected override void Attack(Entity entity)
     {
-         Projectile projectile = ObjectPool.Instance.GetInstance(ProjectilePrefab.gameObject).GetComponent<Projectile>();
+        Vector3 Dir = (entity.transform.position - transform.position).normalized;
+        if (ProjectileCount == 1)
+        {
+            Fire(Dir);
+        }
+        else
+        {
+            Vector3 StartDir = Vector3.RotateTowards(Dir, new Vector3(Dir.y, 0.0f, -Dir.x), Mathf.Deg2Rad * ProjectileSpreadAngle, 1);
+            Fire(StartDir);
+            for (int i = 1; i < ProjectileCount; i++)
+            {
+                StartDir = Vector3.RotateTowards(StartDir, -new Vector3(Dir.y, 0.0f, -Dir.x), Mathf.Deg2Rad * ProjectileSpreadAngle * 2.0f / (ProjectileCount - 1), 1);
+                Fire(StartDir);
+            }
+        }
 
-         projectile.Fire(
-            transform.position,
-            (entity.transform.position - transform.position).normalized,
-            this.Entity,
-            Damage,
-            Ricocheting,
-            Pierce,
-            ExplodingOnImpact,
-            PierceTargetCount,
-            ProjectileSpeed,
-            ProjectileSize,
-            ProjectileLifetime,
-            ImpactExplosionRadius);
+        void Fire(Vector3 Direction)
+        {
+            Projectile projectile = ObjectPool.Instance.GetInstance(ProjectilePrefab.gameObject).GetComponent<Projectile>();
+
+            projectile.Fire(
+                ProjectilePrefab.gameObject,
+                transform.position,
+                Direction,
+                this.Entity,
+                Damage,
+                Ricocheting,
+                Pierce,
+                ExplodingOnImpact,
+                Split,
+                PierceTargetCount,
+                ProjectileSpeed,
+                ProjectileSize,
+                ProjectileLifetime,
+                ImpactExplosionRadius,
+                new List<Entity>());
+            }
     }
 }
