@@ -18,20 +18,18 @@ public class Movement : UnitBase
     [Header("Steering")]
     public float Acceleration = 16.0f;
 
-    [Header("Steering")]
-    public float StoppingDistance = 0.5f;
-
-    public bool DebugDraw = false;        
     private Selectable Selectable = null;
-    private Color DebugColor;
 
     private Vector3 CurrentDestination;
     private int ClearedPathPoint = 0;
     private List<Vector3> CurrentPath = new List<Vector3>();
     private NavMeshPath NavPath;
     const float Y = 1.0f;
+    private Vector3 LastSelectableTargetPos;
 
     private Vector3 velocity = Vector3.zero;
+
+    float StoppingDistance => CollisionRadius * 0.5f;
 
     [HideInInspector]
     public bool CanMove = true;
@@ -42,12 +40,6 @@ public class Movement : UnitBase
 
         NavPath = new NavMeshPath();
         Selectable = GetComponent<Selectable>();
-
-        if (DebugDraw)
-        {
-            Random.InitState(GetHashCode());
-            DebugColor = Random.ColorHSV();
-        }
     }
     
     public void AddForce(Vector3 Force)
@@ -63,17 +55,15 @@ public class Movement : UnitBase
             return;
         }
 
-        if (Selectable && Selectable.TargetPosition.Dist2D(CurrentDestination) >= StoppingDistance)
+        if (Selectable && Selectable.TargetPosition.Dist2D(LastSelectableTargetPos) >= StoppingDistance)
         {
+            LastSelectableTargetPos = Selectable.TargetPosition;
             FindPath(Selectable.TargetPosition);
         }
 
         FollowPath();
         Avoidance();
         MoveWithCollision();
-
-        if (DebugDraw)
-            DrawDebug();
     }
 
     public void FollowPath()
@@ -213,19 +203,4 @@ public class Movement : UnitBase
     }
 
     public Vector3 GetDestination() => CurrentDestination;
-
-    private void DrawDebug()
-    {
-        if (CurrentPath.Count <= 1)
-        {
-            Debug.DrawLine(transform.position, CurrentDestination, DebugColor, Time.deltaTime);
-        }
-        else
-        {
-            for (int i = 1; i < CurrentPath.Count; i++)
-            {
-                Debug.DrawLine(CurrentPath[i - 1], CurrentPath[i], DebugColor, Time.deltaTime);
-            }
-        }
-    }
 }

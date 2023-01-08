@@ -208,7 +208,6 @@ MonoBehaviour:
   Speed: 2.5
   Acceleration: 16
   StoppingDistance: 0.5
-  DebugDraw: 1
   CanMove: 1
 --- !u!114 &6191138673487804201
 MonoBehaviour:
@@ -224,6 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0
   Team: 0
+  isSeenByPlayer: 0
 --- !u!114 &4348356359522723613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +239,7 @@ MonoBehaviour:
   Max: 100
   Current: 100
   healthBar: {fileID: 4334824194002780550}
+  DeathSound: {fileID: 0}
 --- !u!1 &6911723964001870321
 GameObject:
   m_ObjectHideFlags: 0
