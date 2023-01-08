@@ -157,12 +157,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   Damage: 50
+  KnockbackForce: 0
   AttackDistance: 3.5
   AttackTime: 0.6
   WindUpTime: 0.25
   WindDownTime: 0.6
+  AttackSound: {fileID: 0}
   TimeToStrike: 0
 --- !u!114 &3139362137561769190
 MonoBehaviour:
