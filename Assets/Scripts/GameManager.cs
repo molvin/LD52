@@ -84,6 +84,16 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode _)
     {
+        if(scene.name == "MainMenu")
+        {
+            Level = 0;
+            foreach(Entity ent in playerUnits)
+            {
+                Destroy(ent.gameObject);
+            }
+            playerUnits.Clear();
+        }
+
         info = FindObjectOfType<UnitInfo>();
 
         EntryDoor = HarvestDoor = ExitDoor = null;
@@ -117,7 +127,7 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        else if (Level == 0)
+        else if (Level == 0 && scene.name != "MainMenu")
         {
             SpawnPlayerUnits(StartSquad);
         }
