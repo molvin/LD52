@@ -235,8 +235,10 @@ public class Projectile : MonoBehaviour
     private void setColor(Color in_color)
     {
         projectileColor.color = in_color;
-        TrailColor.colorGradient.colorKeys[0].color = in_color;
-        TrailColor.colorGradient.colorKeys[1].color = in_color;
+        TrailColor.startColor = in_color;
+        Color endColor = in_color;
+        endColor.a = 0.0f;
+        TrailColor.endColor = endColor;
     }
 
     void Remove()

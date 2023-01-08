@@ -60,7 +60,7 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
         audioSource.transform.position = pos;
 
-        audioSource.pitch = Random.Range(0.8f, 1.2f);
+        audioSource.pitch = Random.Range(0.95f, 1.05f);
         m_ActiveAudios.Add(audioSource);
     }
 

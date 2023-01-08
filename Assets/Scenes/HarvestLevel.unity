@@ -707,25 +707,30 @@ MonoBehaviour:
   - Cost: 0
     Units:
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+  - Cost: 15
+    Units:
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
   - Cost: 25
     Units:
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
     - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
-  - Cost: 45
+  - Cost: 40
     Units:
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
-  - Cost: 55
+  - Cost: 50
     Units:
     - {fileID: 2562553831933882726, guid: 4a82fcd60e53b6344aa22b5da22150bf, type: 3}
-  - Cost: 70
+  - Cost: 65
     Units:
     - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
     - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
-  - Cost: 80
+  - Cost: 75
     Units:
     - {fileID: 5769235879982151117, guid: 421484d769e263746a8e9c250f7c6f00, type: 3}
-  - Cost: 90
+  - Cost: 85
     Units:
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}

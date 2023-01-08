@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
         Game,
         Harvest,
         End,
-        Transition
+        Transition,
+        StartMenu
     }
 
 
@@ -64,7 +65,6 @@ public class GameManager : MonoBehaviour
         switch (CurrentState)
         {
             case State.Start:
-                info?.Toggle(false);
                 break;
             case State.Game:
                 if (enemyUnits.Count == 0)
@@ -72,15 +72,16 @@ public class GameManager : MonoBehaviour
                     CurrentState = State.End;
                     StartCoroutine(End(false));
                 }
-                info?.Toggle(false);
                 break;
             case State.Harvest:
-                info?.Toggle(true);
                 break;
             case State.End:
-                info?.Toggle(true);
                 break;
             case State.Transition:
+                break;
+            case State.StartMenu:
+                CurrentState = State.End;
+                StartCoroutine(End(false));        
                 info?.Toggle(false);
                 break;
         }
@@ -96,6 +97,10 @@ public class GameManager : MonoBehaviour
                 Destroy(ent.gameObject);
             }
             playerUnits.Clear();
+            CurrentState = State.StartMenu;
+        } else
+        {
+            CurrentState = State.Start;
         }
 
         info = FindObjectOfType<UnitInfo>();
@@ -112,7 +117,7 @@ public class GameManager : MonoBehaviour
                 ExitDoor = door;
         }
 
-        CurrentState = State.Start;
+        //CurrentState = State.Start;
 
         ObjectPool.Instance.Clear();
         EntitiesInGame = FindObjectsOfType<Entity>().ToList();
@@ -131,7 +136,7 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        else if (Level == 0 && scene.name != "MainMenu")
+        else //if (Level == 0 && scene.name != "MainMenu")
         {
             SpawnPlayerUnits(StartSquad);
         }
@@ -218,9 +223,22 @@ public class GameManager : MonoBehaviour
         {
             spawnPoint.y = 1.0f;
             GameObject instance = Instantiate(prefab, spawnPoint, Quaternion.identity);
-            EntitiesInGame.Add(instance.GetComponent<Entity>());
+            Entity ent = instance.GetComponent<Entity>();
+            EntitiesInGame.Add(ent);
             DontDestroyOnLoad(instance);
-            newEnts.Add(instance.GetComponent<Entity>());
+            newEnts.Add(ent);
+
+            if(ent.Team == Team.Player)
+            {
+                if(Level != 0)
+                {
+                    //Randomize color
+
+                }
+                var info = ent.GetComponent<UnitName>();
+                info.UpdateColor();
+
+            }
         }
         return newEnts;
     }
@@ -250,9 +268,24 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator End(bool skipHarvest)
     {
-        yield return new WaitForSeconds(1.0f);
+        // Get souls
 
         if(!skipHarvest)
+        {
+            foreach (Entity e in playerUnits)
+            {
+                UnitSoul soul = e.Get<UnitSoul>();
+                soul.SoulAmount *= soul.SoulGrowthRate;
+                e.GetComponentInChildren<HealthBar>().UnitLevelUp((int)soul.SoulAmount);
+                yield return new WaitForSeconds(0.6f);
+            }
+        }
+
+
+        yield return new WaitForSeconds(1.0f);
+        info?.Toggle(true);
+
+        if (!skipHarvest)
             StartCoroutine(HarvestDoor.Toggle(true));
         yield return ExitDoor.Toggle(true);
 
@@ -280,6 +313,8 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         CurrentState = State.Transition;
+        info?.Toggle(false);
+
 
         InputManager.Instance.enabled = false;
         foreach(Entity e in playerUnits)
@@ -319,15 +354,6 @@ public class GameManager : MonoBehaviour
     public IEnumerator NextLevel(bool skipHarvest)
     {
         InputManager.Instance?.ClearSelection();
-
-        foreach (Entity e in playerUnits)
-        {
-            if (e.TryGet(out UnitSoul comp))
-            {
-                UnitSoul soul = (UnitSoul)comp;
-                soul.SoulAmount *= soul.SoulGrowthRate;
-            }
-        }
 
         if(!skipHarvest)
         {
