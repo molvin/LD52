@@ -165,19 +165,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Speed
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Acceleration
-      value: 12
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: AngularSpeed
       value: 1800
       objectReference: {fileID: 0}
+    - target: {fileID: 3952488217610643842, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Max
-      value: 20
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Helath
@@ -185,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Current
-      value: 20
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
@@ -215,10 +219,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   Damage: 30
+  KnockbackForce: 12
   AttackDistance: 40
-  AttackTime: 1.3
-  WindUpTime: 0.5
-  WindDownTime: 0.3
+  AttackTime: 2
+  WindUpTime: 0.4
+  WindDownTime: 0.1
   TimeToStrike: 0
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
   ProjectileCount: 1
@@ -229,9 +234,9 @@ MonoBehaviour:
   Split: 0
   PierceTargetCount: 0
   ProjectileSize: 1
-  ProjectileSpeed: 10
+  ProjectileSpeed: 15
   ProjectileLifetime: 4.5
-  ImpactExplosionRadius: 10
+  ImpactExplosionRadius: 12
 --- !u!114 &-47363553853166541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +265,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoulAmount: 0
   SoulGrowthRate: 1.5
-  BaseSoul: 10
 --- !u!114 &4189212999773731785
 MonoBehaviour:
   m_ObjectHideFlags: 0
