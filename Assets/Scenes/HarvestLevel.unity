@@ -707,7 +707,7 @@ MonoBehaviour:
   - Cost: 0
     Units:
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
-  - Cost: 30
+  - Cost: 25
     Units:
     - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
   - Cost: 45
@@ -718,18 +718,32 @@ MonoBehaviour:
   - Cost: 55
     Units:
     - {fileID: 2562553831933882726, guid: 4a82fcd60e53b6344aa22b5da22150bf, type: 3}
+  - Cost: 70
+    Units:
+    - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+    - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
   - Cost: 80
     Units:
-    - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
-    - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+    - {fileID: 5769235879982151117, guid: 421484d769e263746a8e9c250f7c6f00, type: 3}
+  - Cost: 90
+    Units:
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
   - Cost: 100
+    Units:
+    - {fileID: 3715798280523851350, guid: 970e7cfa1abb2bf4e88312b5dfd45953, type: 3}
+    - {fileID: 3715798280523851350, guid: 970e7cfa1abb2bf4e88312b5dfd45953, type: 3}
+  - Cost: 115
     Units:
     - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
     - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
-  - Cost: 100
+  - Cost: 130
     Units:
-    - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
-    - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
+    - {fileID: 5013568480045100265, guid: 540d55e4467c78540b9d13366ab77f12, type: 3}
+    - {fileID: 5013568480045100265, guid: 540d55e4467c78540b9d13366ab77f12, type: 3}
   KillZone: {fileID: 1333428938}
   HarvestTime: 3
   CurrentSoulsText: {fileID: 637694729}
@@ -737,6 +751,8 @@ MonoBehaviour:
   CanHarvest: 1
   SpawnPoint: {fileID: 70960636}
   TargetPoint: {fileID: 1027705117}
+  HarvestedSound: {fileID: 8300000, guid: 2103f6c6426b14445a9786fd196f9f24, type: 3}
+  SpawnedSound: {fileID: 8300000, guid: 970094b61200fbf4abe9c1d76f85f9d6, type: 3}
 --- !u!1 &1333428936
 GameObject:
   m_ObjectHideFlags: 0

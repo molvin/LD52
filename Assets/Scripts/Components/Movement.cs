@@ -6,16 +6,10 @@ using UnityEngine.AI;
 
 public class Movement : UnitBase
 {
-    [Header("Collision")]
     public LayerMask ObstacleMask;
-
-    [Header("Collision")]
     public float CollisionRadius = 0.5f;
-
-    [Header("Steering")]
+    public float Mass = 1.0f;
     public float Speed = 2.5f;
-
-    [Header("Steering")]
     public float Acceleration = 16.0f;
 
     private Selectable Selectable = null;
@@ -44,7 +38,7 @@ public class Movement : UnitBase
     
     public void AddForce(Vector3 Force)
     {
-        velocity += Force;
+        velocity += Force / Mass;
     }
 
     // Update is called once per frame

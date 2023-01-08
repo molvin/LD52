@@ -18,6 +18,10 @@ public class InputManager : MonoBehaviour
     public List<Selectable> Selected = new List<Selectable>();
     private Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
 
+    public float HoldTickRate = 0.1f;
+    private float lastMove;
+    private bool MoveOnHold => (Time.time - lastMove) > HoldTickRate;
+    
     private void Awake()
     {
         if(!Instance)
@@ -40,8 +44,9 @@ public class InputManager : MonoBehaviour
             StartCoroutine(Select());
         }
 
-        if (!selecting && Input.GetMouseButtonDown(1))
+        if (!selecting && Input.GetMouseButtonDown(1) || (Input.GetMouseButton(1) && MoveOnHold))
         {
+            lastMove = Time.deltaTime;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             groundPlane.Raycast(ray, out float startEnter);
             Vector3 targetPos = ray.GetPoint(startEnter);

@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
         Start,
         Game,
         Harvest,
-        End
+        End,
+        Transition
     }
 
 
@@ -30,12 +31,18 @@ public class GameManager : MonoBehaviour
 
     public State CurrentState = State.Start;
 
+    [Header("Audio")]
+    public AudioClip GamePlayMusic;
+    public AudioClip HarvestMusic;
+
     private Door EntryDoor;
     private Door ExitDoor;
     private Door HarvestDoor;
 
     private Harvest harvester;
     private bool waiting;
+
+    private UnitInfo info;
 
     private void Awake()
     {
@@ -57,6 +64,7 @@ public class GameManager : MonoBehaviour
         switch (CurrentState)
         {
             case State.Start:
+                info?.Toggle(false);
                 break;
             case State.Game:
                 if (enemyUnits.Count == 0)
@@ -64,16 +72,34 @@ public class GameManager : MonoBehaviour
                     CurrentState = State.End;
                     StartCoroutine(End(false));
                 }
+                info?.Toggle(false);
                 break;
             case State.Harvest:
+                info?.Toggle(true);
                 break;
             case State.End:
+                info?.Toggle(true);
+                break;
+            case State.Transition:
+                info?.Toggle(false);
                 break;
         }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode _)
     {
+        if(scene.name == "MainMenu")
+        {
+            Level = 0;
+            foreach(Entity ent in playerUnits)
+            {
+                Destroy(ent.gameObject);
+            }
+            playerUnits.Clear();
+        }
+
+        info = FindObjectOfType<UnitInfo>();
+
         EntryDoor = HarvestDoor = ExitDoor = null;
         var doors = FindObjectsOfType<Door>();
         foreach (Door door in doors)
@@ -105,7 +131,7 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        else if (Level == 0)
+        else if (Level == 0 && scene.name != "MainMenu")
         {
             SpawnPlayerUnits(StartSquad);
         }
@@ -116,6 +142,17 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartLevel(List<Entity> ents, bool harvest)
     {
+        if(harvest)
+        {
+            AudioManager.Instance.StopMusic(GamePlayMusic);
+            AudioManager.Instance.PlayMusic(HarvestMusic);
+        }
+        else
+        {
+            AudioManager.Instance.PlayMusic(GamePlayMusic);
+            AudioManager.Instance.StopMusic(HarvestMusic);
+        }
+
         ToggleEnemies(false);
 
         InputManager.Instance.enabled = false;
@@ -242,6 +279,7 @@ public class GameManager : MonoBehaviour
             }
             yield return null;
         }
+        CurrentState = State.Transition;
 
         InputManager.Instance.enabled = false;
         foreach(Entity e in playerUnits)

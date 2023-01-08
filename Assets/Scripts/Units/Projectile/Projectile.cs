@@ -24,6 +24,8 @@ public class Projectile : MonoBehaviour
     GameObject Prefab;
     List<Entity> IgnoreTargets;
 
+    bool BeingRemoved = false;
+
     void Awake()
     {
         Collider = GetComponentInChildren<BoxCollider>();
@@ -70,17 +72,21 @@ public class Projectile : MonoBehaviour
         color = color_in;
         setColor(color);
         IgnoreTargets = ignoreTargets;
+        BeingRemoved = false;
     }
 
     void Update()
     {
+        if (BeingRemoved)
+            return;
+
         if (Time.time >= EndTime)
         {
             if (ExplodingOnImpact)
             {
                 Explode(transform.position);
             }
-            ObjectPool.Instance.ReturnInstance(gameObject);
+            Remove();
         }
 
         //bool IsDone = false;
@@ -195,7 +201,7 @@ public class Projectile : MonoBehaviour
 
         if (IsDone)
         {
-            ObjectPool.Instance.ReturnInstance(gameObject);
+            Remove();
         }
     }
 
@@ -231,6 +237,17 @@ public class Projectile : MonoBehaviour
         projectileColor.color = in_color;
         TrailColor.colorGradient.colorKeys[0].color = in_color;
         TrailColor.colorGradient.colorKeys[1].color = in_color;
+    }
+
+    void Remove()
+    {
+        BeingRemoved = true;
+        StartCoroutine(Removal());
+    }
+    IEnumerator Removal()
+    {
+        yield return new WaitForSeconds(0.2f);
+        ObjectPool.Instance.ReturnInstance(gameObject);
     }
 
     void SplitProjectile(Vector3 Offset)
