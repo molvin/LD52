@@ -20,6 +20,8 @@ public class Projectile : MonoBehaviour
     GameObject Prefab;
     List<Entity> IgnoreTargets;
 
+    bool BeingRemoved = false;
+
     void Awake()
     {
         Collider = GetComponentInChildren<BoxCollider>();
@@ -64,17 +66,21 @@ public class Projectile : MonoBehaviour
         EndTime = Time.time + projectileLifetime;
 
         IgnoreTargets = ignoreTargets;
+        BeingRemoved = false;
     }
 
     void Update()
     {
+        if (BeingRemoved)
+            return;
+
         if (Time.time >= EndTime)
         {
             if (ExplodingOnImpact)
             {
                 Explode(transform.position);
             }
-            ObjectPool.Instance.ReturnInstance(gameObject);
+            Remove();
         }
 
         //bool IsDone = false;
@@ -189,7 +195,7 @@ public class Projectile : MonoBehaviour
 
         if (IsDone)
         {
-            ObjectPool.Instance.ReturnInstance(gameObject);
+            Remove();
         }
     }
 
@@ -218,6 +224,17 @@ public class Projectile : MonoBehaviour
         Vector3 pos = Position;
         Aoe.transform.position = new Vector3(pos.x, 0.1f, pos.z);
         Aoe.transform.localScale = Vector3.one * ImpactExplosionRadius;
+    }
+
+    void Remove()
+    {
+        BeingRemoved = true;
+        StartCoroutine(Removal());
+    }
+    IEnumerator Removal()
+    {
+        yield return new WaitForSeconds(0.2f);
+        ObjectPool.Instance.ReturnInstance(gameObject);
     }
 
     void SplitProjectile(Vector3 Offset)

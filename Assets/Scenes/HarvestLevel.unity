@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -718,18 +718,32 @@ MonoBehaviour:
   - Cost: 55
     Units:
     - {fileID: 2562553831933882726, guid: 4a82fcd60e53b6344aa22b5da22150bf, type: 3}
+  - Cost: 70
+    Units:
+    - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+    - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
   - Cost: 80
     Units:
-    - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
-    - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+    - {fileID: 5769235879982151117, guid: 421484d769e263746a8e9c250f7c6f00, type: 3}
+  - Cost: 90
+    Units:
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
   - Cost: 100
+    Units:
+    - {fileID: 3715798280523851350, guid: 970e7cfa1abb2bf4e88312b5dfd45953, type: 3}
+    - {fileID: 3715798280523851350, guid: 970e7cfa1abb2bf4e88312b5dfd45953, type: 3}
+  - Cost: 115
     Units:
     - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
     - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
-  - Cost: 100
+  - Cost: 130
     Units:
-    - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
-    - {fileID: 7343930226022732418, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
+    - {fileID: 5013568480045100265, guid: 540d55e4467c78540b9d13366ab77f12, type: 3}
+    - {fileID: 5013568480045100265, guid: 540d55e4467c78540b9d13366ab77f12, type: 3}
   KillZone: {fileID: 1333428938}
   HarvestTime: 3
   CurrentSoulsText: {fileID: 637694729}
