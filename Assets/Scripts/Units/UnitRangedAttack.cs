@@ -15,7 +15,7 @@ public class UnitRangedAttack : UnitAttack
          Projectile projectile = ObjectPool.Instance.GetInstance(ProjectilePrefab.gameObject).GetComponent<Projectile>();
 
          projectile.Fire(
-             ProjectilePrefab.gameObject,
+            ProjectilePrefab.gameObject,
             transform.position,
             (entity.transform.position - transform.position).normalized,
             this.Entity,
@@ -28,6 +28,7 @@ public class UnitRangedAttack : UnitAttack
             ProjectileSpeed,
             ProjectileSize,
             ProjectileLifetime,
-            ImpactExplosionRadius);
+            ImpactExplosionRadius,
+            new List<Entity>());
     }
 }
