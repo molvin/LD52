@@ -61,11 +61,14 @@ public abstract class UnitAttack : UnitBase
     private IEnumerator AttackActionStart(Entity Enemy)
     {
         TimeToStrike = true;
-        Entity.Get<Movement>().CanMove = false;
+        bool canMove = Entity.TryGet(out Movement movement);
+        if(canMove)
+            movement.CanMove = false;
         yield return new WaitForSeconds(WindUpTime);
         if (Enemy == null)
         {
-            Entity.Get<Movement>().CanMove = true;
+            if (canMove)
+                movement.CanMove = true;
             TimeToStrike = false;
             yield break;
         }
@@ -73,7 +76,8 @@ public abstract class UnitAttack : UnitBase
         yield return new WaitForSeconds(WindDownTime);
         TimeToStrike = false;
         LastAttackTime = Time.time;
-        Entity.Get<Movement>().CanMove = true;
+        if (canMove)
+            movement.CanMove = true;
         yield return 0;
     }
 
