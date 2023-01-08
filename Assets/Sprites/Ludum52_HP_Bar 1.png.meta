@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 56eb5e3aec0e62841b8820455b1cad62
+guid: 193d059112d0da04887a938f4dbc30a4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,76 +105,97 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ludum52_HP_Bar_0
+      name: Ludum52_HP_Bar 1_0
       rect:
         serializedVersion: 2
-        x: 72
-        y: 1031
-        width: 103
-        height: 15
+        x: 21
+        y: 1028
+        width: 328
+        height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b3636cc93f54434f819b9b9f8645052
-      internalID: -474485366
+      spriteID: 2ccc2138182645d4a8f1279ca3736fd1
+      internalID: 1667801131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ludum52_HP_Bar_1
+      name: Ludum52_HP_Bar 1_1
       rect:
         serializedVersion: 2
-        x: 72
-        y: 1008
-        width: 102
-        height: 15
+        x: 21
+        y: 966
+        width: 328
+        height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90fb1e4a1257d2c4ca4b03f2ba496f7c
-      internalID: -756343069
+      spriteID: f7a26276dcfb0db4ea806370a18ce977
+      internalID: 1978012658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ludum52_HP_Bar_2
+      name: Ludum52_HP_Bar 1_2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 985
-        width: 102
-        height: 15
+        x: 18
+        y: 901
+        width: 334
+        height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 454ffc4fc3e43ec48a1138d4fe9133de
-      internalID: 156950047
+      spriteID: b427ee1a511ae2e46ac07367f0ee923d
+      internalID: -1980574549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ludum52_HP_Bar_3
+      name: Ludum52_HP_Bar 1_3
       rect:
         serializedVersion: 2
-        x: 204
-        y: 1033
-        width: 2
-        height: 13
+        x: 399
+        y: 990
+        width: 4
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bdc0eb2849150746ac8ca7ae64eecaf
+      internalID: -1918322535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ludum52_HP_Bar 1_4
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 832
+        width: 328
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f5d6ff7ade33344bbd90c09812535fb
-      internalID: -776307683
+      spriteID: 00e8c042a61861242ba211b51a429f89
+      internalID: -255170767
       vertices: []
       indices: 
       edges: []
@@ -191,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e7781db00c8fefc498ae08b9fb41b1db
+    spriteID: 69a14e466e291b042b8e7bfda833e61f
     internalID: 0
     vertices: []
     indices: 
@@ -199,10 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ludum52_HP_Bar_2: 156950047
-      Ludum52_HP_Bar_0: -474485366
-      Ludum52_HP_Bar_3: -776307683
-      Ludum52_HP_Bar_1: -756343069
+      Ludum52_HP_Bar 1_0: 1667801131
+      Ludum52_HP_Bar 1_1: 1978012658
+      Ludum52_HP_Bar 1_3: 1143491437
+      Ludum52_HP_Bar 1_4: -255170767
+      Ludum52_HP_Bar 1_2: -1980574549
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
