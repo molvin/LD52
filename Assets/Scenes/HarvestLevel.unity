@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -707,8 +707,17 @@ MonoBehaviour:
   - Cost: 0
     Units:
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+  - Cost: 30
+    Units:
+    - {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+  - Cost: 45
+    Units:
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
     - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+    - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+  - Cost: 65
+    Units:
+    - {fileID: 2562553831933882726, guid: 4a82fcd60e53b6344aa22b5da22150bf, type: 3}
   KillZone: {fileID: 1333428938}
   HarvestTime: 3
   CurrentSoulsText: {fileID: 637694729}
