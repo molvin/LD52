@@ -192,7 +192,7 @@ MonoBehaviour:
   ProjectileSize: 4
   ProjectileSpeed: 12.5
   ProjectileLifetime: 30
-  ImpactExplosionRadius: 4
+  ImpactExplosionRadius: 6
 --- !u!212 &4996452110367096850 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
