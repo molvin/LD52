@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1191857281176024904}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12, y: 12, z: 12}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1232659849416368474}
@@ -72,9 +72,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1677
+  m_SortingOrder: -1715
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.8773585, g: 0.27540302, b: 0.2621039, a: 1}
+  m_Color: {r: 0.8784314, g: 0.41928455, b: 0.26274508, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1232659849416368474}
   - component: {fileID: 6462324848118160166}
   m_Layer: 0
-  m_Name: TestExplosionEffect
+  m_Name: SmallChargeUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,4 +129,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b437539efaed5147b63e2a0385a2100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeTime: 1.8
+  LifeTime: 1.2
