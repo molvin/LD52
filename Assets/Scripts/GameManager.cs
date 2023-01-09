@@ -399,6 +399,10 @@ public class GameManager : MonoBehaviour
             AIBrainBase brain = ent.GetComponent<AIBrainBase>();
             if(brain)
                 brain.enabled = on;
+
+            UnitAttack attack = ent.GetComponent<UnitAttack>();
+            if (attack)
+                attack.enabled = on;
         }
     }
 
