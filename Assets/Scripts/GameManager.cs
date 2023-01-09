@@ -8,7 +8,7 @@ using static UnityEngine.UI.Image;
 
 public class GameManager : MonoBehaviour
 {
-    public static int LevelCount = 8;
+    public static int LevelCount = 9;
     public enum State
     {
         Start,
