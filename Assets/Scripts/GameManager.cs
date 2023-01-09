@@ -8,7 +8,7 @@ using static UnityEngine.UI.Image;
 
 public class GameManager : MonoBehaviour
 {
-    public static int LevelCount = 6;
+    public static int LevelCount = 7;
     public enum State
     {
         Start,
@@ -70,7 +70,16 @@ public class GameManager : MonoBehaviour
                 if (enemyUnits.Count == 0)
                 {
                     CurrentState = State.End;
-                    StartCoroutine(End(false, false));
+
+                    if (SceneManager.GetActiveScene().name != "EndLevel")
+                    {
+                        //CurrentState = State.End;
+                        StartCoroutine(End(false, false));
+                    } else
+                    {
+                        FindObjectOfType<WinScreen>(true).gameObject.SetActive(true);
+                    }
+                    
                 }
                 break;
             case State.Harvest:
