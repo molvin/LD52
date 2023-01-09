@@ -80,7 +80,7 @@ public class UnitInfo : MonoBehaviour
         Health.text = $"{hp.Current}/{hp.Max}";
         Dmg.text = $"{atk.Damage}";
         Souls.text = $"{soul.SoulAmount}";
-        GrowthRate.text = $"{soul.BaseAmount}";
+        GrowthRate.text = $"{unit.Rarity}";
         Description.text = unit.Description;
     }
     private void RebuildMultiple()

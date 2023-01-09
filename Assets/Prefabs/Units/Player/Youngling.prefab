@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5143870162903056254}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &910875520266488432
 MeshFilter:
@@ -133,7 +133,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Name
-      value: Joe
+      value: Critter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Rarity
+      value: Common
       objectReference: {fileID: 0}
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Sprite
@@ -149,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012471150167497, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
