@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DumbFieldOfViewMesh : MonoBehaviour
@@ -39,9 +40,20 @@ public class DumbFieldOfViewMesh : MonoBehaviour
     //[ContextMenu("generateMesh")]
     public void buildMesh()
     {
-        
 
+        if (generator == null || generator.gameObject.IsDestroyed())
+            return;
         List<Vector3> viewPoints = getViewPoints();
+        if (viewPoints == null)
+        {
+            this.GetComponent<MeshRenderer>().enabled = false;
+            return;
+        } else
+        {
+            this.GetComponent<MeshRenderer>().enabled = true;
+
+        }
+        
         dotCleanPointCloud(ref viewPoints);
         Vector3[] vertices = new Vector3[viewPoints.Count + 1];
         Vector2[] uvs = new Vector2[viewPoints.Count + 1];
@@ -99,6 +111,8 @@ public class DumbFieldOfViewMesh : MonoBehaviour
     public List<Vector3> getViewPoints()
     {
         List<float> disntances = generator.getPoints(transform.position);
+        if (disntances == null)
+            return null;
         List<Vector3> potins = new List<Vector3>();
         for(int i = 0; i < disntances.Count; i++)
         {
