@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5090356579280118119}
     m_Modifications:
+    - target: {fileID: 1914025214545721468, guid: 167da809c0572784ba8959518a92dd3a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9629b76cd8fc18e4bb4fc0f4c98ccb39, type: 2}
+    - target: {fileID: 4886845547415909612, guid: 167da809c0572784ba8959518a92dd3a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9629b76cd8fc18e4bb4fc0f4c98ccb39, type: 2}
     - target: {fileID: 5005527068955148714, guid: 167da809c0572784ba8959518a92dd3a, type: 3}
       propertyPath: unitSprite
       value: 
@@ -59,6 +67,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitRagdoll
       objectReference: {fileID: 0}
+    - target: {fileID: 5005527069378305292, guid: 167da809c0572784ba8959518a92dd3a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9629b76cd8fc18e4bb4fc0f4c98ccb39, type: 2}
+    - target: {fileID: 5917800021681821326, guid: 167da809c0572784ba8959518a92dd3a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9629b76cd8fc18e4bb4fc0f4c98ccb39, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 167da809c0572784ba8959518a92dd3a, type: 3}
 --- !u!1001 &6380375846559728114
@@ -187,7 +203,7 @@ PrefabInstance:
     - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 9629b76cd8fc18e4bb4fc0f4c98ccb39, type: 2}
     m_RemovedComponents:
     - {fileID: 2175012472069333225, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
     - {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
