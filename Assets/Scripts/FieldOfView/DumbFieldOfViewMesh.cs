@@ -57,7 +57,7 @@ public class DumbFieldOfViewMesh : MonoBehaviour
         dotCleanPointCloud(ref viewPoints);
         Vector3[] vertices = new Vector3[viewPoints.Count + 1];
         Vector2[] uvs = new Vector2[viewPoints.Count + 1];
-        int[] triangles = new int[(viewPoints.Count) * 3];
+        int[] triangles = new int[(viewPoints.Count) * 3 + 3];
 
         vertices[0] = Vector3.zero;
         uvs[0] = new Vector2(0.5f, 0.5f);
@@ -75,8 +75,14 @@ public class DumbFieldOfViewMesh : MonoBehaviour
                 triangles[(i) * 3] = 0;
                 triangles[(i) * 3 + 1] = i + 1;
                 triangles[(i) * 3 + 2] = i + 2;
+            } else
+            {
+                triangles[(i) * 3] = 0;
+                triangles[(i) * 3 + 1] = i + 1;
+                triangles[(i) * 3 + 2] = 1;
             }
         }
+   
 
 
 
