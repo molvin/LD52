@@ -84,6 +84,7 @@ MonoBehaviour:
   ClickSelectRadius: 1.2
   Selected: []
   HoldTickRate: 0.1
+  Spacing: 2.5
 --- !u!114 &8006942428281086951
 MonoBehaviour:
   m_ObjectHideFlags: 0
