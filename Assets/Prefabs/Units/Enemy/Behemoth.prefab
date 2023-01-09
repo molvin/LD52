@@ -93,11 +93,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Max
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Current
-      value: 500
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 6191138673487804201, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Team
@@ -163,7 +163,7 @@ MonoBehaviour:
   ObstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  Damage: 50
+  Damage: 60
   KnockbackForce: 0
   AttackDistance: 3.5
   AttackTime: 0.6
@@ -171,6 +171,7 @@ MonoBehaviour:
   WindDownTime: 0.6
   AttackSound: {fileID: 0}
   TimeToStrike: 0
+  Target: {fileID: 0}
 --- !u!114 &3139362137561769190
 MonoBehaviour:
   m_ObjectHideFlags: 0
