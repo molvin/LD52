@@ -24,11 +24,12 @@ public class BoneColorFade : MonoBehaviour
 
     private IEnumerator Fade()
     {
-        ridgidBod.gameObject.SetActive(false);
+        ridgidBod.isKinematic = true;
         float time = 0;
         SpriteRenderer sp = GetComponent<SpriteRenderer>();
         Color start = sp.color;
         Color end = sp.color * 0.5f;
+        end.a = 1f;
         while (time < Lifetime)
         {
             time += Time.deltaTime;

@@ -11,12 +11,13 @@ public class UnitRagdoll : MonoBehaviour
 
     private void Start()
     {
-        Bones = transform.GetComponentsInChildren<Rigidbody>();
+        Bones = transform.GetComponentsInChildren<Rigidbody>(true);
         SetColor();     
     }
 
     public void Explode(float force, Vector3 hitPosition)
     {
+        this.transform.SetParent(null, true);
         for (int  i = 0; i < Bones.Length; i++)
         {
             Bones[i].gameObject.SetActive(true);

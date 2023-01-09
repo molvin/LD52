@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5005527068955148716}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.27, y: 1, z: 5.73}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 5005527069378305289}
   - component: {fileID: 5005527069378305290}
   - component: {fileID: 5005527069378305288}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,14 +74,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5005527069378305293}
-  m_LocalRotation: {x: 0.6663462, y: -0.2366067, z: 0.23660664, w: 0.66634625}
-  m_LocalPosition: {x: 0.71000004, y: -1, z: 2.3200002}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5005527068955148715}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 39.098}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &5005527069378305292
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 52
   m_CollisionDetection: 0
 --- !u!65 &5005527069378305290
 BoxCollider:

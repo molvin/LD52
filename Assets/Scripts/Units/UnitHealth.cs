@@ -32,7 +32,8 @@ public class UnitHealth : UnitBase
         healthBar?.UnitTakeDamage(dmg);
         if (Current == 0)
         {
-            ragdoll.Explode(dmg, transform.position);
+            if(ragdoll != null)
+                ragdoll.Explode(dmg, transform.position);
             AudioManager.Instance.PlayAudio(DeathSound, transform.position);
             GameManager.Instance?.KillUnit(Entity);
         }
