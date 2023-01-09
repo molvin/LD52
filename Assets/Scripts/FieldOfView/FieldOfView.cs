@@ -164,15 +164,11 @@ public class FieldOfView : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, dir, out hit, viewRadius, obstacleMask))
         {
-            if(globalAngle == 1)
-                Debug.DrawLine(transform.position, hit.point, Color.green);
 
             return new ViewCastInfo(true, hit.point, hit.distance, globalAngle);
         }
         else
         {
-            if (globalAngle == 1)
-                Debug.DrawLine(transform.position, transform.position + dir * viewRadius, Color.green);
             return new ViewCastInfo(false, transform.position + dir * viewRadius, viewRadius, globalAngle);
         }
     }

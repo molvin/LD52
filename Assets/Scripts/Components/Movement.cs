@@ -21,7 +21,7 @@ public class Movement : UnitBase
     const float Y = 1.0f;
     private Vector3 LastSelectableTargetPos;
 
-    private Vector3 velocity = Vector3.zero;
+    public Vector3 velocity = Vector3.zero;
 
     float StoppingDistance => CollisionRadius * 0.5f;
 
@@ -126,7 +126,9 @@ public class Movement : UnitBase
             }
         }
 
-        transform.position += Vector3.ClampMagnitude(LargestPenetration * Speed * Time.deltaTime, LargestPenetration.magnitude);
+        Vector3 movement = Vector3.ClampMagnitude(LargestPenetration * Speed * Time.deltaTime, LargestPenetration.magnitude);
+        transform.position += movement;
+
     }
 
     private void Avoidance()

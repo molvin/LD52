@@ -22,21 +22,16 @@ public abstract class UnitAttack : UnitBase
     public bool CanAttack() => Time.time - LastAttackTime > AttackTime;
     public bool IsEnemyTargetable(Entity Other) => Entity.Team != Other.Team && (Entity.Team == Team.Enemy || Other.isSeenByPlayer);
 
+    public Entity Target;
+
     void Update()
     {
-        if (!CanAttack())
-            return;
-
-        if (TimeToStrike)
-        {
-            return;
-        }
-
         List<Entity> Enemies = GameManager.Instance.EntitiesInGame
-            .Where(e => IsEnemyTargetable(e) && e.Has<UnitHealth>())
-            .OrderBy(e => transform.position.Dist2D(e.transform.position))
-            .ToList();
+        .Where(e => IsEnemyTargetable(e) && e.Has<UnitHealth>())
+        .OrderBy(e => transform.position.Dist2D(e.transform.position))
+        .ToList();
 
+        Target = null;
         foreach (Entity Enemy in Enemies)
         {
             float Distance = transform.position.Dist2D(Enemy.transform.position);
@@ -52,10 +47,21 @@ public abstract class UnitAttack : UnitBase
                 Mathf.Min(AttackDistance, Vector3.Distance(Enemy.transform.position, transform.position)),
                 ObstacleMask))
             {
-                StartCoroutine(AttackActionStart(Enemy));
+                Target = Enemy;
                 break;
             }
         }
+
+        if (!CanAttack())
+            return;
+
+        if (TimeToStrike)
+        {
+            return;
+        }
+
+        if(Target)
+            StartCoroutine(AttackActionStart(Target));
     }
 
     private IEnumerator AttackActionStart(Entity Enemy)
