@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4774035615921567266, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
       propertyPath: SoulAmount
-      value: 30
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 4774035615921567266, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
       propertyPath: SoulGrowthRate
@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
       propertyPath: Damage
-      value: 45
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
       propertyPath: Pierce
@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
       propertyPath: KnockbackForce
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
       propertyPath: ProjectileCount
