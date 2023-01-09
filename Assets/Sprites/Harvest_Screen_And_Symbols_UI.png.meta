@@ -188,6 +188,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Harvest_Screen_And_Symbols_UI_4
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 687
+        width: 535
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f8b3cddf1f9c2b46b2b481f1129da66
+      internalID: 1908647832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Harvest_Screen_And_Symbols_UI_5
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 400
+        width: 596
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d30d38f9ad474c40af641305db8b81b
+      internalID: 1657448679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -201,8 +243,10 @@ TextureImporter:
     nameFileIdTable:
       Harvest_Screen_And_Symbols_UI_2: -858843817
       Harvest_Screen_And_Symbols_UI_1: 681208046
+      Harvest_Screen_And_Symbols_UI_4: 1908647832
       Harvest_Screen_And_Symbols_UI_3: -1499925256
       Harvest_Screen_And_Symbols_UI_0: 65751855
+      Harvest_Screen_And_Symbols_UI_5: 1657448679
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
