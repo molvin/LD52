@@ -142,6 +142,14 @@ public class GameManager : MonoBehaviour
 
         if(scene.name != "MainMenu")
             StartCoroutine(StartLevel(playerUnits, scene.name == HarvestScene));
+
+        EntitiesInGame.ForEach(entity =>
+        {
+            if (entity.Team == Team.Player)
+            {
+                entity.GetComponentInChildren<DumbFieldOfViewMesh>().onNewLevel();
+            }
+        });
     }
 
     private IEnumerator StartLevel(List<Entity> ents, bool harvest)
