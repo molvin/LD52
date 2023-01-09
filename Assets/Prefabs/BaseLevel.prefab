@@ -1562,10 +1562,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   viewRadius: 35
-  meshResolution: 0
-  edgeResolveIterations: 0
-  edgeDstThreshold: 0
-  stepSize: 5
+  meshResolution: 1
+  edgeResolveIterations: 2
+  edgeDstThreshold: 2
+  stepSize: 2
   viewMeshFilter: {fileID: 3820994867996874714}
   cleanDotArc: 0.1
   frameInterval: 4
@@ -2131,7 +2131,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7492817917876497106}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2823,10 +2823,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   viewRadius: 35
-  meshResolution: 0
-  edgeResolveIterations: 0
-  edgeDstThreshold: 0
-  stepSize: 5
+  meshResolution: 1
+  edgeResolveIterations: 2
+  edgeDstThreshold: 2
+  stepSize: 2
   viewMeshFilter: {fileID: 4423980524235983465}
   cleanDotArc: 0.1
   frameInterval: 4
@@ -3641,10 +3641,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   viewRadius: 35
-  meshResolution: 0
-  edgeResolveIterations: 0
-  edgeDstThreshold: 0
-  stepSize: 5
+  meshResolution: 1
+  edgeResolveIterations: 2
+  edgeDstThreshold: 2
+  stepSize: 2
   viewMeshFilter: {fileID: 501225142319434543}
   cleanDotArc: 0.1
   frameInterval: 4
