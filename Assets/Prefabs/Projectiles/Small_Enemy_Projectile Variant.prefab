@@ -24,6 +24,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
+      propertyPath: AoeEffect
+      value: 
+      objectReference: {fileID: 8435158205463120383, guid: d60c1c15cfdc9674e9868fdb55767843, type: 3}
+    - target: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
       propertyPath: TrailColor
       value: 
       objectReference: {fileID: 8422323796300818930}
