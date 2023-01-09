@@ -1,4 +1,3 @@
-using OpenCover.Framework.Model;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +20,8 @@ public class FieldOfViewDataGenerator : MonoBehaviour
     {
         fieldOfViewData.Rebuild((resX, resY, Mathf.FloorToInt(360 / stepSize)));
     }
+
+#if UNITY_EDITOR
 
     [ContextMenu("generateData")]
     private void generateData()
@@ -48,7 +49,7 @@ public class FieldOfViewDataGenerator : MonoBehaviour
         
 
     }
-
+#endif
     private List<float> generatePoints(Vector3 origo)
     {
         int angleCount = Mathf.FloorToInt(360 / stepSize);
