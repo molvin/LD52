@@ -389,7 +389,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Level = Mathf.Min(Level + 1, LevelCount - 1);
-            SceneManager.LoadScene($"Level {Mathf.Max(Level, 1)}");
+            SceneManager.LoadScene(Level);
         }
 
         yield return null;
