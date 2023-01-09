@@ -64,7 +64,7 @@ public abstract class UnitAttack : UnitBase
             StartCoroutine(AttackActionStart(Target));
     }
 
-    private IEnumerator AttackActionStart(Entity Enemy)
+    protected IEnumerator AttackActionStart(Entity Enemy)
     {
         TimeToStrike = true;
         bool canMove = Entity.TryGet(out Movement movement);
