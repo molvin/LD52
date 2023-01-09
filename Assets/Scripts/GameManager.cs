@@ -70,7 +70,16 @@ public class GameManager : MonoBehaviour
                 if (enemyUnits.Count == 0)
                 {
                     CurrentState = State.End;
-                    StartCoroutine(End(false));
+
+                    if (SceneManager.GetActiveScene().name != "EndLevel")
+                    {
+                        //CurrentState = State.End;
+                        StartCoroutine(End(false));
+                    } else
+                    {
+                        FindObjectOfType<WinScreen>(true).gameObject.SetActive(true);
+                    }
+                    
                 }
                 break;
             case State.Harvest:
