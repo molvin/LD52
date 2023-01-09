@@ -344,7 +344,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: VolumeChanger
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 136363085192390071, guid: 66c2b15d40154af478067b810d444711, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 66c2b15d40154af478067b810d444711, type: 3}
 --- !u!1 &276981800
 GameObject:
@@ -3413,7 +3414,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: VolumeChanger (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 136363085192390071, guid: 66c2b15d40154af478067b810d444711, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 66c2b15d40154af478067b810d444711, type: 3}
 --- !u!1 &1861956673
 GameObject:
