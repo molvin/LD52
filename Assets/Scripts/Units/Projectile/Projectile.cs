@@ -139,7 +139,7 @@ public class Projectile : MonoBehaviour
 
         if (ExplodingOnImpact && HitEntity != null && ((Pierce && PierceTargetCount > 0) || Split))
         {
-            HitEntity.Get<UnitHealth>().TakeDamage(Damage);
+            HitEntity.Get<UnitHealth>().TakeDamage(Damage, HitPoint ?? transform.position);
             IgnoreTargets.Add(HitEntity);
         }
         else if (ExplodingOnImpact && HitEntity == null && Ricocheting)
@@ -158,7 +158,7 @@ public class Projectile : MonoBehaviour
             {
                 Move.AddForce(-HitNormal * KnockbackForce);
             }
-            HitEntity.Get<UnitHealth>().TakeDamage(Damage);
+            HitEntity.Get<UnitHealth>().TakeDamage(Damage, HitPoint ?? transform.position);
             IgnoreTargets.Add(HitEntity);
         }
         // Hit something else
@@ -218,7 +218,7 @@ public class Projectile : MonoBehaviour
             .ToList()
             .ForEach(tup => 
             {
-                tup.Item2.TakeDamage(Damage);
+                tup.Item2.TakeDamage(Damage, Position);
                 if (tup.Item1.TryGet(out Movement Move))
                 {
                     Move.AddForce((tup.Item1.transform.position - Position).normalized * KnockbackForce);

@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
 
     private UnitInfo info;
 
+    public Color[] PlayerColors;
+
     private void Awake()
     {
         if(Instance == null)
@@ -218,6 +220,12 @@ public class GameManager : MonoBehaviour
 
     public List<Entity> SpawnPlayerUnits(List<GameObject> prefabs, Vector3 spawnPoint = default(Vector3))
     {
+        Color? color = null;
+        if (Level != 0)
+        {
+            //Randomize color
+            
+        }
         List<Entity> newEnts = new List<Entity>();
         foreach(GameObject prefab in prefabs)
         {
@@ -230,12 +238,9 @@ public class GameManager : MonoBehaviour
 
             if(ent.Team == Team.Player)
             {
-                if(Level != 0)
-                {
-                    //Randomize color
-
-                }
                 var info = ent.GetComponent<UnitName>();
+
+                
                 info.UpdateColor();
 
             }
@@ -275,7 +280,7 @@ public class GameManager : MonoBehaviour
             foreach (Entity e in playerUnits)
             {
                 UnitSoul soul = e.Get<UnitSoul>();
-                soul.SoulAmount *= soul.SoulGrowthRate;
+                soul.SoulAmount += soul.BaseAmount;
                 e.GetComponentInChildren<HealthBar>().UnitLevelUp((int)soul.SoulAmount);
                 yield return new WaitForSeconds(0.6f);
             }

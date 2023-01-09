@@ -703,6 +703,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5836563b59230e441ac77a3bd6cd7edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Youngling: {fileID: 3708449737069232277, guid: e53c11f3b6a9c1248bf43af8c39ad4db, type: 3}
+  UnitTypes:
+  - {fileID: 4774035615921567266, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+  - {fileID: 4774035615921567266, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+  - {fileID: 1082823969900987314, guid: 4a82fcd60e53b6344aa22b5da22150bf, type: 3}
+  - {fileID: 7748255018829996098, guid: 421484d769e263746a8e9c250f7c6f00, type: 3}
+  - {fileID: 578166426592375769, guid: 970e7cfa1abb2bf4e88312b5dfd45953, type: 3}
+  - {fileID: 6808813943850469133, guid: e9df25a8ce6d33e479ad1791c2d67b2a, type: 3}
+  - {fileID: 9080629504750598502, guid: 540d55e4467c78540b9d13366ab77f12, type: 3}
   Upgrades:
   - Cost: 0
     Units:

@@ -118,6 +118,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Name
+      value: Franz Glonkenburg
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Renderer
+      value: 
+      objectReference: {fileID: 4639462027118295225}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: UnitType
+      value: Behemoth
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012471150167497, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
       value: HeavySlugger
@@ -180,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952488217610643842, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Max
@@ -234,6 +250,7 @@ MonoBehaviour:
   WindDownTime: 0.1
   AttackSound: {fileID: 8300000, guid: dea29d70fa442134183ea9ab0a3eda23, type: 3}
   TimeToStrike: 0
+  Target: {fileID: 0}
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
   ProjectileCount: 1
   ProjectileSpreadAngle: 0
@@ -246,22 +263,6 @@ MonoBehaviour:
   ProjectileSpeed: 15
   ProjectileLifetime: 4.5
   ImpactExplosionRadius: 12
---- !u!114 &-47363553853166541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2562553831933882726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0ae3898b78550e4b830ca4fa07ad2c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Franz Glonkenburg
-  UnitType: Behemoth
-  Sprite: {fileID: 0}
-  Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1082823969900987314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,8 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82af7d03d21c3cf438ade02125bb4ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoulAmount: 15
-  SoulGrowthRate: 1.5
+  SoulAmount: 20
 --- !u!114 &4189212999773731785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,5 +298,10 @@ MonoBehaviour:
 --- !u!212 &2562553833061602361 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2175012471150167502, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+  m_PrefabInstance: {fileID: 4449335927239643639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4639462027118295225 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_PrefabInstance: {fileID: 4449335927239643639}
   m_PrefabAsset: {fileID: 0}

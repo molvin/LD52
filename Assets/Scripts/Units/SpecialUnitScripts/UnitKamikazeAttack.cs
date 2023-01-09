@@ -32,12 +32,12 @@ public class UnitKamikazeAttack : UnitAttack
                 RaycastHit Hit;
                 if (Physics.Raycast(transform.position, (enemy.transform.position - Entity.transform.position).normalized, out Hit, ExplosionRadius) && Hit.transform == enemy.transform)
                 {
-                    enemy.Get<UnitHealth>().TakeDamage(Damage);
+                    enemy.Get<UnitHealth>().TakeDamage(Damage, transform.position);
                 }
             }
         }
         AudioManager.Instance.PlayAudio(AttackSound, transform.position);
-        Entity.Get<UnitHealth>().TakeDamage(500000000);
+        Entity.Get<UnitHealth>().TakeDamage(500000000, transform.position);
         yield return 0;
     }
     

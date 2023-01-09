@@ -8,6 +8,7 @@ public class UnitHealth : UnitBase
     public int Max;
     public int Current;
     public HealthBar healthBar;
+    private UnitRagdoll ragdoll;
 
       [Header("Audio")]
     public AudioClip DeathSound;
@@ -19,7 +20,11 @@ public class UnitHealth : UnitBase
     public bool increasedSound;
     public float amountPerTick = 1;
     public AudioMixer mixer;
-    public void TakeDamage(int dmg)
+    public void Start()
+    {
+        ragdoll = transform.GetComponentInChildren<UnitRagdoll>();
+    }
+    public void TakeDamage(int dmg, Vector3 hitPoint)
     {
         if (Current == 0)
             return;
@@ -27,6 +32,8 @@ public class UnitHealth : UnitBase
         healthBar?.UnitTakeDamage(dmg);
         if (Current == 0)
         {
+            if(ragdoll != null)
+                ragdoll.Explode(dmg, hitPoint);
             AudioManager.Instance.PlayAudio(DeathSound, transform.position);
             GameManager.Instance?.KillUnit(Entity);
         }
