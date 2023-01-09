@@ -268,9 +268,12 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("You Lose!");
         CurrentState = State.End;
-
-        yield return new WaitForSeconds(3.0f);
-        SceneManager.LoadScene(0);
+        GameObject endScreen = FindObjectOfType<EndScreen>(true).gameObject;
+        endScreen.SetActive(true);
+        yield return null;
+        //TODO move to endscreen
+        //yield return new WaitForSeconds(3.0f);
+        //SceneManager.LoadScene(0);
     }
 
     private IEnumerator End(bool skipHarvest)
