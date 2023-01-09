@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     private Queue<AudioSource> m_AudioQueue = new Queue<AudioSource>();
     private List<AudioSource> m_ActiveAudios = new List<AudioSource>();
- 
+    public AudioMixerGroup MasterGroup;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -132,6 +134,7 @@ public class AudioManager : MonoBehaviour
         audioSource.spatialBlend = 0.5f;
         audioSource.maxDistance = 1000f;
         audioSource.minDistance = 10f;
+        audioSource.outputAudioMixerGroup = MasterGroup;
         return audioSource;
     }
 
