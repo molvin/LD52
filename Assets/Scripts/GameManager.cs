@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
                     if (SceneManager.GetActiveScene().name != "EndLevel")
                     {
                         //CurrentState = State.End;
-                        StartCoroutine(End(false));
+                        StartCoroutine(End(false, false));
                     } else
                     {
                         FindObjectOfType<WinScreen>(true).gameObject.SetActive(true);
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
                 break;
             case State.StartMenu:
                 CurrentState = State.End;
-                StartCoroutine(End(false));        
+                StartCoroutine(End(false, true));        
                 info?.Toggle(false);
                 break;
         }
@@ -230,7 +230,7 @@ public class GameManager : MonoBehaviour
 
         if(harvest)
         {
-            StartCoroutine(End(true));
+            StartCoroutine(End(true, false));
         }
     }
 
@@ -285,11 +285,11 @@ public class GameManager : MonoBehaviour
         //SceneManager.LoadScene(0);
     }
 
-    private IEnumerator End(bool skipHarvest)
+    private IEnumerator End(bool skipHarvest, bool menu)
     {
         // Get souls
 
-        if(!skipHarvest)
+        if(!skipHarvest && !menu)
         {
             foreach (Entity e in playerUnits)
             {
