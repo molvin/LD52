@@ -114,6 +114,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Name
+      value: Joe
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Sprite
+      value: 
+      objectReference: {fileID: 447217359, guid: dfdb7ba1cd421dd4698ea7c59a9019e2, type: 3}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: UnitType
+      value: Critter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Description
+      value: Runs into enemies and explodes
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012471150167497, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
       value: Youngling
@@ -213,6 +233,7 @@ MonoBehaviour:
   WindDownTime: 0
   AttackSound: {fileID: 8300000, guid: edaee911a2b331e4c9f80bcc3813e8f1, type: 3}
   TimeToStrike: 0
+  Target: {fileID: 0}
   ExplosionRadius: 5
 --- !u!114 &3708449737069232277
 MonoBehaviour:
@@ -227,7 +248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoulAmount: 0
-  SoulGrowthRate: 0
 --- !u!114 &6329525255959445446
 MonoBehaviour:
   m_ObjectHideFlags: 0

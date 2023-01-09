@@ -150,6 +150,14 @@ PrefabInstance:
       propertyPath: UnitType
       value: Shotgunner
       objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Description
+      value: Has a closed range shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012471150167497, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
       value: Shotgunner
@@ -268,7 +276,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoulAmount: 15
-  SoulGrowthRate: 1.5
 --- !u!114 &7323735983174883943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +299,7 @@ MonoBehaviour:
   WindDownTime: 0
   AttackSound: {fileID: 8300000, guid: dea29d70fa442134183ea9ab0a3eda23, type: 3}
   TimeToStrike: 0
+  Target: {fileID: 0}
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
   ProjectileCount: 5
   ProjectileSpreadAngle: 25

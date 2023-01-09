@@ -119,5 +119,17 @@ PrefabInstance:
       propertyPath: Acceleration
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8915433220628174863, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: Sprite
+      value: 
+      objectReference: {fileID: 1604075279, guid: dfdb7ba1cd421dd4698ea7c59a9019e2, type: 3}
+    - target: {fileID: 8915433220628174863, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: UnitType
+      value: Hunter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915433220628174863, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: Description
+      value: Elite soldier using a powerful scatter rifle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
