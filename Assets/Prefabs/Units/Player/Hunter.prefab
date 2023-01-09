@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4774035615921567266, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
       propertyPath: SoulAmount
-      value: 40
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 4774035615921567266, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
       propertyPath: SoulGrowthRate
