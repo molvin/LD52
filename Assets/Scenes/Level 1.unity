@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1570,6 +1570,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2090370801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2090370803}
+  - component: {fileID: 2090370802}
+  m_Layer: 0
+  m_Name: FieldOfViewDataGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2090370802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090370801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62bada388de69824dbbe077125599b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fieldOfViewData: {fileID: 11400000, guid: 37ceec98b1bf05b42b65c01e4224a281, type: 2}
+  stepSize: 1
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  resY: 108
+  resX: 192
+  stepY: -0.5
+  stepX: 0.5
+--- !u!4 &2090370803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090370801}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.6, y: 1, z: 20.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2127308244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1717,6 +1770,26 @@ PrefabInstance:
     - target: {fileID: 1751672010, guid: 0f365a3637fe22e4a85715ef67d8468d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3277842252164860420, guid: 0f365a3637fe22e4a85715ef67d8468d, type: 3}
+      propertyPath: fieldOfViewData
+      value: 
+      objectReference: {fileID: 11400000, guid: eb3bf06a389b2924783f4ae891e1c33c, type: 2}
+    - target: {fileID: 3277842252164860420, guid: 0f365a3637fe22e4a85715ef67d8468d, type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868808629175491869, guid: 0f365a3637fe22e4a85715ef67d8468d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -41.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868808629175491869, guid: 0f365a3637fe22e4a85715ef67d8468d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3868808629175491869, guid: 0f365a3637fe22e4a85715ef67d8468d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 21.8
       objectReference: {fileID: 0}
     - target: {fileID: 7492817917485938313, guid: 0f365a3637fe22e4a85715ef67d8468d, type: 3}
       propertyPath: m_Name

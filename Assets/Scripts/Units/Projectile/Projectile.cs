@@ -53,6 +53,7 @@ public class Projectile : MonoBehaviour
     {
         Prefab = prefab;
         transform.position = Start;
+        TrailColor.Clear();
         transform.forward = Direction;
         ProjectileSize = projectileSize;
         Owner = owner;
@@ -195,6 +196,7 @@ public class Projectile : MonoBehaviour
             IsDone = false;
             transform.forward = transform.forward - 2.0f * Vector3.Dot(transform.forward, HitNormal) * HitNormal; 
             Ricocheting = false;
+            IgnoreTargets.Clear();
         }
 
         transform.position += transform.forward * ProjectileSpeed * Time.deltaTime;
@@ -216,8 +218,7 @@ public class Projectile : MonoBehaviour
             })
             .Select(e => (e, e.Get<UnitHealth>()))
             .ToList()
-            .ForEach(tup => 
-            {
+            .ForEach(tup => {
                 tup.Item2.TakeDamage(Damage, Position);
                 if (tup.Item1.TryGet(out Movement Move))
                 {
@@ -229,7 +230,7 @@ public class Projectile : MonoBehaviour
         GameObject Aoe = ObjectPool.Instance.GetInstance(AoeEffect);
         Vector3 pos = Position;
         Aoe.transform.position = new Vector3(pos.x, 0.1f, pos.z);
-        Aoe.transform.localScale = Vector3.one * ImpactExplosionRadius;
+        //Aoe.transform.localScale = Vector3.one * ImpactExplosionRadius;
     }
 
     private void setColor(Color in_color)

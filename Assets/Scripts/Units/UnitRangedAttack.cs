@@ -30,12 +30,11 @@ public class UnitRangedAttack : UnitAttack
                 Fire(StartDir);
             }
         }
+        AudioManager.Instance.PlayAudio(AttackSound, transform.position);
 
         void Fire(Vector3 Direction)
         {
             Projectile projectile = ObjectPool.Instance.GetInstance(ProjectilePrefab.gameObject).GetComponent<Projectile>();
-            
-            AudioManager.Instance.PlayAudio(AttackSound, transform.position);
 
             Color color = Color.white;
             if (Entity.TryGet(out UnitName Name))

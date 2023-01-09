@@ -39,9 +39,7 @@ public class GameManager : MonoBehaviour
     private Door EntryDoor;
     private Door ExitDoor;
     private Door HarvestDoor;
-
-    private Harvest harvester;
-    private bool waiting;
+    private Door ExitGameDoor;
 
     private UnitInfo info;
 
@@ -117,6 +115,8 @@ public class GameManager : MonoBehaviour
                 HarvestDoor = door;
             if (door.DoorType == Door.Type.Exit)
                 ExitDoor = door;
+            if (door.DoorType == Door.Type.Quit)
+                ExitGameDoor = door;
         }
 
         //CurrentState = State.Start;
@@ -126,7 +126,6 @@ public class GameManager : MonoBehaviour
 
         if(scene.name == HarvestScene)
         {
-            harvester = FindObjectOfType<Harvest>();
             if (playerUnits.Count == 0)
             {
                 SpawnPlayerUnits(StartSquad);
@@ -138,13 +137,21 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        else //if (Level == 0 && scene.name != "MainMenu")
+        else if (Level == 0) //&& scene.name != "MainMenu")
         {
             SpawnPlayerUnits(StartSquad);
         }
 
-        if(scene.name != "MainMenu")
+        //if(scene.name != "MainMenu") 
             StartCoroutine(StartLevel(playerUnits, scene.name == HarvestScene));
+
+        EntitiesInGame.ForEach(entity =>
+        {
+            if (entity.Team == Team.Player)
+            {
+                entity.GetComponentInChildren<DumbFieldOfViewMesh>().onNewLevel();
+            }
+        });
     }
 
     private IEnumerator StartLevel(List<Entity> ents, bool harvest)
@@ -220,12 +227,8 @@ public class GameManager : MonoBehaviour
 
     public List<Entity> SpawnPlayerUnits(List<GameObject> prefabs, Vector3 spawnPoint = default(Vector3))
     {
-        Color? color = null;
-        if (Level != 0)
-        {
-            //Randomize color
+        Color color = PlayerColors[Random.Range(0, PlayerColors.Length)];
             
-        }
         List<Entity> newEnts = new List<Entity>();
         foreach(GameObject prefab in prefabs)
         {
@@ -239,8 +242,7 @@ public class GameManager : MonoBehaviour
             if(ent.Team == Team.Player)
             {
                 var info = ent.GetComponent<UnitName>();
-
-                
+                info.Color = color;                
                 info.UpdateColor();
 
             }
@@ -282,7 +284,7 @@ public class GameManager : MonoBehaviour
                 UnitSoul soul = e.Get<UnitSoul>();
                 soul.SoulAmount += soul.BaseAmount;
                 e.GetComponentInChildren<HealthBar>().UnitLevelUp((int)soul.SoulAmount);
-                yield return new WaitForSeconds(0.6f);
+                yield return new WaitForSeconds(0.2f);
             }
         }
 
@@ -292,6 +294,7 @@ public class GameManager : MonoBehaviour
 
         if (!skipHarvest)
             StartCoroutine(HarvestDoor.Toggle(true));
+        if (ExitGameDoor) StartCoroutine(ExitGameDoor.Toggle(true));
         yield return ExitDoor.Toggle(true);
 
         //todo wait for player to walk in, take control of their units, and transition level
@@ -313,6 +316,10 @@ public class GameManager : MonoBehaviour
                 {
                     goToNextLevel = true;
                     break;
+                } else if (ExitGameDoor != null && e.transform.position.Dist2D(ExitGameDoor.TargetPoint.position) < 4.0f)
+                {
+                    Debug.Log("Quitting game");
+                    Application.Quit();
                 }
             }
             yield return null;

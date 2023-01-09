@@ -24,7 +24,7 @@ public abstract class UnitAttack : UnitBase
 
     public Entity Target;
 
-    void Update()
+    protected virtual void Update()
     {
         List<Entity> Enemies = GameManager.Instance.EntitiesInGame
         .Where(e => IsEnemyTargetable(e) && e.Has<UnitHealth>())
@@ -64,7 +64,7 @@ public abstract class UnitAttack : UnitBase
             StartCoroutine(AttackActionStart(Target));
     }
 
-    private IEnumerator AttackActionStart(Entity Enemy)
+    protected IEnumerator AttackActionStart(Entity Enemy)
     {
         TimeToStrike = true;
         bool canMove = Entity.TryGet(out Movement movement);
