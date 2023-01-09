@@ -8,7 +8,7 @@ using static UnityEngine.UI.Image;
 
 public class GameManager : MonoBehaviour
 {
-    public static int LevelCount = 5;
+    public static int LevelCount = 7;
     public enum State
     {
         Start,
@@ -70,7 +70,16 @@ public class GameManager : MonoBehaviour
                 if (enemyUnits.Count == 0)
                 {
                     CurrentState = State.End;
-                    StartCoroutine(End(false));
+
+                    if (SceneManager.GetActiveScene().name != "EndLevel")
+                    {
+                        //CurrentState = State.End;
+                        StartCoroutine(End(false, false));
+                    } else
+                    {
+                        FindObjectOfType<WinScreen>(true).gameObject.SetActive(true);
+                    }
+                    
                 }
                 break;
             case State.Harvest:
@@ -81,7 +90,7 @@ public class GameManager : MonoBehaviour
                 break;
             case State.StartMenu:
                 CurrentState = State.End;
-                StartCoroutine(End(false));        
+                StartCoroutine(End(false, true));        
                 info?.Toggle(false);
                 break;
         }
@@ -198,12 +207,12 @@ public class GameManager : MonoBehaviour
             farAway = false;
             for (int i = 0; i < targets.Count; i++)
             {
-                if (selected[i].transform.position.Dist2D(targets[i]) > 2)
+                if (selected[i].transform.position.Dist2D(targets[i]) > 0.5f)
                     farAway = true;
             }
             yield return null;
         }
-        if((Time.time - startTime) > 10.0f)
+        if((Time.time - startTime) >= 10.0f)
         {
             for (int i = 0; i < targets.Count; i++)
             {
@@ -211,17 +220,17 @@ public class GameManager : MonoBehaviour
                 selected[i].TargetPosition = targets[i];
             }
         }
+        InputManager.Instance.enabled = true;
 
         yield return EntryDoor.Toggle(false);
 
-        InputManager.Instance.enabled = true;
         CurrentState = harvest ? State.Harvest : State.Game;
 
         ToggleEnemies(true);
 
         if(harvest)
         {
-            StartCoroutine(End(true));
+            StartCoroutine(End(true, false));
         }
     }
 
@@ -276,17 +285,17 @@ public class GameManager : MonoBehaviour
         //SceneManager.LoadScene(0);
     }
 
-    private IEnumerator End(bool skipHarvest)
+    private IEnumerator End(bool skipHarvest, bool menu)
     {
         // Get souls
 
-        if(!skipHarvest)
+        if(!skipHarvest && !menu)
         {
             foreach (Entity e in playerUnits)
             {
                 UnitSoul soul = e.Get<UnitSoul>();
                 soul.SoulAmount += soul.BaseAmount;
-                e.GetComponentInChildren<HealthBar>().UnitLevelUp((int)soul.SoulAmount);
+                e.GetComponentInChildren<HealthBar>().UnitLevelUp();
                 yield return new WaitForSeconds(0.2f);
             }
         }
@@ -377,7 +386,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Level = Mathf.Min(Level + 1, LevelCount - 1);
-            SceneManager.LoadScene($"Level {Level + 1}");
+            SceneManager.LoadScene($"Level {Mathf.Max(Level, 1)}");
         }
 
         yield return null;

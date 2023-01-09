@@ -13,6 +13,7 @@ public class UnitInfo : MonoBehaviour
 
     public Transform Grid;
     public UnitCell UnitCellPrefab;
+    public TextMeshProUGUI TotalSouls;
     public TextMeshProUGUI Title, Health, Dmg, Souls, GrowthRate, Description;
     
     private List<Selectable> lastSelected = new List<Selectable>();
@@ -79,7 +80,7 @@ public class UnitInfo : MonoBehaviour
         Health.text = $"{hp.Current}/{hp.Max}";
         Dmg.text = $"{atk.Damage}";
         Souls.text = $"{soul.SoulAmount}";
-        GrowthRate.text = $"{soul.BaseAmount:P0}";
+        GrowthRate.text = $"{soul.BaseAmount}";
         Description.text = unit.Description;
     }
     private void RebuildMultiple()
@@ -89,13 +90,16 @@ public class UnitInfo : MonoBehaviour
 
         CurrentCells.Clear();
 
+        float totalSouls = 0;
         var selected = lastSelected.ToList();
         for(int i = 0; i < selected.Count; i++)
         {
             UnitCell cell = Instantiate(UnitCellPrefab, Grid) as UnitCell;
             cell.Setup(selected[i].GetComponent<Entity>());
             CurrentCells.Add((cell, selected[i].GetComponent<UnitHealth>()));
+            totalSouls += selected[i].GetComponent<UnitSoul>().SoulAmount;
         }
+        TotalSouls.text = $"Total Souls:\n{(int) totalSouls}";
     }
 
     private void Update()
