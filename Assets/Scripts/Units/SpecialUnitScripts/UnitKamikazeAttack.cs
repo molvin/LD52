@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class UnitKamikazeAttack : UnitAttack
@@ -19,19 +20,23 @@ public class UnitKamikazeAttack : UnitAttack
     {
         Exploding = true;
         Entity.Get<Movement>().enabled = false;
-        yield return new WaitForSeconds(1);
-        List<Entity> Players = GameManager.Instance.playerUnits;
-        foreach (Entity player in Players)
+        yield return new WaitForSeconds(WindUpTime);
+
+        List<Entity> Enemies = GameManager.Instance.EntitiesInGame
+            .Where(e => e.Team != Entity.Team)
+            .ToList();
+        foreach (Entity enemy in Enemies)
         {
-            if (Vector2.Distance(Entity.transform.position, player.transform.position) <= ExplosionRadius)
+            if (Vector2.Distance(Entity.transform.position, enemy.transform.position) <= ExplosionRadius)
             {
                 RaycastHit Hit;
-                if (Physics.Raycast(transform.position, (player.transform.position - Entity.transform.position).normalized, out Hit, ExplosionRadius) && Hit.transform == player.transform)
+                if (Physics.Raycast(transform.position, (enemy.transform.position - Entity.transform.position).normalized, out Hit, ExplosionRadius) && Hit.transform == enemy.transform)
                 {
-                    player.Get<UnitHealth>().TakeDamage(Damage);
+                    enemy.Get<UnitHealth>().TakeDamage(Damage);
                 }
             }
         }
+        AudioManager.Instance.PlayAudio(AttackSound, transform.position);
         Entity.Get<UnitHealth>().TakeDamage(500000000);
         yield return 0;
     }

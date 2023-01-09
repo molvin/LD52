@@ -7,17 +7,24 @@ public class Projectile : MonoBehaviour
 {
     public LayerMask LayerMask;
     public GameObject AoeEffect;
+
+    public SpriteRenderer projectileColor;
+    public TrailRenderer TrailColor;
+
     bool Ricocheting, Pierce, ExplodingOnImpact, Split;
     int PierceTargetCount;
     float ProjectileSpeed, ImpactExplosionRadius, ProjectileLifeTime;
     float ProjectileSize;
+    float KnockbackForce;
     int Damage;
-
+    Color color;
     Entity Owner;
     float EndTime;
     BoxCollider Collider;
     GameObject Prefab;
     List<Entity> IgnoreTargets;
+
+    bool BeingRemoved = false;
 
     void Awake()
     {
@@ -39,6 +46,8 @@ public class Projectile : MonoBehaviour
         float projectileSize,
         float projectileLifetime,
         float impactExplosionRadius,
+        float knockbackForce,
+        Color color_in,
         List<Entity> ignoreTargets
         )
     {
@@ -56,19 +65,28 @@ public class Projectile : MonoBehaviour
         PierceTargetCount     = pierceTargetCount;
         ProjectileSpeed       = projectileSpeed;
         ImpactExplosionRadius = impactExplosionRadius;
+        KnockbackForce        = knockbackForce;
 
         ProjectileLifeTime = projectileLifetime;
         EndTime = Time.time + projectileLifetime;
-
+        color = color_in;
+        setColor(color);
         IgnoreTargets = ignoreTargets;
+        BeingRemoved = false;
     }
 
     void Update()
     {
+        if (BeingRemoved)
+            return;
+
         if (Time.time >= EndTime)
         {
-            Explode(transform.position);
-            ObjectPool.Instance.ReturnInstance(gameObject);
+            if (ExplodingOnImpact)
+            {
+                Explode(transform.position);
+            }
+            Remove();
         }
 
         //bool IsDone = false;
@@ -136,6 +154,10 @@ public class Projectile : MonoBehaviour
         // Hit an enemy
         else if (HitEntity != null)
         {
+            if (HitEntity.TryGet(out Movement Move))
+            {
+                Move.AddForce(-HitNormal * KnockbackForce);
+            }
             HitEntity.Get<UnitHealth>().TakeDamage(Damage);
             IgnoreTargets.Add(HitEntity);
         }
@@ -179,7 +201,7 @@ public class Projectile : MonoBehaviour
 
         if (IsDone)
         {
-            ObjectPool.Instance.ReturnInstance(gameObject);
+            Remove();
         }
     }
 
@@ -192,15 +214,42 @@ public class Projectile : MonoBehaviour
                 Vector3 Direction = e.transform.position - Position;
                 return Physics.Raycast(Position, Direction.normalized, out RaycastHit Hit, Direction.magnitude, LayerMask) && Hit.transform == e.transform;
             })
-            .Select(e =>  e.Get<UnitHealth>())
+            .Select(e => (e, e.Get<UnitHealth>()))
             .ToList()
-            .ForEach(h => h.TakeDamage(Damage));
+            .ForEach(tup => 
+            {
+                tup.Item2.TakeDamage(Damage);
+                if (tup.Item1.TryGet(out Movement Move))
+                {
+                    Move.AddForce((tup.Item1.transform.position - Position).normalized * KnockbackForce);
+                }
+            });
 
         // Explosion effect
         GameObject Aoe = ObjectPool.Instance.GetInstance(AoeEffect);
         Vector3 pos = Position;
         Aoe.transform.position = new Vector3(pos.x, 0.1f, pos.z);
         Aoe.transform.localScale = Vector3.one * ImpactExplosionRadius;
+    }
+
+    private void setColor(Color in_color)
+    {
+        projectileColor.color = in_color;
+        TrailColor.startColor = in_color;
+        Color endColor = in_color;
+        endColor.a = 0.0f;
+        TrailColor.endColor = endColor;
+    }
+
+    void Remove()
+    {
+        BeingRemoved = true;
+        StartCoroutine(Removal());
+    }
+    IEnumerator Removal()
+    {
+        yield return new WaitForSeconds(0.2f);
+        ObjectPool.Instance.ReturnInstance(gameObject);
     }
 
     void SplitProjectile(Vector3 Offset)
@@ -231,6 +280,8 @@ public class Projectile : MonoBehaviour
                  ProjectileSize,
                  ProjectileLifeTime,
                  ImpactExplosionRadius,
+                 KnockbackForce,
+                 color,
                  IgnoreTargets);
         }
     }

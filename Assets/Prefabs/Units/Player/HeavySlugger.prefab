@@ -103,7 +103,10 @@ MonoBehaviour:
   meshResolution: 0
   edgeResolveIterations: 0
   edgeDstThreshold: 0
+  stepSize: 5
   viewMeshFilter: {fileID: 4314614498920062741}
+  cleanDotArc: 0.1
+  frameInterval: 4
 --- !u!1001 &4449335927239643639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -165,19 +168,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Speed
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Acceleration
-      value: 12
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: AngularSpeed
       value: 1800
       objectReference: {fileID: 0}
+    - target: {fileID: 3952488217610643842, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Max
-      value: 20
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Helath
@@ -185,9 +192,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Current
-      value: 20
+      value: 120
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da2da76fc810c7347bbf5fd38537fcae, type: 3}
+    m_RemovedComponents:
+    - {fileID: 735666923131083204, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
 --- !u!4 &2562553831933882722 stripped
 Transform:
@@ -215,10 +227,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   Damage: 30
+  KnockbackForce: 12
   AttackDistance: 40
-  AttackTime: 1.3
-  WindUpTime: 0.5
-  WindDownTime: 0.3
+  AttackTime: 2
+  WindUpTime: 0.4
+  WindDownTime: 0.1
+  AttackSound: {fileID: 8300000, guid: dea29d70fa442134183ea9ab0a3eda23, type: 3}
   TimeToStrike: 0
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
   ProjectileCount: 1
@@ -229,9 +243,9 @@ MonoBehaviour:
   Split: 0
   PierceTargetCount: 0
   ProjectileSize: 1
-  ProjectileSpeed: 10
+  ProjectileSpeed: 15
   ProjectileLifetime: 4.5
-  ImpactExplosionRadius: 10
+  ImpactExplosionRadius: 12
 --- !u!114 &-47363553853166541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Franz Glonkenburg
   UnitType: Behemoth
+  Sprite: {fileID: 0}
+  Color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1082823969900987314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,9 +274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82af7d03d21c3cf438ade02125bb4ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoulAmount: 0
+  SoulAmount: 15
   SoulGrowthRate: 1.5
-  BaseSoul: 10
 --- !u!114 &4189212999773731785
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4342640424062963524
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4774035615921567266, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: SoulAmount
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774035615921567266, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: SoulGrowthRate
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: Split
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: Damage
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: Pierce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: AttackTime
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: WindUpTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: AttackDistance
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: KnockbackForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: ProjectileCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: ProjectileSpeed
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: PierceTargetCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: ProjectileLifetime
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323735983174883943, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: ProjectileSpreadAngle
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943017, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943017, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943017, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943017, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943017, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943017, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943017, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943017, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943017, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943017, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943017, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943021, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: m_Name
+      value: Hunter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943060, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: Speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943060, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
+      propertyPath: Acceleration
+      value: 100
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}

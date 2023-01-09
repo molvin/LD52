@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8006942428281086937}
   - component: {fileID: 8006942428281086936}
   - component: {fileID: 8006942428281086951}
+  - component: {fileID: -162183151401643072}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -52,11 +53,11 @@ MonoBehaviour:
   - {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
   EntitiesInGame: []
   Level: 0
-  Levels:
-  - Level 1
-  - Level 2
   HarvestScene: HarvestLevel
+  DebugSoulAmount: 0
   CurrentState: 0
+  GamePlayMusic: {fileID: 8300000, guid: 9789457dbfa337b48ab83aacb73d3d10, type: 3}
+  HarvestMusic: {fileID: 8300000, guid: e1bf80b18216c5145b0c8b67daeadc0b, type: 3}
 --- !u!114 &8006942428281086936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,5 +85,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7abf7f3305961c2408c72cfe66afb738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-162183151401643072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8006942428281086950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d8b807e27537f940917025722b721dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

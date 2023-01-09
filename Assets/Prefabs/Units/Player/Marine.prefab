@@ -103,7 +103,10 @@ MonoBehaviour:
   meshResolution: 0
   edgeResolveIterations: 0
   edgeDstThreshold: 0
+  stepSize: 5
   viewMeshFilter: {fileID: 6542352047360920713}
+  cleanDotArc: 0.1
+  frameInterval: 4
 --- !u!1001 &7491984120178017084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -122,6 +125,38 @@ PrefabInstance:
     - target: {fileID: 450911190140598831, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Name
+      value: Jeff
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Sprite
+      value: 
+      objectReference: {fileID: -1093546584, guid: dfdb7ba1cd421dd4698ea7c59a9019e2, type: 3}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Color.b
+      value: 0.26919198
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: UnitType
+      value: Soldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Description
+      value: Basic Infantry, runs and shoots simultaneously
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
@@ -176,8 +211,12 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: DebugDraw
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Acceleration
-      value: 64
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: AngularSpeed
@@ -185,11 +224,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333224, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: StoppingDistance
-      value: 0.3
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3952488217610643842, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Max
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Helath
@@ -197,13 +240,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Current
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da2da76fc810c7347bbf5fd38537fcae, type: 3}
     - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 59458002c28264e45b1ab739f9b9efed, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 735666923131083204, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
 --- !u!4 &8779747188992943017 stripped
 Transform:
@@ -215,20 +263,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_PrefabInstance: {fileID: 7491984120178017084}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3624899204109874313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8779747188992943021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0ae3898b78550e4b830ca4fa07ad2c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: 
-  UnitType: 
 --- !u!114 &4774035615921567266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,9 +275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82af7d03d21c3cf438ade02125bb4ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoulAmount: 0
+  SoulAmount: 10
   SoulGrowthRate: 1.5
-  BaseSoul: 10
 --- !u!114 &7323735983174883943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,14 +289,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0392ab3dd415c47a5361b6688907da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  ObstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
+  Damage: 8
+  KnockbackForce: 0.5
   AttackDistance: 20
-  AttackTime: 0.33
-  WindUpTime: 0
+  AttackTime: 0.4
+  WindUpTime: 0.02
   WindDownTime: 0
+  AttackSound: {fileID: 8300000, guid: 5fb5dc80a055b2647875d7fb9942a3e8, type: 3}
   TimeToStrike: 0
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
-  ProjectileCount: 3
+  ProjectileCount: 1
   ProjectileSpreadAngle: 45
   Ricocheting: 0
   Pierce: 0
@@ -271,7 +309,7 @@ MonoBehaviour:
   Split: 0
   PierceTargetCount: 0
   ProjectileSize: 1
-  ProjectileSpeed: 25
+  ProjectileSpeed: 35
   ProjectileLifetime: 10
   ImpactExplosionRadius: 20
 --- !u!114 &8542069778249792774
@@ -289,7 +327,7 @@ MonoBehaviour:
   Type: 0
   Selected: 0
   TargetPosition: {x: 0, y: 0, z: 0}
-  Spacing: 1.2
+  Spacing: 2.5
   DebugMove: 0
   DebugMoveSpeed: 0
   SelectedCircle: {fileID: 8779747190288893682}

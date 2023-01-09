@@ -7,16 +7,20 @@ public abstract class UnitAttack : UnitBase
 {
     public LayerMask ObstacleMask;
     public int Damage;
+    public float KnockbackForce;
     public float AttackDistance;
     public float AttackTime;
     private float LastAttackTime = 0.0f;
     public float WindUpTime;
     public float WindDownTime;
+    [Header("Audio")]
+    public AudioClip AttackSound;
 
     [HideInInspector]
     public bool TimeToStrike;
 
     public bool CanAttack() => Time.time - LastAttackTime > AttackTime;
+    public bool IsEnemyTargetable(Entity Other) => Entity.Team != Other.Team && (Entity.Team == Team.Enemy || Other.isSeenByPlayer);
 
     void Update()
     {
@@ -29,8 +33,7 @@ public abstract class UnitAttack : UnitBase
         }
 
         List<Entity> Enemies = GameManager.Instance.EntitiesInGame
-            .Where(e => e.Team != Entity.Team)
-            .Where(e => e.Has<UnitHealth>())
+            .Where(e => IsEnemyTargetable(e) && e.Has<UnitHealth>())
             .OrderBy(e => transform.position.Dist2D(e.transform.position))
             .ToList();
 
@@ -46,7 +49,7 @@ public abstract class UnitAttack : UnitBase
                 0.6f,
                 (Enemy.transform.position - transform.position).normalized,
                 out Hit,
-                AttackDistance,
+                Mathf.Min(AttackDistance, Vector3.Distance(Enemy.transform.position, transform.position)),
                 ObstacleMask))
             {
                 StartCoroutine(AttackActionStart(Enemy));
@@ -58,11 +61,14 @@ public abstract class UnitAttack : UnitBase
     private IEnumerator AttackActionStart(Entity Enemy)
     {
         TimeToStrike = true;
-        Entity.Get<Movement>().CanMove = false;
+        bool canMove = Entity.TryGet(out Movement movement);
+        if(canMove)
+            movement.CanMove = false;
         yield return new WaitForSeconds(WindUpTime);
         if (Enemy == null)
         {
-            Entity.Get<Movement>().CanMove = true;
+            if (canMove)
+                movement.CanMove = true;
             TimeToStrike = false;
             yield break;
         }
@@ -70,7 +76,8 @@ public abstract class UnitAttack : UnitBase
         yield return new WaitForSeconds(WindDownTime);
         TimeToStrike = false;
         LastAttackTime = Time.time;
-        Entity.Get<Movement>().CanMove = true;
+        if (canMove)
+            movement.CanMove = true;
         yield return 0;
     }
 

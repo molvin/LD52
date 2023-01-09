@@ -37,12 +37,20 @@ public class HealthBar : MonoBehaviour
 
     private UnitHealth health;
 
+    public AudioClip LevelUpSound;
 
     private void Awake()
     {
+        gameObject.SetActive(true);
         health = GetComponentInParent<UnitHealth>();
         initialLocalPosition = transform.localPosition;
         SetMaxHP(health);
+
+        UnitSoul soul = GetComponentInParent<UnitSoul>();
+        if (soul)
+            LevelUpText.text = $"{(int)soul.SoulAmount}";
+        else
+            LevelUpText.enabled = false;
     }
 
     private void SetMaxHP(UnitHealth health)
@@ -60,7 +68,6 @@ public class HealthBar : MonoBehaviour
     {
         if (health)
         {
-            Background.enabled = Fill.enabled = health.Current < health.Max;
             Fill.fillAmount = (health.Current / (float)health.Max);
         }
     }
@@ -117,12 +124,13 @@ public class HealthBar : MonoBehaviour
     private IEnumerator SetNewLevel(int level)
     {
         float time = 0;
+        AudioManager.Instance.PlayAudio(LevelUpSound);
         while(time < LevelUpEventTime)
         {
             time += Time.deltaTime;
             float factor = time / LevelUpEventTime;
             float framestep = LevelUpCurve.Evaluate(factor);
-            LevelUpText.gameObject.transform.localPosition = new Vector3(-40, framestep, 0);
+            LevelUpText.rectTransform.anchoredPosition = new Vector2(-40, framestep);
             yield return null;
         }
         LevelUpText.text = level + "";

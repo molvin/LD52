@@ -14,6 +14,7 @@ public class Entity : MonoBehaviour
     public int Id;
     public Team Team;
     Dictionary<System.Type, UnitBase> Components = new Dictionary<System.Type, UnitBase>();
+    public bool isSeenByPlayer;
 
     public bool Has<T>() where T : UnitBase => Components.ContainsKey(typeof(T));
     public T Get<T>() where T : UnitBase => (T)Components[typeof(T)];
