@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     private Door EntryDoor;
     private Door ExitDoor;
     private Door HarvestDoor;
-
+    private Door ExitGameDoor;
 
     private UnitInfo info;
 
@@ -115,6 +115,8 @@ public class GameManager : MonoBehaviour
                 HarvestDoor = door;
             if (door.DoorType == Door.Type.Exit)
                 ExitDoor = door;
+            if (door.DoorType == Door.Type.Quit)
+                ExitGameDoor = door;
         }
 
         //CurrentState = State.Start;
@@ -140,7 +142,7 @@ public class GameManager : MonoBehaviour
             SpawnPlayerUnits(StartSquad);
         }
 
-        if(scene.name != "MainMenu")
+        //if(scene.name != "MainMenu") 
             StartCoroutine(StartLevel(playerUnits, scene.name == HarvestScene));
 
         EntitiesInGame.ForEach(entity =>
@@ -292,6 +294,7 @@ public class GameManager : MonoBehaviour
 
         if (!skipHarvest)
             StartCoroutine(HarvestDoor.Toggle(true));
+        if (ExitGameDoor) StartCoroutine(ExitGameDoor.Toggle(true));
         yield return ExitDoor.Toggle(true);
 
         //todo wait for player to walk in, take control of their units, and transition level
@@ -313,6 +316,10 @@ public class GameManager : MonoBehaviour
                 {
                     goToNextLevel = true;
                     break;
+                } else if (ExitGameDoor != null && e.transform.position.Dist2D(ExitGameDoor.TargetPoint.position) < 4.0f)
+                {
+                    Debug.Log("Quitting game");
+                    Application.Quit();
                 }
             }
             yield return null;

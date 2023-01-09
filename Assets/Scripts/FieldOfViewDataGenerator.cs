@@ -84,9 +84,9 @@ public class FieldOfViewDataGenerator : MonoBehaviour
 
         int x = (int)b.x;
         int y = (int)b.z;
-        if (x < 0 || x > resX)
+        if (x < 0 || x > resX-1)
             return null;
-        if (y < 0 || y > resY)
+        if (y < 0 || y > resY-1)
             return null;
 
         return fieldOfViewData.data_2[x][y];

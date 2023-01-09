@@ -48,7 +48,7 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 1280
-  AoeEffect: {fileID: 0}
+  AoeEffect: {fileID: 8435158205463120383, guid: 5318a484db570bc41b04f69ca5f87ea3, type: 3}
   projectileColor: {fileID: 328867199061290}
   TrailColor: {fileID: 3476122163805130396}
 --- !u!1001 &692824311676015098
