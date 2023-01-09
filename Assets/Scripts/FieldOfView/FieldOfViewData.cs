@@ -15,6 +15,7 @@ public class FieldOfViewData : ScriptableObject
 
     public void Flatten()
     {
+        if (serialized_data == null) serialized_data = new List<float>();
         serialized_data.Clear();
         foreach(var l in data_2)
         {
