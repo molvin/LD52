@@ -297,6 +297,9 @@ public class GameManager : MonoBehaviour
             {
                 UnitSoul soul = e.Get<UnitSoul>();
                 soul.SoulAmount += soul.BaseAmount;
+
+                UnitHealth health = e.Get<UnitHealth>();
+                health.TakeDamage(-health.Max / 2, Vector3.zero);
                 e.GetComponentInChildren<HealthBar>().UnitLevelUp();
                 yield return new WaitForSeconds(0.2f);
             }
