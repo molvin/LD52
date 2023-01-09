@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
             {
                 Destroy(ent.gameObject);
             }
-            playerUnits.Clear();
+            EntitiesInGame.Clear();
             CurrentState = State.StartMenu;
         } else
         {
@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
         }
 
         //if(scene.name != "MainMenu") 
-            StartCoroutine(StartLevel(playerUnits, scene.name == HarvestScene));
+        StartCoroutine(StartLevel(playerUnits, scene.name == HarvestScene));
 
         EntitiesInGame.ForEach(entity =>
         {
@@ -402,6 +402,10 @@ public class GameManager : MonoBehaviour
             AIBrainBase brain = ent.GetComponent<AIBrainBase>();
             if(brain)
                 brain.enabled = on;
+
+            UnitAttack attack = ent.GetComponent<UnitAttack>();
+            if (attack)
+                attack.enabled = on;
         }
     }
 
