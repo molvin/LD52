@@ -195,6 +195,7 @@ public class Projectile : MonoBehaviour
             IsDone = false;
             transform.forward = transform.forward - 2.0f * Vector3.Dot(transform.forward, HitNormal) * HitNormal; 
             Ricocheting = false;
+            IgnoreTargets.Clear();
         }
 
         transform.position += transform.forward * ProjectileSpeed * Time.deltaTime;

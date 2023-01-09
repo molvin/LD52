@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitAoEAttack : MonoBehaviour
+public class UnitAoEAttack : UnitAttack
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Attack(Entity Entity)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        AudioManager.Instance.PlayAudio(AttackSound, transform.position);
+        Entity.Get<UnitHealth>().TakeDamage(Damage, transform.position);
+        if (Entity.TryGet(out Movement MovementComp))
+        {
+            MovementComp.AddForce(Vector3.zero);
+        }
     }
 }
