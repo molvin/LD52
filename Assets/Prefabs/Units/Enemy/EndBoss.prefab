@@ -152,6 +152,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_PrefabInstance: {fileID: 4074473342615333212}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-3163081914696396653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2784453528349706701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69260e546d5eaa843abb214e94e8c96c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
+  Damage: 80
+  KnockbackForce: 40
+  AttackDistance: 50
+  AttackTime: 2.5
+  WindUpTime: 1.8
+  WindDownTime: 0
+  AttackSound: {fileID: 0}
+  TimeToStrike: 0
+  Target: {fileID: 0}
+  TelegrapEffect: {fileID: 3601955718436914888, guid: 0b574e03ac67f744aaaed9392d806e41, type: 3}
+  ExplosionEffect: {fileID: 8435158205463120383, guid: 5318a484db570bc41b04f69ca5f87ea3, type: 3}
+  BlastRadius: 6
 --- !u!114 &136363085192390071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,12 +194,12 @@ MonoBehaviour:
   ObstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  Damage: 20
-  KnockbackForce: 0
+  Damage: 40
+  KnockbackForce: 25
   AttackDistance: 35
   AttackTime: 1
-  WindUpTime: 0.5
-  WindDownTime: 0.5
+  WindUpTime: 0
+  WindDownTime: 0
   AttackSound: {fileID: 0}
   TimeToStrike: 0
   Target: {fileID: 0}
