@@ -44,8 +44,6 @@ public class HpBarHider : MonoBehaviour
                 continue;
 
             RaycastHit hit;
-            Debug.DrawRay(transform.position,
-                (player.transform.position - transform.position), Color.red);
             Physics.Raycast(
                 transform.position,
                 (player.transform.position - transform.position).normalized,

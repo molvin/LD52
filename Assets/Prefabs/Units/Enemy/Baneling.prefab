@@ -129,7 +129,7 @@ MonoBehaviour:
   KnockbackForce: 0
   AttackDistance: 2.5
   AttackTime: 0.2
-  WindUpTime: 0
+  WindUpTime: 1
   WindDownTime: 0
   AttackSound: {fileID: 8300000, guid: edaee911a2b331e4c9f80bcc3813e8f1, type: 3}
   TimeToStrike: 0

@@ -98,7 +98,6 @@ public class InputManager : MonoBehaviour
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         groundPlane.Raycast(ray, out float enter);
         Vector3 center = ray.GetPoint(enter);
-        Debug.DrawRay(center, Vector3.up * ClickSelectRadius, Color.red, 10.0f);
         Collider[] colls = Physics.OverlapSphere(center, ClickSelectRadius);
 
         List<Selectable> new_selected = new List<Selectable>();
