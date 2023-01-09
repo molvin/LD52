@@ -24,7 +24,7 @@ public abstract class UnitAttack : UnitBase
 
     public Entity Target;
 
-    void Update()
+    protected virtual void Update()
     {
         List<Entity> Enemies = GameManager.Instance.EntitiesInGame
         .Where(e => IsEnemyTargetable(e) && e.Has<UnitHealth>())

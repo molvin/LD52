@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4314614498920062741}
   - component: {fileID: 7299911655410333770}
   - component: {fileID: 7426590703056416485}
+  - component: {fileID: 2952287383013632573}
   m_Layer: 9
   m_Name: FieldOfViewMesh
   m_TagString: Untagged
@@ -91,7 +92,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5925106748125344636}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3ca8c4747d9bfe499558a588ff277f5, type: 3}
   m_Name: 
@@ -107,6 +108,22 @@ MonoBehaviour:
   viewMeshFilter: {fileID: 4314614498920062741}
   cleanDotArc: 0.1
   frameInterval: 4
+--- !u!114 &2952287383013632573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5925106748125344636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ab8964d21131e409358be2d677f2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 35
+  viewMeshFilter: {fileID: 4314614498920062741}
+  frameInterval: 1
+  cleanDotArc: 0.01
 --- !u!1001 &4449335927239643639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,12 +140,20 @@ PrefabInstance:
       value: Franz Glonkenburg
       objectReference: {fileID: 0}
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Sprite
+      value: 
+      objectReference: {fileID: 1184143263, guid: dfdb7ba1cd421dd4698ea7c59a9019e2, type: 3}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Renderer
       value: 
       objectReference: {fileID: 4639462027118295225}
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: UnitType
-      value: Behemoth
+      value: Slugger
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Description
+      value: Slow heavy unit, fires missiles with big explosions
       objectReference: {fileID: 0}
     - target: {fileID: 2175012471150167497, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_RootOrder

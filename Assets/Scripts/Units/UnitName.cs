@@ -6,7 +6,7 @@ public class UnitName : UnitBase
 {
     public string Name;
     public string UnitType;
-    public Sprite Sprite;
+    public Sprite Sprite => Renderer.sprite;
     public Color Color;
 
     [Multiline]

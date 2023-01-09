@@ -8,6 +8,8 @@ public class BoneColorFade : MonoBehaviour
     public float Lifetime;
     private Vector3 initialPosition;
     private Rigidbody ridgidBod;
+    private bool fading;
+    private float startTime;
 
     private void Awake()
     {
@@ -16,14 +18,20 @@ public class BoneColorFade : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void Update()
+    public void OnEnable()
     {
-        if(ridgidBod.velocity.magnitude <= float.Epsilon)
+        startTime = Time.time;    
+    }
+
+    void FixedUpdate()
+    {
+        if((Time.time - startTime) > 0.25f && ridgidBod.velocity.magnitude <= float.Epsilon && !fading)
             StartCoroutine(Fade());
     }
 
     private IEnumerator Fade()
     {
+        fading = true;
         ridgidBod.isKinematic = true;
         float time = 0;
         SpriteRenderer sp = GetComponent<SpriteRenderer>();

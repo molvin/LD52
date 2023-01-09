@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 910875520266488432}
   - component: {fileID: 5951815310071126336}
   - component: {fileID: 2427144678155381686}
+  - component: {fileID: 8026811221088096821}
   m_Layer: 9
   m_Name: FieldOfViewMesh
   m_TagString: Untagged
@@ -91,7 +92,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385749389368866527}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3ca8c4747d9bfe499558a588ff277f5, type: 3}
   m_Name: 
@@ -107,6 +108,22 @@ MonoBehaviour:
   viewMeshFilter: {fileID: 910875520266488432}
   cleanDotArc: 0.1
   frameInterval: 4
+--- !u!114 &8026811221088096821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385749389368866527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ab8964d21131e409358be2d677f2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 35
+  viewMeshFilter: {fileID: 910875520266488432}
+  frameInterval: 1
+  cleanDotArc: 0.01
 --- !u!1001 &6434941250409701355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114,6 +131,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Name
+      value: Joe
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Sprite
+      value: 
+      objectReference: {fileID: 447217359, guid: dfdb7ba1cd421dd4698ea7c59a9019e2, type: 3}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: UnitType
+      value: Critter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Description
+      value: Runs into enemies and explodes
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012471150167497, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
       value: Youngling
@@ -213,6 +250,7 @@ MonoBehaviour:
   WindDownTime: 0
   AttackSound: {fileID: 8300000, guid: edaee911a2b331e4c9f80bcc3813e8f1, type: 3}
   TimeToStrike: 0
+  Target: {fileID: 0}
   ExplosionRadius: 5
 --- !u!114 &3708449737069232277
 MonoBehaviour:
@@ -227,7 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoulAmount: 0
-  SoulGrowthRate: 0
 --- !u!114 &6329525255959445446
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6542352047360920713}
   - component: {fileID: 8038837022076490152}
   - component: {fileID: 4000473472721242719}
+  - component: {fileID: 8397730838577179381}
   m_Layer: 9
   m_Name: FieldOfViewMesh
   m_TagString: Untagged
@@ -91,7 +92,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5272153034026408812}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3ca8c4747d9bfe499558a588ff277f5, type: 3}
   m_Name: 
@@ -107,6 +108,22 @@ MonoBehaviour:
   viewMeshFilter: {fileID: 6542352047360920713}
   cleanDotArc: 0.1
   frameInterval: 4
+--- !u!114 &8397730838577179381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5272153034026408812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ab8964d21131e409358be2d677f2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 35
+  viewMeshFilter: {fileID: 6542352047360920713}
+  frameInterval: 1
+  cleanDotArc: 0.01
 --- !u!1001 &7491984120178017084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149,6 +166,14 @@ PrefabInstance:
     - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: UnitType
       value: Shotgunner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Description
+      value: Has a closed range shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 2175012471150167497, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
@@ -268,7 +293,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoulAmount: 15
-  SoulGrowthRate: 1.5
 --- !u!114 &7323735983174883943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +316,7 @@ MonoBehaviour:
   WindDownTime: 0
   AttackSound: {fileID: 8300000, guid: dea29d70fa442134183ea9ab0a3eda23, type: 3}
   TimeToStrike: 0
+  Target: {fileID: 0}
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
   ProjectileCount: 5
   ProjectileSpreadAngle: 25
