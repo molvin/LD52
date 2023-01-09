@@ -17,6 +17,7 @@ public class UnitName : UnitBase
     public void UpdateColor()
     {
         //Renderer.material = Instantiate(Renderer.material);
-        Renderer.material.SetColor("_Color", Color);
+        //Renderer.material.SetColor("_Color", Color);
+        Renderer.color = Color;
     }
 }
