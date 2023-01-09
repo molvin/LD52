@@ -1562,10 +1562,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   viewRadius: 35
-  meshResolution: 0
-  edgeResolveIterations: 0
-  edgeDstThreshold: 0
-  stepSize: 5
+  meshResolution: 1
+  edgeResolveIterations: 2
+  edgeDstThreshold: 2
+  stepSize: 2
   viewMeshFilter: {fileID: 3820994867996874714}
   cleanDotArc: 0.1
   frameInterval: 4
@@ -2809,10 +2809,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   viewRadius: 35
-  meshResolution: 0
-  edgeResolveIterations: 0
-  edgeDstThreshold: 0
-  stepSize: 5
+  meshResolution: 1
+  edgeResolveIterations: 2
+  edgeDstThreshold: 2
+  stepSize: 2
   viewMeshFilter: {fileID: 4423980524235983465}
   cleanDotArc: 0.1
   frameInterval: 4
@@ -3459,10 +3459,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   viewRadius: 35
-  meshResolution: 0
-  edgeResolveIterations: 0
-  edgeDstThreshold: 0
-  stepSize: 5
+  meshResolution: 1
+  edgeResolveIterations: 2
+  edgeDstThreshold: 2
+  stepSize: 2
   viewMeshFilter: {fileID: 501225142319434543}
   cleanDotArc: 0.1
   frameInterval: 4
