@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: Damage
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8779747188992943017, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: m_RootOrder
