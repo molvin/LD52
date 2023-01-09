@@ -13,7 +13,7 @@ public class Door : MonoBehaviour
     public Transform SpawnPoint;
     public Transform TargetPoint;
 
-    public TextMeshProUGUI Text;
+    public GameObject Icon;
 
     public enum Type
     {
@@ -26,8 +26,8 @@ public class Door : MonoBehaviour
 
     public IEnumerator Toggle(bool open)
     {
-        if (open && Text)
-            Text.enabled = true;
+        if (open && Icon)
+            Icon.SetActive(true);
 
         float time = open ? OpenTime : CloseTime;
 
