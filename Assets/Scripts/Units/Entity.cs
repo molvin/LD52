@@ -33,4 +33,27 @@ public class Entity : MonoBehaviour
     {
         Id = IdCounter++;
     }
+    
+    public void Update()
+    {
+        if (Team == Team.Enemy)
+        {
+            Vector3 p = transform.position;
+            if (p.x < -41.9)
+                p.x = -41.9f;
+            if (p.x > 41.9f)
+                p.x = 41.9f;
+            if (p.z < -21.9f)
+                p.z = -21.9f;
+            if (p.z > 21.9f)
+                p.z = 21.9f;
+            transform.position = p;
+
+            //if (transform.position.x < -42.2 || transform.position.x > 42.2 || transform.position.z < -22.2 || transform.position.z > 22.2)
+            //{
+                //UnitHealth Health = Get<UnitHealth>();
+                //Health.TakeDamage(500000, Vector3.zero);
+            //}
+        }
+    }
 }
