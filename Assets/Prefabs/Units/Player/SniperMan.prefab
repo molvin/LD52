@@ -45,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: WindUpTime
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: Ricocheting
@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: WindDownTime
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: AttackDistance
@@ -118,6 +118,14 @@ PrefabInstance:
     - target: {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: m_Name
       value: SniperMan
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915433220628174863, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+      propertyPath: Name
+      value: Sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915433220628174863, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+      propertyPath: Rarity
+      value: Rare
       objectReference: {fileID: 0}
     - target: {fileID: 8915433220628174863, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: UnitType

@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartLevel(List<Entity> ents, bool harvest)
     {
-        if(harvest)
+        if (harvest)
         {
             AudioManager.Instance.StopMusic(GamePlayMusic);
             AudioManager.Instance.PlayMusic(HarvestMusic);
@@ -189,6 +189,8 @@ public class GameManager : MonoBehaviour
             s.transform.position = EntryDoor.SpawnPoint.position;
             s.TargetPosition = EntryDoor.SpawnPoint.position;
         }
+
+        yield return FindObjectOfType<Fade>().FadeAlpha(0f);
 
         yield return new WaitForSeconds(0.5f);
 
@@ -368,9 +370,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        //TODO: fade out
-
-
+        yield return FindObjectOfType<Fade>().FadeAlpha(1f);
 
         yield return NextLevel(goToNextLevel);
     }

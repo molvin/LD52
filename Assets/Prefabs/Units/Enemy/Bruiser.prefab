@@ -620,7 +620,7 @@ MonoBehaviour:
   KnockbackForce: 20
   AttackDistance: 30
   AttackTime: 2
-  WindUpTime: 1.2
+  WindUpTime: 1.4
   WindDownTime: 0
   AttackSound: {fileID: 0}
   TimeToStrike: 0
