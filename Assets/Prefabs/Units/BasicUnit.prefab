@@ -452,8 +452,8 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5000002, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5061503798432870710}
-  m_RootOrder: 0
+  m_Father: {fileID: 2175012472069333141}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &9069573803113982286
 SpriteRenderer:
@@ -536,7 +536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1792815888703941824, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1792815888703941824, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
       propertyPath: m_AnchorMax.x
