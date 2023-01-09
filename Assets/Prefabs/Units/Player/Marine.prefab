@@ -267,10 +267,18 @@ PrefabInstance:
       propertyPath: DeathSound
       value: 
       objectReference: {fileID: 8300000, guid: da2da76fc810c7347bbf5fd38537fcae, type: 3}
+    - target: {fileID: 6666836973668120966, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1728791176, guid: dfdb7ba1cd421dd4698ea7c59a9019e2, type: 3}
     - target: {fileID: 9069573803113982286, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 59458002c28264e45b1ab739f9b9efed, type: 2}
+      objectReference: {fileID: 2100000, guid: 07af2e06293315e4eaaee6b3a2e1da2c, type: 2}
     m_RemovedComponents:
     - {fileID: 735666923131083204, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
@@ -348,7 +356,7 @@ MonoBehaviour:
   Type: 0
   Selected: 0
   TargetPosition: {x: 0, y: 0, z: 0}
-  Spacing: 2.5
+  Spacing: 5
   DebugMove: 0
   DebugMoveSpeed: 0
   SelectedCircle: {fileID: 8779747190288893682}

@@ -150,10 +150,10 @@ TextureImporter:
       name: LD52_UnitInfo_UI_2
       rect:
         serializedVersion: 2
-        x: 419
-        y: 273
-        width: 541
-        height: 543
+        x: 110
+        y: 738
+        width: 107
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,6 +171,27 @@ TextureImporter:
       name: LD52_UnitInfo_UI_3
       rect:
         serializedVersion: 2
+        x: 419
+        y: 273
+        width: 541
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e9d32313277134ca2aaffd115cf6cb
+      internalID: -2027216136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD52_UnitInfo_UI_4
+      rect:
+        serializedVersion: 2
         x: 1201
         y: 296
         width: 544
@@ -182,8 +203,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46e9d32313277134ca2aaffd115cf6cb
-      internalID: -2027216136
+      spriteID: e6cb51db9dffee84da4ee63ae9df51fd
+      internalID: 1203104712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD52_UnitInfo_UI_5
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 548
+        width: 107
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4937305ecd766d44d837091885f4532e
+      internalID: 1637511337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD52_UnitInfo_UI_6
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 377
+        width: 107
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 474bc8f8fa5a5844c9722b4f7b7c6a8a
+      internalID: -674772096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD52_UnitInfo_UI_7
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 183
+        width: 107
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c23d7e97f1d77c14caa13ac274cea55d
+      internalID: 1246862888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LD52_UnitInfo_UI_8
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 15
+        width: 637
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50b43d5555d3944f881f8d82158f0aa
+      internalID: 1872599472
       vertices: []
       indices: 
       edges: []
@@ -199,10 +304,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      LD52_UnitInfo_UI_5: 1637511337
       LD52_UnitInfo_UI_2: 1881062897
+      LD52_UnitInfo_UI_6: -674772096
+      LD52_UnitInfo_UI_8: 1872599472
       LD52_UnitInfo_UI_0: 1433875649
+      LD52_UnitInfo_UI_4: 1203104712
       LD52_UnitInfo_UI_1: -895684971
       LD52_UnitInfo_UI_3: -2027216136
+      LD52_UnitInfo_UI_7: 1246862888
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -21,13 +21,18 @@ public class InputManager : MonoBehaviour
     public float HoldTickRate = 0.1f;
     private float lastMove;
     private bool MoveOnHold => (Time.time - lastMove) > HoldTickRate;
-    
+
+    public float Spacing = 1;
+    private SphereCollider coll;
     private void Awake()
     {
         if(!Instance)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            coll = new GameObject("temp").AddComponent<SphereCollider>();
+            coll.gameObject.SetActive(false);
+            coll.transform.parent = transform;
         }
         else
         {
@@ -194,43 +199,41 @@ public class InputManager : MonoBehaviour
             return new List<Vector3> { target };
         }
 
-        float radius = 0.0f;
         Vector3 center = Vector3.zero;
         foreach (Selectable s in selected)
-        {
-            radius += s.Spacing;
             center += s.transform.position;
-        }
-        radius /= selected.Count;
         center /= selected.Count;
+        int width = Mathf.CeilToInt(Mathf.Sqrt(selected.Count));
 
-        List<Vector3> result = new List<Vector3>();
-        foreach (Selectable s in selected)
-            result.Add(Vector3.zero);
         List<Vector3> points = new List<Vector3>();
-        for (int i = 0; i < selected.Count; i++)
+        for(int y = 0; y < width; y++)
         {
-            points.Add(FibDisc(i, selected.Count) * radius);
+            for (int x = 0; x < width; x++)
+            {
+                points.Add(new Vector3(x * Spacing, 1, y * Spacing) - new Vector3(Spacing * width, 0, Spacing * width) * 0.5f);
+            }
         }
 
-        var sortedSelected = selected.OrderBy(x => x.GetComponent<Entity>().Id).ToList();
-        foreach (Selectable s in sortedSelected)
+        Vector3[] result = new Vector3[selected.Count];
+        var sortedSelected = selected.OrderBy(x => x.transform.position.Dist2D(center));
+        foreach(Selectable s in sortedSelected)
         {
+            int index = 0;
             float dist = 10000.0f;
-            int closest = 0;
-            for (int i = 0; i < points.Count; i++)
+            for (int i = points.Count - 1; i >= 0; i--)
             {
-                float d = s.transform.position.Dist2D(center + points[i]);
+                float d = s.transform.position.Dist2D(points[i] + center);
                 if (d < dist)
                 {
                     dist = d;
-                    closest = i;
+                    index = i;
+                    // Debug.Log($"Selected point {points[i]}");
                 }
             }
-            result[selected.IndexOf(s)] = points[closest] + target;
-            points.RemoveAt(closest);
+            result[selected.IndexOf(s)] = points[index] + target;
+            points.RemoveAt(index);
         }
-        return result;
+        return result.ToList();
     }
 
     private void Move(Vector3 target)
