@@ -158,6 +158,10 @@ PrefabInstance:
       propertyPath: Description
       value: Basic Infantry, runs and shoots simultaneously
       objectReference: {fileID: 0}
+    - target: {fileID: 2175012471150167497, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
       value: Marine
@@ -276,7 +280,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoulAmount: 10
-  SoulGrowthRate: 1.5
 --- !u!114 &7323735983174883943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +303,7 @@ MonoBehaviour:
   WindDownTime: 0
   AttackSound: {fileID: 8300000, guid: 5fb5dc80a055b2647875d7fb9942a3e8, type: 3}
   TimeToStrike: 0
+  Target: {fileID: 0}
   ProjectilePrefab: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
   ProjectileCount: 1
   ProjectileSpreadAngle: 45
@@ -327,7 +331,7 @@ MonoBehaviour:
   Type: 0
   Selected: 0
   TargetPosition: {x: 0, y: 0, z: 0}
-  Spacing: 2.5
+  Spacing: 5
   DebugMove: 0
   DebugMoveSpeed: 0
   SelectedCircle: {fileID: 8779747190288893682}

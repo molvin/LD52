@@ -273,7 +273,7 @@ public class GameManager : MonoBehaviour
             {
                 UnitSoul soul = e.Get<UnitSoul>();
                 soul.SoulAmount += soul.BaseAmount;
-                e.GetComponentInChildren<HealthBar>().UnitLevelUp((int)soul.SoulAmount);
+                e.GetComponentInChildren<HealthBar>().UnitLevelUp();
                 yield return new WaitForSeconds(0.2f);
             }
         }

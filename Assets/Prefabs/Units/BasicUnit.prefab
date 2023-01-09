@@ -295,7 +295,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   UnitType: 
-  Sprite: {fileID: 0}
   Color: {r: 0, g: 0, b: 0, a: 0}
   Description: 
   Renderer: {fileID: 9069573803113982286}
@@ -658,15 +657,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5525012097951144232, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
       propertyPath: m_fontSize
-      value: 14.25
+      value: 24.65
       objectReference: {fileID: 0}
     - target: {fileID: 5820958377946999493, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 15.872
+      value: 27.469
       objectReference: {fileID: 0}
     - target: {fileID: 5820958377946999493, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 15.872
+      value: 27.469
       objectReference: {fileID: 0}
     - target: {fileID: 5820958377946999493, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
       propertyPath: m_LocalPosition.z
@@ -674,7 +673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5820958377946999493, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -40
+      value: -51.32
       objectReference: {fileID: 0}
     - target: {fileID: 5820958377946999493, guid: ea33f2c9bf9217947933ec506b6f2e45, type: 3}
       propertyPath: m_AnchoredPosition.y
