@@ -267,11 +267,11 @@ MonoBehaviour:
   ObstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  Damage: 30
-  KnockbackForce: 12
+  Damage: 40
+  KnockbackForce: 20
   AttackDistance: 40
-  AttackTime: 2
-  WindUpTime: 0.4
+  AttackTime: 1.9
+  WindUpTime: 0.3
   WindDownTime: 0.1
   AttackSound: {fileID: 8300000, guid: dea29d70fa442134183ea9ab0a3eda23, type: 3}
   TimeToStrike: 0
