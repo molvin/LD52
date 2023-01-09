@@ -88,7 +88,7 @@ public class AudioManager : MonoBehaviour
         audioSource.transform.position = Camera.main.transform.position;
         audioSource.spatialBlend = 0;
 
-        StartCoroutine(FadeMusic(audioSource, 1, true));
+        StartCoroutine(FadeMusic(audioSource, 2.5f, true));
 
         m_ActiveAudios.Add(audioSource);
     }
@@ -98,7 +98,7 @@ public class AudioManager : MonoBehaviour
         foreach(AudioSource audio_source in m_ActiveAudios)
         {
             if(audio_source.clip == clip)
-                StartCoroutine(FadeMusic(audio_source, 1, false));
+                StartCoroutine(FadeMusic(audio_source, 2, false));
         }
     }
 
