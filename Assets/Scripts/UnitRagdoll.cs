@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class UnitRagdoll : MonoBehaviour
 {
-    // Start is called before the first frame update
     private Rigidbody[] Bones;
-    public float force;
+    public float ForceModifier;
     public SpriteRenderer unitSprite;
 
     private void Start()
@@ -21,7 +20,8 @@ public class UnitRagdoll : MonoBehaviour
         for (int  i = 0; i < Bones.Length; i++)
         {
             Bones[i].gameObject.SetActive(true);
-            Bones[i].AddExplosionForce(force, hitPosition, 10f);
+            Bones[i].AddExplosionForce(force * ForceModifier, hitPosition, 10f);
+            // Debug.Log($"Exploding force: {force * ForceModifier} Distance: {(hitPosition - Bones[i].transform.position).magnitude}");
         }
           
     }
