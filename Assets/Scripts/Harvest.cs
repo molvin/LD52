@@ -112,9 +112,21 @@ public class Harvest : MonoBehaviour
         {
             AudioManager.Instance.PlayAudio(SpawnedSound);
 
-            Upgrade[] availableUpgrades = Upgrades.Where(x => x.Cost < currentSouls).ToArray();
-            availableUpgrades = availableUpgrades.OrderBy(x => Mathf.Abs(x.Cost - currentSouls)).ToArray();
-            Upgrade u = availableUpgrades[0];
+            //Upgrade[] availableUpgrades = Upgrades.Where(x => x.Cost < currentSouls).ToArray();
+            //availableUpgrades = availableUpgrades.OrderBy(x => Mathf.Abs(x.Cost - currentSouls)).ToArray();
+            //Upgrade u = availableUpgrades[0];
+            Upgrade u = Upgrades[Upgrades.Count - 1];
+            int rand = Random.Range(0, 4);
+            for (int i = 0; i < Upgrades.Count; i++)
+            {
+                if (Upgrades[i].Cost > currentSouls)
+                {
+                    int index = Mathf.Min(i - 1 + rand, Upgrades.Count - 1);
+                    u = Upgrades[index];
+                    break;
+                }
+            }
+
             currentSouls = 0;
 
             var newUnits = GameManager.Instance.SpawnPlayerUnits(u.Units, SpawnPoint.position);

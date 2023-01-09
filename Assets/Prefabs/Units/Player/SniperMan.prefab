@@ -45,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: WindUpTime
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: Ricocheting
@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: WindDownTime
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: AttackDistance

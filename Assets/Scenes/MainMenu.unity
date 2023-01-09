@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1043,7 +1043,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Click and drag to select your shapely units. You can also select a single
-    unit by clicking on it!
+    unit by clicking on it! Rightclick to move, your shapely unit will handle the
+    rest!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1070,7 +1071,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2.6
+  m_fontSize: 2.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1783,7 +1784,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096117256}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 10.4721}
+  m_LocalPosition: {x: 0, y: 0, z: 8.6141}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1793,8 +1794,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -11.047, y: 1}
-  m_SizeDelta: {x: 22.7061, y: 4.8558}
+  m_AnchoredPosition: {x: -9.4, y: 1}
+  m_SizeDelta: {x: 25.5964, y: 8.5719}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1103238920
 GameObject:
@@ -3605,7 +3606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969147705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.8, y: -11.5004, z: -25}
+  m_LocalPosition: {x: 37.8, y: -11.5004, z: -25}
   m_LocalScale: {x: 43.8805, y: 43.001, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
