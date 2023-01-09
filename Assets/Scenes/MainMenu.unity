@@ -123,6 +123,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 3323b31354af28a4aaf427a1abf726c6, type: 2}
+--- !u!1 &125599949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 125599951}
+  - component: {fileID: 125599950}
+  m_Layer: 0
+  m_Name: FieldOfViewDataGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &125599950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125599949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62bada388de69824dbbe077125599b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fieldOfViewData: {fileID: 11400000, guid: 58e4baab82b8b9546a70e778d16a84d0, type: 2}
+  stepSize: 1
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  resY: 108
+  resX: 192
+  stepY: -0.5
+  stepX: 0.5
+--- !u!4 &125599951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125599949}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.6, y: 1, z: 20.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &185769545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6563,6 +6616,7 @@ MonoBehaviour:
   CurrentState: 0
   GamePlayMusic: {fileID: 8300000, guid: 9789457dbfa337b48ab83aacb73d3d10, type: 3}
   HarvestMusic: {fileID: 8300000, guid: e1bf80b18216c5145b0c8b67daeadc0b, type: 3}
+  PlayerColors: []
 --- !u!114 &4722253537299037971
 MonoBehaviour:
   m_ObjectHideFlags: 0

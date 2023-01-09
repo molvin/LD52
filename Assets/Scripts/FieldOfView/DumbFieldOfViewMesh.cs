@@ -9,17 +9,40 @@ public class DumbFieldOfViewMesh : MonoBehaviour
     Mesh viewMesh;
     public MeshFilter viewMeshFilter;
 
-    public FieldOfViewDataGenerator generator;
-    [ContextMenu("generateMesh")]
-    public void buildMesh()
+    private FieldOfViewDataGenerator generator;
+    public int frameInterval = 4;
+    private int frameOfset;
+    public float cleanDotArc = 0.01f;
+
+    public void Start()
     {
+        generator = FindObjectOfType<FieldOfViewDataGenerator>();
         viewMesh = new Mesh();
 
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
+        frameOfset = Random.Range(0, frameInterval);
+    }
+
+    public void onNewLevel()
+    {
+        generator = FindObjectOfType<FieldOfViewDataGenerator>();
+    }
+
+    public void Update()
+    {
+        if ((Time.frameCount + frameOfset) % frameInterval == 0)
+            buildMesh();
+      
+    }
+
+    //[ContextMenu("generateMesh")]
+    public void buildMesh()
+    {
+        
 
         List<Vector3> viewPoints = getViewPoints();
-      
+        dotCleanPointCloud(ref viewPoints);
         Vector3[] vertices = new Vector3[viewPoints.Count + 1];
         Vector2[] uvs = new Vector2[viewPoints.Count + 1];
         int[] triangles = new int[(viewPoints.Count) * 3];
@@ -55,16 +78,27 @@ public class DumbFieldOfViewMesh : MonoBehaviour
         //viewMesh.SetUVs(0, uvs);
 
 
-        viewMesh.RecalculateNormals();
-        viewMesh.RecalculateUVDistributionMetrics();
+       // viewMesh.RecalculateNormals();
+        //viewMesh.RecalculateUVDistributionMetrics();
 
 
+    }
+
+    void dotCleanPointCloud(ref List<Vector3> data)
+    {
+        for (int i = data.Count - 2; i > 2; i--)
+        {
+            Vector3 left = data[i + 1] - data[i];
+            Vector3 right = data[i] - data[i - 1];
+            float dot = Vector3.Dot(left.normalized, right.normalized);
+            if (((dot + 1f) / 2f) > (1f - cleanDotArc))
+                data.RemoveAt(i);
+        }
     }
 
     public List<Vector3> getViewPoints()
     {
         List<float> disntances = generator.getPoints(transform.position);
-        Debug.Log(disntances.Count);
         List<Vector3> potins = new List<Vector3>();
         for(int i = 0; i < disntances.Count; i++)
         {

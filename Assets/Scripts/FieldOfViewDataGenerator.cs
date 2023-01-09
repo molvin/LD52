@@ -17,6 +17,11 @@ public class FieldOfViewDataGenerator : MonoBehaviour
     public float stepY = -0.5f;
     public float stepX = 0.5f;
 
+    public void Awake()
+    {
+        fieldOfViewData.Rebuild((resX, resY, Mathf.FloorToInt(360 / stepSize)));
+    }
+
     [ContextMenu("generateData")]
     private void generateData()
     {
@@ -79,8 +84,7 @@ public class FieldOfViewDataGenerator : MonoBehaviour
 
         int x = (int)b.x;
         int y = (int)b.z;
-        Debug.Log(x + " " + y);
-        fieldOfViewData.Rebuild((resX, resY, Mathf.FloorToInt(360 / stepSize)));
+    
 
         return fieldOfViewData.data_2[x][y];
     }
