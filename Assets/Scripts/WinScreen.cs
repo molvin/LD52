@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinScreen : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public TextMeshProUGUI text;
+
+    public void OnEnable()
     {
-        
+        text.text = "You are victorious";
     }
 
-    // Update is called once per frame
-    void Update()
+    public void BackToMainMenu()
     {
-        
+        SceneManager.LoadScene(0);
     }
 }
