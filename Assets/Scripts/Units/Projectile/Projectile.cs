@@ -218,8 +218,7 @@ public class Projectile : MonoBehaviour
             })
             .Select(e => (e, e.Get<UnitHealth>()))
             .ToList()
-            .ForEach(tup => 
-            {
+            .ForEach(tup => {
                 tup.Item2.TakeDamage(Damage, Position);
                 if (tup.Item1.TryGet(out Movement Move))
                 {
@@ -231,7 +230,7 @@ public class Projectile : MonoBehaviour
         GameObject Aoe = ObjectPool.Instance.GetInstance(AoeEffect);
         Vector3 pos = Position;
         Aoe.transform.position = new Vector3(pos.x, 0.1f, pos.z);
-        Aoe.transform.localScale = Vector3.one * ImpactExplosionRadius;
+        //Aoe.transform.localScale = Vector3.one * ImpactExplosionRadius;
     }
 
     private void setColor(Color in_color)
