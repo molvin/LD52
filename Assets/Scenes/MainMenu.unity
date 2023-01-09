@@ -617,7 +617,7 @@ MonoBehaviour:
   Anim: {fileID: 373152285}
   SpawnPoint: {fileID: 1861956674}
   TargetPoint: {fileID: 384752006}
-  Text: {fileID: 1103238921}
+  Icon: {fileID: 0}
   DoorType: 1
 --- !u!95 &373152285
 Animator:
@@ -4607,7 +4607,7 @@ MonoBehaviour:
   Anim: {fileID: 1595083859477131964}
   SpawnPoint: {fileID: 1595083860369138574}
   TargetPoint: {fileID: 1595083860170461554}
-  Text: {fileID: 5033655929989565775}
+  Icon: {fileID: 0}
   DoorType: 3
 --- !u!1 &1595083859297092664
 GameObject:
@@ -6557,7 +6557,7 @@ MonoBehaviour:
   Anim: {fileID: 1595083860318512343}
   SpawnPoint: {fileID: 1595083860709427310}
   TargetPoint: {fileID: 1595083859611416317}
-  Text: {fileID: 0}
+  Icon: {fileID: 0}
   DoorType: 0
 --- !u!95 &1595083860318512343
 Animator:
@@ -6596,7 +6596,7 @@ MonoBehaviour:
   Anim: {fileID: 1595083860442460418}
   SpawnPoint: {fileID: 1595083859297092665}
   TargetPoint: {fileID: 1595083860273846051}
-  Text: {fileID: 5139532503944233957}
+  Icon: {fileID: 0}
   DoorType: 2
 --- !u!1 &1595083860369138561
 GameObject:
@@ -8552,7 +8552,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6276408800431224099}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -8592,7 +8592,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2.05
+  m_fontSize: 2.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8641,7 +8641,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927216968814033577}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
