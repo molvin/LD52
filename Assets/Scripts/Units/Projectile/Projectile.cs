@@ -215,7 +215,7 @@ public class Projectile : MonoBehaviour
             .Where(e =>
             {
                 Vector3 Direction = e.transform.position - Position;
-                return Physics.Raycast(Position, Direction.normalized, out RaycastHit Hit, Direction.magnitude, ObstacleMask) && Hit.transform == e.transform;
+                return !Physics.Raycast(Position, Direction.normalized, out RaycastHit Hit, Direction.magnitude, ObstacleMask);
             })
             .Select(e => (e, e.Get<UnitHealth>()))
             .ToList()
