@@ -47,11 +47,19 @@ public class Harvest : MonoBehaviour
     private void CreateUpgrades()
     {
         Upgrades = new List<Upgrade>();
+        // Youngling
+        {
+            List<GameObject> Y = new List<GameObject>();
+            Y.Add(Youngling.gameObject);
+            Y.Add(Youngling.gameObject);
+            Y.Add(Youngling.gameObject);
+            Upgrades.Add(new Upgrade { Cost = 0, Units = Y});
+        }
         foreach (UnitSoul Unit in UnitTypes)
         {
-            for (int i = 1; i < 8; i++)
+            for (int i = 1; i < 11; i++)
             {
-                float Cost = i * Unit.SoulAmount * 1.5f * (1.0f - (i - 1) * 0.05f);
+                float Cost = i * Unit.SoulAmount * 1.7f * (1.0f - (i - 1) * 0.03f);
                 Upgrade upgrade = new Upgrade();
                 upgrade.Cost = (int)Cost;
                 upgrade.Units = new List<GameObject>();
