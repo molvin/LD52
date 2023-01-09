@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2175012472069333141}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &2175012471150167502
 SpriteRenderer:
@@ -121,10 +121,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2175012471150167497}
-  - {fileID: 6750139402801694231}
   - {fileID: 5061503798432870710}
+  - {fileID: 6750139402801694231}
   - {fileID: 3952488217610643842}
+  - {fileID: 2175012471150167497}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -244,6 +244,10 @@ MonoBehaviour:
   Current: 100
   healthBar: {fileID: 4334824194002780550}
   DeathSound: {fileID: 0}
+  isAudioControllingUnit: 0
+  increasedSound: 0
+  amountPerTick: 1
+  mixer: {fileID: 0}
 --- !u!114 &2035948757980699443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +328,7 @@ Transform:
   m_Children:
   - {fileID: 6666836973668120966}
   m_Father: {fileID: 2175012472069333141}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6911723964001870321
 GameObject:
@@ -449,11 +453,11 @@ Transform:
   m_GameObject: {fileID: 7247960603652308298}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.99, z: 0.15}
-  m_LocalScale: {x: 1.5, y: 1.5000002, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5000004, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2175012472069333141}
-  m_RootOrder: 1
+  m_Father: {fileID: 5061503798432870710}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &9069573803113982286
 SpriteRenderer:

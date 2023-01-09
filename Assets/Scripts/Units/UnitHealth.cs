@@ -24,7 +24,7 @@ public class UnitHealth : UnitBase
     {
         ragdoll = transform.GetComponentInChildren<UnitRagdoll>();
     }
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int dmg, Vector3 hitPoint)
     {
         if (Current == 0)
             return;
@@ -33,7 +33,7 @@ public class UnitHealth : UnitBase
         if (Current == 0)
         {
             if(ragdoll != null)
-                ragdoll.Explode(dmg, transform.position);
+                ragdoll.Explode(dmg, hitPoint);
             AudioManager.Instance.PlayAudio(DeathSound, transform.position);
             GameManager.Instance?.KillUnit(Entity);
         }

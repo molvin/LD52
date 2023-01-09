@@ -16,7 +16,7 @@ public class SpacePressDamage : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            healthComponent.TakeDamage(Random.Range(3, 10));
+            healthComponent.TakeDamage(Random.Range(3, 10), transform.position);
         }
     }
 }
