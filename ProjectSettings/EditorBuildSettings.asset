@@ -27,6 +27,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 6.unity
     guid: 4048ed3d6d8fbfa4da7155e5e4d66690
   - enabled: 1
+    path: Assets/Scenes/Level 7.unity
+    guid: c799aa68859d89e4ea98b84ede3e6cfd
+  - enabled: 1
+    path: Assets/Scenes/Level 8.unity
+    guid: 908cedb2e0e4c574aa09fb4434f7bc5c
+  - enabled: 1
     path: Assets/Scenes/HarvestLevel.unity
     guid: 56aad7dae9281614ea7fe5bcbe9b6d54
   m_configObjects: {}
