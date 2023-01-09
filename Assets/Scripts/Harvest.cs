@@ -102,7 +102,7 @@ public class Harvest : MonoBehaviour
             }
         }
 
-        CurrentSoulsText.text = $"Current Souls:\n {(int)currentSouls}";
+        CurrentSoulsText.text = $"{(int)currentSouls}";
 
     }
 
