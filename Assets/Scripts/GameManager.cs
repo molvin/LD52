@@ -8,7 +8,7 @@ using static UnityEngine.UI.Image;
 
 public class GameManager : MonoBehaviour
 {
-    public static int LevelCount = 9;
+    public static int LevelCount = 15;
     public enum State
     {
         Start,
@@ -297,6 +297,9 @@ public class GameManager : MonoBehaviour
             {
                 UnitSoul soul = e.Get<UnitSoul>();
                 soul.SoulAmount += soul.BaseAmount;
+
+                UnitHealth health = e.Get<UnitHealth>();
+                health.TakeDamage(-health.Max / 5, Vector3.zero);
                 e.GetComponentInChildren<HealthBar>().UnitLevelUp();
                 yield return new WaitForSeconds(0.2f);
             }
