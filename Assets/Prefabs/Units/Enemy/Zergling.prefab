@@ -666,7 +666,7 @@ MonoBehaviour:
   ObstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  Damage: 25
+  Damage: 26
   KnockbackForce: 0
   AttackDistance: 2.5
   AttackTime: 0.33
