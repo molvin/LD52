@@ -16,7 +16,9 @@ public struct Upgrade
 public class Harvest : MonoBehaviour
 {
     public static Harvest Instance;
-    public Upgrade[] Upgrades;
+    public UnitSoul Youngling;
+    public UnitSoul[] UnitTypes;
+    public List<Upgrade> Upgrades;
     public BoxCollider KillZone;
 
     public float HarvestTime = 3.0f;
@@ -38,6 +40,29 @@ public class Harvest : MonoBehaviour
     {
         Instance = this;
         CanHarvest = true;
+
+        CreateUpgrades();
+    }
+
+    private void CreateUpgrades()
+    {
+        Upgrades = new List<Upgrade>();
+        foreach (UnitSoul Unit in UnitTypes)
+        {
+            for (int i = 1; i < 8; i++)
+            {
+                float Cost = i * Unit.SoulAmount * 1.5f * (1.0f - (i - 1) * 0.05f);
+                Upgrade upgrade = new Upgrade();
+                upgrade.Cost = (int)Cost;
+                upgrade.Units = new List<GameObject>();
+                for (int j = 0; j < i; j++)
+                {
+                    upgrade.Units.Add(Unit.gameObject);
+                }
+                Upgrades.Add(upgrade);
+            }
+        }
+        Upgrades = Upgrades.OrderBy(u => u.Cost).ToList();
     }
 
     public void Update()
