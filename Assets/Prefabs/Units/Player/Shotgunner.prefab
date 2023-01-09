@@ -167,6 +167,10 @@ PrefabInstance:
       propertyPath: UnitType
       value: Shotgunner
       objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Description
+      value: Has a closed range shotgun
+      objectReference: {fileID: 0}
     - target: {fileID: 2175012471150167497, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_RootOrder
       value: 2

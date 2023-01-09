@@ -131,6 +131,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Name
+      value: Joe
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Sprite
+      value: 
+      objectReference: {fileID: 447217359, guid: dfdb7ba1cd421dd4698ea7c59a9019e2, type: 3}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: UnitType
+      value: Critter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035948757980699443, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
+      propertyPath: Description
+      value: Runs into enemies and explodes
+      objectReference: {fileID: 0}
     - target: {fileID: 2175012471150167497, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_RootOrder
       value: 4

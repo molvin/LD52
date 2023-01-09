@@ -53,6 +53,7 @@ public class Projectile : MonoBehaviour
     {
         Prefab = prefab;
         transform.position = Start;
+        TrailColor.Clear();
         transform.forward = Direction;
         ProjectileSize = projectileSize;
         Owner = owner;
@@ -195,6 +196,7 @@ public class Projectile : MonoBehaviour
             IsDone = false;
             transform.forward = transform.forward - 2.0f * Vector3.Dot(transform.forward, HitNormal) * HitNormal; 
             Ricocheting = false;
+            IgnoreTargets.Clear();
         }
 
         transform.position += transform.forward * ProjectileSpeed * Time.deltaTime;
