@@ -151,7 +151,8 @@ PrefabInstance:
       propertyPath: Description
       value: Elite soldier using a powerful scatter rifle
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8397730838577179381, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9a5c0f24bde719447b9316062237aa00, type: 3}
 --- !u!33 &7390181533433791437 stripped
 MeshFilter:
