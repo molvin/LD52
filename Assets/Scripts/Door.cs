@@ -19,7 +19,8 @@ public class Door : MonoBehaviour
     {
         Entry,
         Harvest,
-        Exit
+        Exit,
+        Quit
     }
     public Type DoorType;
 

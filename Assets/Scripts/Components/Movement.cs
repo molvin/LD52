@@ -28,6 +28,9 @@ public class Movement : UnitBase
     [HideInInspector]
     public bool CanMove = true;
 
+    public float CurrentAcceleration;
+    private Vector3 lastVelocity;
+
     new protected void Awake()
     {
         base.Awake();    
@@ -58,6 +61,8 @@ public class Movement : UnitBase
         FollowPath();
         Avoidance();
         MoveWithCollision();
+
+
     }
 
     public void FollowPath()
@@ -90,6 +95,8 @@ public class Movement : UnitBase
         // Clamp max speed
         velocity += Delta;
         //velocity = Vector3.ClampMagnitude(velocity, Speed);
+
+        CurrentAcceleration = Vector3.Dot(velocity.normalized, Delta);
     }
 
     private void MoveWithCollision()

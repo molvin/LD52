@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4774035615921567266, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: SoulAmount
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4774035615921567266, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: SoulGrowthRate
@@ -98,6 +98,14 @@ PrefabInstance:
     - target: {fileID: 8779747188992943060, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: Acceleration
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915433220628174863, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+      propertyPath: UnitType
+      value: Piercer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915433220628174863, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+      propertyPath: Description
+      value: Infantry, shoots projectiles which can pierce targets
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}

@@ -79,11 +79,12 @@ public class HealthBar : MonoBehaviour
         {
             damageStartFill = FillChange.fillAmount;
             damageAnimTime = 0f;
-            StartCoroutine(takeDamage());
+            if (isActiveAndEnabled)
+                StartCoroutine(takeDamage());
         }
         float damageTaken = damageStartFill - Fill.fillAmount;
         FillChange.color = takeDamageColors.Evaluate(damageTaken);
-        if(damageTaken >= ShakeTriggerProcent)
+        if(damageTaken >= ShakeTriggerProcent && isActiveAndEnabled)
             StartCoroutine(DamageShake(damageTaken));
     }
 
