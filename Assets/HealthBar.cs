@@ -39,6 +39,8 @@ public class HealthBar : MonoBehaviour
 
     public AudioClip LevelUpSound;
 
+    private int level;
+
     private void Awake()
     {
         gameObject.SetActive(true);
@@ -48,7 +50,7 @@ public class HealthBar : MonoBehaviour
 
         UnitSoul soul = GetComponentInParent<UnitSoul>();
         if (soul)
-            LevelUpText.text = $"{(int)soul.SoulAmount}";
+            LevelUpText.text = $"{level}";
         else
             LevelUpText.enabled = false;
     }
@@ -88,9 +90,9 @@ public class HealthBar : MonoBehaviour
             StartCoroutine(DamageShake(damageTaken));
     }
 
-    public void UnitLevelUp(int level)
+    public void UnitLevelUp()
     {
-        StartCoroutine(SetNewLevel(level));
+        StartCoroutine(SetNewLevel());
     }
 
     private IEnumerator takeDamage()
@@ -122,7 +124,7 @@ public class HealthBar : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator SetNewLevel(int level)
+    private IEnumerator SetNewLevel()
     {
         float time = 0;
         AudioManager.Instance.PlayAudio(LevelUpSound);
@@ -131,10 +133,10 @@ public class HealthBar : MonoBehaviour
             time += Time.deltaTime;
             float factor = time / LevelUpEventTime;
             float framestep = LevelUpCurve.Evaluate(factor);
-            LevelUpText.rectTransform.anchoredPosition = new Vector2(-40, framestep);
+            LevelUpText.rectTransform.anchoredPosition = new Vector2(LevelUpText.rectTransform.anchoredPosition.x, framestep);
             yield return null;
         }
-        LevelUpText.text = level + "";
+        LevelUpText.text = ++level + "";
         yield return null;
     }
 }

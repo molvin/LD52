@@ -23,6 +23,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 328867199061290, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 328867199061290, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 328867199061290, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1077064101
+      objectReference: {fileID: 0}
     - target: {fileID: 1226357883266473813, guid: 0804215ea8213ae4ab1c1138e3d592d3, type: 3}
       propertyPath: AoeEffect
       value: 

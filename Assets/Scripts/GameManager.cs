@@ -8,7 +8,7 @@ using static UnityEngine.UI.Image;
 
 public class GameManager : MonoBehaviour
 {
-    public static int LevelCount = 5;
+    public static int LevelCount = 6;
     public enum State
     {
         Start,
@@ -207,12 +207,12 @@ public class GameManager : MonoBehaviour
             farAway = false;
             for (int i = 0; i < targets.Count; i++)
             {
-                if (selected[i].transform.position.Dist2D(targets[i]) > 2)
+                if (selected[i].transform.position.Dist2D(targets[i]) > 0.5f)
                     farAway = true;
             }
             yield return null;
         }
-        if((Time.time - startTime) > 10.0f)
+        if((Time.time - startTime) >= 10.0f)
         {
             for (int i = 0; i < targets.Count; i++)
             {
@@ -220,10 +220,10 @@ public class GameManager : MonoBehaviour
                 selected[i].TargetPosition = targets[i];
             }
         }
+        InputManager.Instance.enabled = true;
 
         yield return EntryDoor.Toggle(false);
 
-        InputManager.Instance.enabled = true;
         CurrentState = harvest ? State.Harvest : State.Game;
 
         ToggleEnemies(true);
@@ -295,7 +295,7 @@ public class GameManager : MonoBehaviour
             {
                 UnitSoul soul = e.Get<UnitSoul>();
                 soul.SoulAmount += soul.BaseAmount;
-                e.GetComponentInChildren<HealthBar>().UnitLevelUp((int)soul.SoulAmount);
+                e.GetComponentInChildren<HealthBar>().UnitLevelUp();
                 yield return new WaitForSeconds(0.2f);
             }
         }
@@ -386,7 +386,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Level = Mathf.Min(Level + 1, LevelCount - 1);
-            SceneManager.LoadScene($"Level {Level + 1}");
+            SceneManager.LoadScene($"Level {Mathf.Max(Level, 1)}");
         }
 
         yield return null;

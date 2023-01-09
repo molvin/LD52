@@ -1602,16 +1602,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8006942428281086937, guid: 345978db8ac1bdd4ebb87591d8f65db4, type: 3}
       propertyPath: StartSquad.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8006942428281086937, guid: 345978db8ac1bdd4ebb87591d8f65db4, type: 3}
       propertyPath: StartSquad.Array.data[0]
       value: 
-      objectReference: {fileID: 2562553831933882726, guid: 4a82fcd60e53b6344aa22b5da22150bf, type: 3}
+      objectReference: {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
     - target: {fileID: 8006942428281086937, guid: 345978db8ac1bdd4ebb87591d8f65db4, type: 3}
       propertyPath: StartSquad.Array.data[1]
       value: 
-      objectReference: {fileID: 2562553831933882726, guid: 4a82fcd60e53b6344aa22b5da22150bf, type: 3}
+      objectReference: {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+    - target: {fileID: 8006942428281086937, guid: 345978db8ac1bdd4ebb87591d8f65db4, type: 3}
+      propertyPath: StartSquad.Array.data[3]
+      value: 
+      objectReference: {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
     - target: {fileID: 8006942428281086938, guid: 345978db8ac1bdd4ebb87591d8f65db4, type: 3}
       propertyPath: m_RootOrder
       value: 1
