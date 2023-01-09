@@ -106,6 +106,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
+    - _Depth: 10
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -113,7 +114,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _MaxCirlce: 0.33
+    - _MaxCirlce: 0.3
     - _Metallic: 0
     - _MinCircle: 0.3
     - _OcclusionStrength: 1
