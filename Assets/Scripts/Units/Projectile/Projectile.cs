@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public LayerMask LayerMask;
+    public LayerMask HitMask;
+    public LayerMask ObstacleMask;
     public GameObject AoeEffect;
 
     public SpriteRenderer projectileColor;
@@ -96,7 +97,7 @@ public class Projectile : MonoBehaviour
         Vector3? HitPoint = null;
         Vector3 HitNormal = Vector3.zero;
 
-        RaycastHit[] Hits = Physics.SphereCastAll(transform.position, ProjectileSize * 0.5f, transform.forward, ProjectileSpeed * Time.deltaTime * 1.5f, LayerMask);
+        RaycastHit[] Hits = Physics.SphereCastAll(transform.position, ProjectileSize * 0.5f, transform.forward, ProjectileSpeed * Time.deltaTime * 1.5f, HitMask);
         foreach (RaycastHit Hit in Hits)
         {
             var Entity = Hit.transform.GetComponent<Entity>();
@@ -214,7 +215,7 @@ public class Projectile : MonoBehaviour
             .Where(e =>
             {
                 Vector3 Direction = e.transform.position - Position;
-                return Physics.Raycast(Position, Direction.normalized, out RaycastHit Hit, Direction.magnitude, LayerMask) && Hit.transform == e.transform;
+                return Physics.Raycast(Position, Direction.normalized, out RaycastHit Hit, Direction.magnitude, ObstacleMask) && Hit.transform == e.transform;
             })
             .Select(e => (e, e.Get<UnitHealth>()))
             .ToList()

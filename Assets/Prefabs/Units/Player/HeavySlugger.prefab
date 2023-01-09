@@ -157,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012471150167497, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
@@ -221,7 +221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952488217610643842, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Max
@@ -287,7 +287,7 @@ MonoBehaviour:
   ProjectileSize: 1
   ProjectileSpeed: 15
   ProjectileLifetime: 4.5
-  ImpactExplosionRadius: 12
+  ImpactExplosionRadius: 5
 --- !u!114 &1082823969900987314
 MonoBehaviour:
   m_ObjectHideFlags: 0

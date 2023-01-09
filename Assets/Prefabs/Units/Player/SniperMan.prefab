@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4774035615921567266, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: SoulAmount
-      value: 26
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 4774035615921567266, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: SoulGrowthRate
