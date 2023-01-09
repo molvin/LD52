@@ -130,3 +130,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LifeTime: 1.2
+  AlphaTime: 1
+  Renderer: {fileID: 2874881922225184163}
