@@ -45,10 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40a806b8df9336459a17fe915c980e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LayerMask:
+  HitMask:
     serializedVersion: 2
     m_Bits: 1280
-  AoeEffect: {fileID: 8435158205463120383, guid: 5318a484db570bc41b04f69ca5f87ea3, type: 3}
+  ObstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
+  AoeEffect: {fileID: 8435158205463120383, guid: b1bd2c179ab910a49bb2e8bd97a23454, type: 3}
   projectileColor: {fileID: 328867199061290}
   TrailColor: {fileID: 3476122163805130396}
 --- !u!1001 &692824311676015098

@@ -157,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2175012471150167497, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2175012472069333137, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_Name
@@ -221,7 +221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952488217610643842, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4348356359522723613, guid: 79278edec3de2514fbfae723f81b8460, type: 3}
       propertyPath: Max
@@ -267,11 +267,11 @@ MonoBehaviour:
   ObstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  Damage: 30
-  KnockbackForce: 12
+  Damage: 40
+  KnockbackForce: 20
   AttackDistance: 40
-  AttackTime: 2
-  WindUpTime: 0.4
+  AttackTime: 1.9
+  WindUpTime: 0.3
   WindDownTime: 0.1
   AttackSound: {fileID: 8300000, guid: dea29d70fa442134183ea9ab0a3eda23, type: 3}
   TimeToStrike: 0
@@ -287,7 +287,7 @@ MonoBehaviour:
   ProjectileSize: 1
   ProjectileSpeed: 15
   ProjectileLifetime: 4.5
-  ImpactExplosionRadius: 12
+  ImpactExplosionRadius: 5
 --- !u!114 &1082823969900987314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82af7d03d21c3cf438ade02125bb4ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoulAmount: 20
+  SoulAmount: 18
 --- !u!114 &4189212999773731785
 MonoBehaviour:
   m_ObjectHideFlags: 0
