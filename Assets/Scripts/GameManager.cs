@@ -275,7 +275,7 @@ public class GameManager : MonoBehaviour
             foreach (Entity e in playerUnits)
             {
                 UnitSoul soul = e.Get<UnitSoul>();
-                soul.SoulAmount *= soul.SoulGrowthRate;
+                soul.SoulAmount += soul.BaseAmount;
                 e.GetComponentInChildren<HealthBar>().UnitLevelUp((int)soul.SoulAmount);
                 yield return new WaitForSeconds(0.6f);
             }
