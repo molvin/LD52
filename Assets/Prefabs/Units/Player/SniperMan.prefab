@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: -551935344, guid: dfdb7ba1cd421dd4698ea7c59a9019e2, type: 3}
     - target: {fileID: 4774035615921567266, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: SoulAmount
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 4774035615921567266, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: SoulGrowthRate
@@ -21,11 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6602462660539556897, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: Max
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6602462660539556897, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: Current
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6602462660539556897, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: DeathSound
@@ -41,11 +41,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: AttackTime
-      value: 1.5
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: WindUpTime
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: Ricocheting
@@ -57,11 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: AttackDistance
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: KnockbackForce
-      value: 20
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7323735983174883943, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: ProjectileSpeed
@@ -122,6 +122,14 @@ PrefabInstance:
     - target: {fileID: 8779747188992943021, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: m_Name
       value: SniperMan
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943060, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+      propertyPath: Speed
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779747188992943060, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
+      propertyPath: Acceleration
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8915433220628174863, guid: 6e51aac216ed9a54b8c6b5755d3f5cb3, type: 3}
       propertyPath: Name
