@@ -53,6 +53,7 @@ public class Projectile : MonoBehaviour
     {
         Prefab = prefab;
         transform.position = Start;
+        TrailColor.Clear();
         transform.forward = Direction;
         ProjectileSize = projectileSize;
         Owner = owner;

@@ -58,6 +58,14 @@ MonoBehaviour:
   CurrentState: 0
   GamePlayMusic: {fileID: 8300000, guid: 9789457dbfa337b48ab83aacb73d3d10, type: 3}
   HarvestMusic: {fileID: 8300000, guid: e1bf80b18216c5145b0c8b67daeadc0b, type: 3}
+  PlayerColors:
+  - {r: 0, g: 1, b: 0.27058825, a: 1}
+  - {r: 0, g: 0.33355188, b: 1, a: 1}
+  - {r: 0.83346844, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.86684465, a: 1}
+  - {r: 0.9657564, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0.49349722, b: 0, a: 1}
+  - {r: 0.5140424, g: 0, b: 1, a: 1}
 --- !u!114 &8006942428281086936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +83,7 @@ MonoBehaviour:
   DoubleClickTime: 0.25
   ClickSelectRadius: 1.2
   Selected: []
+  HoldTickRate: 0.1
 --- !u!114 &8006942428281086951
 MonoBehaviour:
   m_ObjectHideFlags: 0

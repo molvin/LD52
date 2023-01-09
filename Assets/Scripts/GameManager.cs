@@ -40,8 +40,6 @@ public class GameManager : MonoBehaviour
     private Door ExitDoor;
     private Door HarvestDoor;
 
-    private Harvest harvester;
-    private bool waiting;
 
     private UnitInfo info;
 
@@ -126,7 +124,6 @@ public class GameManager : MonoBehaviour
 
         if(scene.name == HarvestScene)
         {
-            harvester = FindObjectOfType<Harvest>();
             if (playerUnits.Count == 0)
             {
                 SpawnPlayerUnits(StartSquad);
@@ -138,7 +135,7 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        else //if (Level == 0 && scene.name != "MainMenu")
+        else if (Level == 0) //&& scene.name != "MainMenu")
         {
             SpawnPlayerUnits(StartSquad);
         }
@@ -220,12 +217,8 @@ public class GameManager : MonoBehaviour
 
     public List<Entity> SpawnPlayerUnits(List<GameObject> prefabs, Vector3 spawnPoint = default(Vector3))
     {
-        Color? color = null;
-        if (Level != 0)
-        {
-            //Randomize color
+        Color color = PlayerColors[Random.Range(0, PlayerColors.Length)];
             
-        }
         List<Entity> newEnts = new List<Entity>();
         foreach(GameObject prefab in prefabs)
         {
@@ -239,8 +232,7 @@ public class GameManager : MonoBehaviour
             if(ent.Team == Team.Player)
             {
                 var info = ent.GetComponent<UnitName>();
-
-                
+                info.Color = color;                
                 info.UpdateColor();
 
             }
@@ -282,7 +274,7 @@ public class GameManager : MonoBehaviour
                 UnitSoul soul = e.Get<UnitSoul>();
                 soul.SoulAmount += soul.BaseAmount;
                 e.GetComponentInChildren<HealthBar>().UnitLevelUp((int)soul.SoulAmount);
-                yield return new WaitForSeconds(0.6f);
+                yield return new WaitForSeconds(0.2f);
             }
         }
 
