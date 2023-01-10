@@ -8,7 +8,6 @@ using static UnityEngine.UI.Image;
 
 public class GameManager : MonoBehaviour
 {
-    public static int LevelCount = 15;
     public enum State
     {
         Start,
@@ -388,8 +387,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Level = Mathf.Min(Level + 1, LevelCount - 1);
-            SceneManager.LoadScene(Level);
+            SceneManager.LoadScene(++Level);
         }
 
         yield return null;
